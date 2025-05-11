@@ -1,0 +1,621 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* background-image: url("/utlities/images/background-office.jpg"); */
+    /* background-size: contain; */
+}
+
+header {
+    display: grid;
+    grid-template-columns: 300px 1fr ;
+    align-items: center;
+    margin: 1px auto;
+    padding: 5px;
+    height: 100px;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 4.5em;
+    font-weight: 400;
+    border-radius: 6px;
+    color: #161b21;
+    /* box-shadow: 3px 3px 2px 0px #bdddfc;
+    background-color: #6a89a7; */
+
+}
+
+header h1 {
+    margin: 10px;
+    padding: 10px;
+    letter-spacing: 2.5px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #161b21;
+}
+
+header nav ul li {
+    letter-spacing: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    
+}
+header nav ul li:hover {
+    box-shadow: 3px 3px 3px 1px #d9c9ebfc;
+    transition: 0.15s ease-in-out;
+    border-radius: 2px;
+}
+
+main .intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #161b21;
+    color: #f4a950;
+    margin: 1.5px;
+    border-radius: 5px;
+}
+
+
+
+main .intro p {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 1.5em;
+    font-weight: 200;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    padding: 12px;
+    line-height: 2;
+    margin-left: 60px;
+    font-size: 15px;
+}
+
+
+
+main .intro p strong {
+    line-height: 1.8;
+    font-size: 54px;
+    font-weight: 900;
+}
+
+main .intro p i {
+    line-height: 2;
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+main .technologies {
+    /* background-color: #001d3d; */
+    /* color: white; */
+    margin: 1.5px;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 16px;
+    background-image: url("/utlities/images/side-background-image.jpg");
+    background-size: cover;
+}
+
+main .technologies section {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+main .technologies section h2{
+    width: 140px;
+    margin-left: 30px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+main .technologies section div {
+    margin-left: 40px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 1px #dedfdd;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    background-color: rgb(255, 252, 252);
+    backdrop-filter: blur(30px);
+}
+
+main .technologies section img {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 13px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+main .technologies section .asp-image {
+    height: 70px;
+    object-fit: fill;
+    border-radius: 5px;
+}
+main .technologies section .sqlserver-image {
+    height: 65px;
+    width: 140px;
+    object-fit: fill;
+}
+main .technologies section .javascript-image {
+    height: 75px;
+
+    object-fit:fill;
+}
+main .technologies section .nodejs-image  {
+    height: 65px;
+
+    object-fit:cover;
+}
+main .technologies section .mongodb-image {
+    height: 65px;
+    width: 170px;
+    object-fit: cover;
+}
+main .technologies section .expressjs-image {
+    height: 65px;
+
+    object-fit: fill;
+}
+main .technologies section .vuejs-image {
+    height: 65px;
+
+    object-fit: fill;
+}
+main .technologies section .reactjs-image {
+    height: 75px;
+    object-fit: fill;
+}
+main .technologies section .koajs-image {
+    height: 55px;
+    object-fit: fill;
+}
+main .technologies section .vstudio-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .vstudiocode-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .trello-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .atlassian-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .github-image {
+    height: 65px;
+    object-fit: fill;
+}
+main .technologies section .aws-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .slack-image {
+    height: 50px;
+    object-fit: fill;
+}
+main .technologies section .postman-image {
+    height: 50px;
+    object-fit: fill;
+}
+
+.jute-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/utlities/images/jute-bg.avif");
+  background-size: 90% 97%; /* Slightly smaller image */
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+ .jute-details > * {
+  position: relative;
+  z-index: 1;
+}
+
+.industries div .jute-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* background-color: #f19a5321; */
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.industries div .jute-details img{
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 3px 0.5px 1.5px #582f0e;
+    margin-right: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.industries div .jute-details div section{
+    font-size: 18px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+}
+
+.tea-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/utlities/images/bg-tea.jpg");
+  background-size: 90% 97%; /* Slightly smaller image */
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+ .tea-details > * {
+  position: relative;
+  z-index: 1;
+}
+
+.industries div .tea-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* background-color: #f19a5321; */
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.industries div .tea-details img{
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 3px 0.5px 1.5px #023f11;
+    margin-right: 30px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.industries div .tea-details div section{
+    font-size: 15px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+}
+
+.pharmacy-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/utlities/images/bg-pharmacy.jpg");
+  background-size: 90% 97%; /* Slightly smaller image */
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+ .pharmacy-details > * {
+  position: relative;
+  z-index: 1;
+}
+
+.industries div .pharmacy-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* background-color: #1e357314; */
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.industries div .pharmacy-details img{
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 3px 0.5px 1.5px #012e50;
+    margin-right: 30px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.industries div .pharmacy-details div section{
+    font-size: 15px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+}
+
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px black solid; */
+    margin: 20px;
+    padding: 20px;
+    /* background-color: #fffbfbfb; */
+    border-radius: 15px;
+}
+
+.general-education-table caption {
+    caption-side: top;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    /* background-color: #6a89a7; */
+    border-radius: 7px;
+    box-shadow: 10px 5px 5px 0px #6a89a7;
+  }
+  
+  .general-education-table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    line-height: 2;
+    /* box-shadow: 3px 5px 10px 8px #e5d9f2fc; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .general-education-table 
+  th,
+  td {
+    padding: 8px 10px;
+  }
+  
+  .general-education-table th {
+    /* background-color: #e5d9f281; */
+    border-bottom: 1px solid #e4deb8;
+    font-size: 14px;
+  }
+  
+  .general-education-table td {
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .general-education-table tr:nth-child(even) td {
+    /* background-color: #FFFDF6; */
+  }
+  
+  .general-education-table tr:nth-child(odd) td {
+    /* background-color: #E7F2E4; */
+  }
+  
+
+  .technical-education-table caption {
+    caption-side: top;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    /* background-color: #EEEEEE; */
+    border-radius: 7px;
+    box-shadow: 10px 5px 5px 0px #6a89a7;
+  }
+  
+  .technical-education-table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    line-height: 2;
+    border-radius: 7px;
+    /* box-shadow: 10px 5px 5px 0px #b5b3b0; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .technical-education-table 
+  th,
+  td {
+    padding: 8px 10px;
+  }
+  
+  .technical-education-table th {
+    /* background-color: #FFFDF6; */
+    border-bottom: 1px solid #e4deb8;
+    font-size: 14px;
+  }
+  
+  .technical-education-table td {
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .technical-education-table tr:nth-child(even) td {
+    /* background-color: #FFFDF6; */
+  }
+  
+  .technical-education-table tr:nth-child(odd) td {
+    /* background-color: #FEFAE0; */
+  }
+
+
+  .professional-education-table caption {
+    caption-side: top;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .professional-education-table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    line-height: 2;
+    /* box-shadow: 3px 5px 10px 8px #e5d9f2fc; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .professional-education-table 
+  th,
+  td {
+    padding: 8px 10px;
+  }
+  
+  .professional-education-table th {
+    /* background-color: #FFFDF6; */
+    border-bottom: 1px solid #e4deb8;
+    font-size: 14px;
+  }
+  
+  .professional-education-table td {
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .professional-education-table tr:nth-child(even) td {
+    /* background-color: #FFFDF6; */
+  }
+  
+  .professional-education-table tr:nth-child(odd) td {
+    /* background-color: #FEFAE0; */
+  }
+
+.experiences {
+  position: relative;
+  margin: 15px;
+  overflow: hidden;
+  color: black; /* Ensures text is black and easy to read */
+}
+
+.experiences::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/utlities/images/bg-try.jpg);
+  background-size: 90% 90%; /* Slightly smaller image */
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.6; /* Slight transparency for better readability */
+}
+
+.experiences > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: Add some padding for better spacing */
+.experiences .monamedicos-experience-details,
+.illimitable-experience-details,
+.anciletech-experience-details,
+.superinfotech-experience-details {
+  padding: 20px;
+  margin: 20px 50px 15px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  border-radius: 7px;
+  overflow: scroll;
+  scrollbar-width: none;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background to improve readability */
+}
+
+
+ .monamedicos-img img {
+    width: 300px;
+  }
+
+  .illimitable-img img {
+    width: 250px;
+    margin-left: 30px;
+    margin-top: 50px;
+    background-color: #012e50;
+  }
+
+  .anciletech-img img {
+    width: 150px;
+    margin-left: 70px;
+    margin-top: 50px;
+  }
+
+   .superinfotech-img img {
+    width: 250px;
+    margin-left: 40px;
+    margin-top: 50px;
+  }
+
+  .monamedicos-details,.illimitable-details,.anciletech-details,.superinfotech-details {
+    padding-left: 15px;
+    margin-left: 40px;
+    /* overflow: scroll; */
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+
+
