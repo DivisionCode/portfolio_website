@@ -1,0 +1,434 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow: hidden;
+    box-sizing: border-box; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #0b0b0b;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    color: #c8c6c4;
+    font-weight: 900;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p {
+    margin: 0.7rem;
+    padding: 0.5rem;
+    letter-spacing: .15rem;
+    color:rgba(128, 192, 238, 0.931);
+}
+
+header p strong {
+   color: rgb(202, 116, 18);
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0.7rem;
+    padding: 0.5rem;
+    gap: 3rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .10rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+header nav ul li{
+   color: rgb(246, 136, 10);
+}
+
+header nav ul li:active {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
+.content {
+    display: grid;
+    grid-template-columns:4rem 1fr 1fr;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 45rem;
+}
+
+.content .intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    padding-left: 1rem;
+    color: #c8c6c4;
+}
+
+.content .intro h2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.content .intro p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: .15rem;
+    word-spacing: .12rem;
+}
+
+.content .profile-pic {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.content .profile-pic img {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.content .sidebar {
+    place-self: end;
+}
+
+.sidebar nav ul {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 1000;
+    list-style-type: none;
+    gap: 1.2rem;
+}
+
+.content .sidebar nav ul li {
+    cursor: pointer;
+}
+
+.content .sidebar nav ul li img {
+    width: 1.5rem;
+}
+
+.intro section em {
+    line-height: 1.5;
+    letter-spacing: .08rem;
+    word-spacing: .04rem;
+}
+.intro section h2 strong {
+  background: -webkit-linear-gradient(#23e04c, rgb(254, 136, 1));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.intro section em {
+    color: rgb(215, 184, 49);
+}
+
+.intro section h4 {
+    letter-spacing: .15rem;
+    word-spacing: .03rem;
+}
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  max-height: 20rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+} 
+.projects .project-count , .project-completed , .project-industries, .project-domains{
+  color: white;
+  height: 80%;
+  border-radius: 0.8rem;
+}
+
+.projects .project-count h3{
+  background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  font-weight: 900;
+  font-size: 3rem;
+}
+.projects .project-count h4{
+  position: absolute;
+  color: #c8c6c4c7;
+  margin-top: 1rem;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
+  font-weight: 900;
+  height: 50%;
+  width: 75%;
+  max-width: 10rem;
+  max-height: 10rem;
+  justify-self: center;
+  align-self: center;
+  font-size: 8rem;
+}
+
+
+.projects .project-completed h3{
+    background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+.projects .project-completed h4{
+  position: absolute;
+  color: #c8c6c4c7;
+  margin-top: 1rem;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
+  font-weight: 900;
+  height: 50%;
+  width: 75%;
+  max-width: 10rem;
+  max-height: 10rem;
+  justify-self: center;
+  align-self: center;
+  font-size: 8rem;
+}
+
+.projects .project-industries h3{
+  background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+.projects .project-industries h4{
+  position: absolute;
+  color: #c8c6c4c7;
+  margin-top: 1rem;
+  /* margin-right: 5rem; */
+  margin-left: 5rem;
+  font-weight: 900;
+  height: 50%;
+  width: 75%;
+  max-width: 10rem;
+  max-height: 10rem;
+  justify-self: center;
+  align-self: center;
+  font-size: 8rem;
+  cursor: pointer;
+}
+
+.projects .project-domains h3{
+   background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+.projects .project-domains h4{
+  position: relative;
+  color: #c8c6c4c7;
+  font-weight: 900;
+  height: 70%;
+  width: 100%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.projects .project-domains h4 ul {
+      list-style: none;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      letter-spacing: 0.15em;
+} 
+
+.techSkills {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    color: #c8c6c4c7;
+    flex-wrap: wrap;
+}
+
+.techSkills .mongodb {
+    color: rgb(60, 187, 117);
+}
+.techSkills .sql {
+    color:peru;
+}
+.techSkills .asp {
+    color:rgb(63, 101, 205);
+}
+.techSkills .vb {
+    color:rgba(83, 97, 227, 0.574);
+}
+.techSkills .java {
+    color:rgba(163, 152, 33, 0.73);
+}
+.techSkills .node {
+    color:rgb(23, 92, 56);
+}
+.techSkills .express {
+    color:rgb(217, 233, 225);
+}
+.techSkills .vue {
+    color:green;
+}
+.techSkills .postman {
+    color:rgb(223, 101, 26);
+}
+.techSkills .vscode {
+    color:rgba(70, 172, 245, 0.863);
+}
+.techSkills .vstudio {
+    color:rgb(215, 104, 215);
+}
+
+@media(max-width: 600px) {
+    header{
+      display: grid;
+      grid-template-columns:1fr;
+      justify-items: center;
+      align-items: center;
+    } 
+    header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .08rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 2;
+}
+    .content {
+        grid-template-columns:1fr;
+        height: 80rem;
+        margin-left: 1.8rem;
+        margin-right: 1.8rem;
+    }
+    .projects {
+       grid-template-columns: 1fr;
+       max-height: 150rem;
+    }
+    .projects .project-count  {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    .projects .project-count h3 {
+        font-size: 1.5rem;
+        height: auto;
+        width: auto;
+        margin-right: 10rem;
+        margin-left: 2.5rem;
+    }
+    .projects .project-count h4 {
+        font-size: 2rem;
+        height: auto;
+        margin-left: 10rem;
+        margin-top: 2.5rem;
+        width: auto;
+    }
+
+    .projects .project-completed  {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    .projects .project-completed h3 {
+        font-size: 1.5rem;
+        height: auto;
+        width: auto;
+        margin-right: 10rem;
+        margin-left: 2.5rem;
+    }
+    .projects .project-completed h4 {
+        font-size: 2rem;
+        height: auto;
+        margin-left: 10rem;
+        margin-top: 2.5rem;
+        width: auto;
+    }
+
+    .projects .project-industries  {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    .projects .project-industries h3 {
+        font-size: 1.5rem;
+        height: auto;
+        width: auto;
+        margin-right: 10rem;
+        margin-left: 2.5rem;
+    }
+    .projects .project-industries h4 {
+        font-size: 2rem;
+        height: auto;
+        margin-left: 10rem;
+        margin-top: 2.5rem;
+        width: auto;
+    }
+
+    .projects .project-domains  {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        max-height: 350px;
+    }
+    .projects .project-domains h3 {
+        font-size: 1.5rem;
+        height: 25px;
+        width: 250px;
+    }
+    .projects .project-domains h4 {
+        font-size: 2rem;
+        height: auto;
+    }
+    .techSkills {
+        line-height: 0%;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        padding: 0%;
+    }
+   
+}
+
+
