@@ -142,9 +142,9 @@ header nav ul li:inactive {
     word-spacing: .04rem;
 }
 .intro section h2 strong {
-  background: -webkit-linear-gradient(#23e04c, rgb(254, 136, 1));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: -webkit-linear-gradient(#23e04c, rgb(254, 136, 1)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 .intro section em {
     color: rgb(215, 184, 49);
@@ -172,9 +172,9 @@ header nav ul li:inactive {
 }
 
 .projects .project-count h3{
-  background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
@@ -200,9 +200,9 @@ header nav ul li:inactive {
 
 
 .projects .project-completed h3{
-    background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    /* background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
@@ -227,9 +227,9 @@ header nav ul li:inactive {
 }
 
 .projects .project-industries h3{
-  background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
@@ -255,9 +255,9 @@ header nav ul li:inactive {
 }
 
 .projects .project-domains h3{
-   background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+   /* background: -webkit-linear-gradient(#ec36c49e, rgb(75, 72, 253)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   margin-right: 1.2rem;
@@ -276,9 +276,9 @@ header nav ul li:inactive {
 }
 .projects .project-domains h4 ul li a{
   text-decoration: none;
-  background: -webkit-linear-gradient(#d5e3e3e8, rgba(80, 101, 101, 0.63));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: -webkit-linear-gradient(#d5e3e3e8, rgba(80, 101, 101, 0.63)); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 .projects .project-domains h4 ul li a:hover{
  text-decoration:overline;
@@ -616,7 +616,7 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     .projects .project-industries h4 {
         font-size: 2rem;
         height: auto;
-        margin-left: 6.5rem;
+        margin-left: 8rem;
         margin-top: 2.5rem;
         width: auto;
     }
