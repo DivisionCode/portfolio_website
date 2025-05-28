@@ -16,10 +16,10 @@
             <p><strong>#</strong>DCodeIntellect</p>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Profile</li>
-                    <li>Contact</li>
-                    <li>Login</li>
+                    <li><a href="#projects" class="nav-link">Home</a></li>
+                    <li><a href="#projects" class="nav-link">Profile</a></li>
+                    <li><a href="#contacts" class="nav-link">Contact</a></li>
+                    <li><a href="#projects" class="nav-link">Login</a></li>
                 </ul>
             </nav>
         </header>
@@ -27,10 +27,10 @@
             <div class="sidebar">
             <nav>
                 <ul>
-                    <li><img src="./utlities/logo/icons8-linkedin-48.png" alt="linkedin"/></li>
-                    <li><img src="./utlities/logo/icons8-twitter-bird-48.png" alt="twitter"/></li>
-                    <li><img src="./utlities/logo/icons8-instagram-48.png" alt="instagram"/></li>
-                    <li><img src="./utlities/logo/icons8-pinterest-48.png" alt="pinterest"/></li>
+                    <li><a href="https://www.linkedin.com/in/rohit-singh-b751b8350/" target="_blank"><img src="./utlities/logo/icons8-linkedin-48.png" alt="linkedin"/></a></li>
+                    <li><a href="https://x.com/Divisioncode_Dc" target="_blank"><img src="./utlities/logo/icons8-twitter-bird-48.png" alt="twitter"/></a></li>
+                    <li><a href="https://www.instagram.com/divisioncode/" target="_blank"><img src="./utlities/logo/icons8-instagram-48.png" alt="instagram"/></a></li>
+                    <li><a href="https://in.pinterest.com/divisioncode/" target="_blank"><img src="./utlities/logo/icons8-pinterest-48.png" alt="pinterest"/></a></li>
                 </ul>
             </nav>
             </div>
@@ -51,7 +51,7 @@
                </section>
             </div>
         </main>
-        <div class="projects">
+        <div id="projects" class="projects">
             <div class="project-count">
                 <h3>Projects</h3>
                 <h4>8+</h4>
@@ -68,11 +68,11 @@
                 <h3>Domains</h3>      
                 <h4>
                     <ul>
-                    <li>&infin; ERP</li>
-                    <li>&infin; CRM</li>
-                    <li>&infin; Payroll</li>
-                    <li>&infin; Pharmacy</li>
-                    <li>&infin; Analytics</li>
+                    <li>&infin; <a href="">ERP</a></li>
+                    <li>&infin; <a href="">CRM</a></li>
+                    <li>&infin; <a href="">Payroll</a></li>
+                    <li>&infin; <a href="">Pharmacy</a></li>
+                    <li>&infin; <a href="">Analytics</a></li>
                     </ul>
                 </h4>               
             </div>
@@ -90,6 +90,79 @@
                 <h5 class="vscode">VScode</h5>
                 <h5 class="vstudio">Visual Studio</h5>
         </div>
+        <div class="workExperience">
+            <div class="monaMedicosExp">
+                <p>
+                   <strong>Full Stack Developer</strong> <br/>
+                   <em>January 2021 – March 2025</em> <br/><br/>
+                    <strong>Action : </strong>  Engineered a modern Pharmacy Management System using JavaScript, Vue.js,
+                    Node.js, and MongoDB; developed bespoke RESTful APIs and dynamic frontend
+                    integrations; implemented secure data protocols to ensure compliance.
+                </p>
+            </div>
+            <div class="illimitableExp">
+                <p>
+                   <strong>Full Stack Developer</strong> <br/>
+                   <em>January 2021 – December 2022</em> <br/><br/>
+                    <strong>Action : </strong>Architected and implemented an ERP solution using Node.js, Koa, Express.js,
+                    MongoDB, and Vue.js; developed dynamic, data-driven dashboards with caching strategies
+                    and optimized backend queries; integrated agile and CI practices.
+                </p>
+            </div>
+            <div class="ancileTechExp">
+                <p>
+                    <strong>Software Engineer</strong> <br/>
+                   <em>July 2019 – May 2021</em> <br/><br/>
+                    <strong>Action : </strong>Designed a next-generation payroll system integrating AWS Rekognition for secure,
+                    face-recognition attendance tracking; engineered scalable SQL Server data structures and
+                    RESTful APIs; applied automated testing to maintain code quality.
+                </p>               
+            </div>
+            <div class="superInfotechExp">
+                <p>
+                    <strong>Programmer (Early Career)</strong> <br/>
+                   <em>September 2017 – May 2019</em> <br/><br/>
+                    <strong>Action : </strong>Developed a payroll system using VB.NET and Windows Forms integrated with SQL
+                    Server.<br/><br/>
+                    <strong>**Note: This foundational role established core technical skills; current focus is exclusively on
+                    modern web technologies.</strong> 
+                </p>                
+            </div>
+        </div>
     </body>
-    <footer></footer>
+    <footer>
+        <hr/>
+        <div id="contacts" class="contact">
+            <h4>Contact || Services</h4>
+
+            <form id="connectForm">
+            <input type="email" id="userEmail" placeholder="hello@connect.in" required>
+            <button type="submit" title="Lets connect">Connect</button>
+            </form>
+            <h5>DCodeIntellect &#169; 2025 All rights reserved (Himachal Pradesh)</h5>
+
+        </div>
+
+    </footer>
+   <!-- <script>
+        document.getElementById('connectForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const userEmail = document.getElementById('userEmail').value;
+        const subject = "Connection Request";
+        const body = `Hi,\n\nI would like to connect with you.\n\nMy email: ${userEmail}`;
+        const mailtoLink = `mailto:your_email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+  }); 
+    </script> -->
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+
+        links.forEach(link => {
+        link.addEventListener('click', function () {
+            links.forEach(l => l.classList.remove('active')); // reset others
+            this.classList.add('active'); // set active on clicked
+        });
+        });
+    </script>
+
 </html>
