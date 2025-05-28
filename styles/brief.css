@@ -457,7 +457,7 @@ header nav ul li:inactive {
 }
  
 footer hr {
-width: 80%;
+width: 25%;
 margin-top: 3.5rem;
 box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
 }
@@ -467,7 +467,7 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     justify-content: center;
     align-items: center;
     color: #c8c6c4;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
 }
 
 .contact h4 {
