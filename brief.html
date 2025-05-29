@@ -7,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="HTML, CSS, JavaScript, Vuejs, C#,"><meta name="author" content="Rohit Singh">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'"><meta http-equiv="X-Content-Type-Options" content="nosniff"><meta name="theme-color" content="#ffffff">
+        <meta name="p:domain_verify" content="324779d2993b5ab33e0ab3a8db99c8c6"/>
         <title>Rohit Singh | Full Stack Developer | C#, JavaScript, Vue.js, Node.js Portfolio</title>
         <link rel="stylesheet" href="./styles/brief.css">
     </head>
@@ -16,14 +17,14 @@
             <p><strong>#</strong>DCodeIntellect</p>
             <nav>
                 <ul>
-                    <li><a href="#projects" class="nav-link">Home</a></li>
+                    <li><a href="#content" class="nav-link">Home</a></li>
                     <li><a href="#projects" class="nav-link">Profile</a></li>
                     <li><a href="#contacts" class="nav-link">Contact</a></li>
-                    <li><a href="#projects" class="nav-link">Login</a></li>
+                    <li><a href="" class="nav-link">Login</a></li>
                 </ul>
             </nav>
         </header>
-        <main class="content">
+        <main id="content" class="content">
             <div class="sidebar">
             <nav>
                 <ul>
@@ -144,25 +145,4 @@
         </div>
 
     </footer>
-   <!-- <script>
-        document.getElementById('connectForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const userEmail = document.getElementById('userEmail').value;
-        const subject = "Connection Request";
-        const body = `Hi,\n\nI would like to connect with you.\n\nMy email: ${userEmail}`;
-        const mailtoLink = `mailto:your_email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoLink;
-  }); 
-    </script> -->
-    <script>
-        const links = document.querySelectorAll('.nav-link');
-
-        links.forEach(link => {
-        link.addEventListener('click', function () {
-            links.forEach(l => l.classList.remove('active')); // reset others
-            this.classList.add('active'); // set active on clicked
-        });
-        });
-    </script>
-
 </html>
