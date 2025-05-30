@@ -4,6 +4,11 @@ html , body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-image: linear-gradient(to right , lightgray , white , white );
 }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
 
 .content {
     display: grid;
@@ -11,10 +16,8 @@ html , body{
     justify-items: center;
     align-items: center;
     height: 100dvh;
-    max-height: 100%;
     border: 1px solid gold;
     box-sizing: border-box;
-    position: relative;
 }
 
 
@@ -52,7 +55,7 @@ html , body{
     border-radius: 50px 0px 50px 0px;
     width: 63%;
     height: 80%;
-    margin-left: 8.5em;
+    margin: auto;
 }
 
 .contentUpdate h2{
@@ -75,10 +78,10 @@ html , body{
 .contentUpdate form .signupNameDetails {
     display: flex;
     flex-direction: row;
-    padding: 0;
-    margin: 0;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
+
 
 .contentUpdate form section label {
     font-size: 0.74em;
@@ -91,7 +94,7 @@ html , body{
 }
 
 .contentUpdate form section input {
-    height: 2em;
+    height: 2.2em;
     width: auto;
     padding: 0.18em;
     margin: 0.18em;
@@ -104,15 +107,17 @@ html , body{
     font-weight: 700;
     border: none;
     outline: none;
+    text-align:justify;
     
 }
 .contentUpdate form section input::placeholder{
-    color: rgba(255, 255, 255, 0.884);
+    color: rgba(94, 93, 93, 0.884);
 }
 
 .contentUpdate form section button {
     height: 3.2em;
     width: 100%;
+    max-width: 700px;
     border-radius: 0.6em;
     /* border: 1.5px solid ; */
     background-color: #0966b3;
@@ -143,13 +148,6 @@ html , body{
 
 @media(max-width: 700px) {
 
-    html , body{
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
     .content {
     display: grid;
     grid-template-columns: 1fr;
@@ -160,16 +158,12 @@ html , body{
     margin: 0;
    }
 
-   .contentDetails {
-    width: 80%;
-   }
 
     .contentUpdate {
-    width: 80%;
-    margin-left: -1em;
+    height: auto;
     justify-items: center;
     align-items: center;
-    margin-bottom: 10em;
+    padding: 1.2em;
    }
 
    .contentDetails h2 {
@@ -185,7 +179,9 @@ html , body{
         color: #0966b3;
         font-weight: 900;
     }
-
+    .contentUpdate form .signupNameDetails {
+        flex-direction: column;
+    }
     .contentUpdate form section button {
     width:auto;
 }
