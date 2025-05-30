@@ -53,9 +53,8 @@ html , body{
     height: auto;
     background-image: linear-gradient(to bottom , #0966b3, #0966b3,rgb(235, 230, 230)) ;
     border-radius: 50px 0px 50px 0px;
-    width: 63%;
-    height: 80%;
     margin: auto;
+    padding: 1.15em;
 }
 
 .contentUpdate h2{
@@ -151,19 +150,18 @@ html , body{
     .content {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    height: auto;
+    width: 100%;
    }
 
 
     .contentUpdate {
     height: auto;
-    justify-items: center;
-    align-items: center;
-    padding: 1.2em;
+    padding: 1.5em;
+    width: auto;
    }
 
    .contentDetails h2 {
