@@ -10,10 +10,13 @@ html , body{
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
-    width: auto;
     height: 100dvh;
+    max-height: 100%;
+    border: 1px solid gold;
     box-sizing: border-box;
+    position: relative;
 }
+
 
 .contentDetails h2 {
     font-size: 1.2em;
@@ -138,7 +141,7 @@ html , body{
 }
 
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
 
     html , body{
     margin: 0;
