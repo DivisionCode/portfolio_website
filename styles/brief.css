@@ -141,11 +141,11 @@ header nav ul li:inactive {
     letter-spacing: .08rem;
     word-spacing: .04rem;
 }
-.intro section h2 strong {
-  /* background: -webkit-linear-gradient(#23e04c, rgb(254, 136, 1)); */
-  /* background-clip: text;
-  -webkit-text-fill-color: transparent; */
-}
+/* .intro section h2 strong {
+ background: -webkit-linear-gradient(#23e04c, rgb(254, 136, 1));
+   background-clip: text;
+  -webkit-text-fill-color: transparent; 
+} */
 .intro section em {
     color: rgb(215, 184, 49);
 }
