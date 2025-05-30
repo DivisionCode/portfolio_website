@@ -1,14 +1,63 @@
-html , body{
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    /* overflow: hidden;
+    box-sizing: border-box; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: linear-gradient(to right , lightgray , white , white );
-}
-*, *::before, *::after {
-    box-sizing: border-box;
+    background-color: #0b0b0b;
+    scroll-behavior: smooth;
+    scrollbar-width:none;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    color: #c8c6c4;
+    font-weight: 900;
+    justify-content: space-between;
+    align-items: center;
+}
 
+header p {
+    margin: 0.7rem;
+    padding: 0.5rem;
+    letter-spacing: .15rem;
+    color:rgba(128, 192, 238, 0.931);
+}
+
+header p strong {
+   color: rgb(202, 116, 18);
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0.7rem;
+    padding: 0.5rem;
+    gap: 3rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .10rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-decoration: none;
+    text-underline-offset: 0.0rem;
+}
+
+header nav ul li a{
+   color: rgb(246, 136, 10);
+    text-decoration: none;
+    text-underline-offset: 0.0rem;
+}
+
+header nav ul li a:active {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
 
 .content {
     display: grid;
@@ -16,7 +65,6 @@ html , body{
     justify-items: center;
     align-items: center;
     height: 100dvh;
-    border: 1px solid gold;
     box-sizing: border-box;
 }
 
@@ -34,30 +82,39 @@ html , body{
 }
 
 .contentDetails h3 {
-    font-size: 5.5em;
+    font-size: 3.5em;
     letter-spacing: 0.15em;
     color: #0966b3;
     font-weight: 900;
+    margin-left: 1.5em;
 }
 
 .contentDetails h3 p strong {
    color: rgb(202, 116, 18);
 }
 
-.contentUpdate {
+
+.contentUpdateDetails {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: auto;
     height: auto;
-    background-image: linear-gradient(to bottom , #0966b3, #0966b3,rgb(235, 230, 230)) ;
+    /* background-image: linear-gradient(to bottom , #0966b3, #0966b3,rgb(235, 230, 230)) ; */
     border-radius: 50px 0px 50px 0px;
-    margin: auto;
-    padding: 1.15em;
+    margin: 1.5em;
+    padding: 2.15em;
+    border-style: outset; 
+     background: rgba(255, 255, 255, 0.05); /* slightly lighter background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 50px 0px 50px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
-.contentUpdate h2{
+.contentUpdateDetails h2{
     font-size: 2.2em;
     letter-spacing: 0.25em;
     color:white;
@@ -67,22 +124,22 @@ html , body{
 }
 
 
-.contentUpdate form section {
+.contentUpdateDetails form section {
     display: flex;
     flex-direction: column;
     padding: .15em;
     margin: 0.1em;
 }
 
-.contentUpdate form .signupNameDetails {
+.contentUpdateDetails form .signupNameDetails {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 0.5em;
 }
 
 
-.contentUpdate form section label {
+.contentUpdateDetails form section label {
     font-size: 0.74em;
     font-weight: 600;
     padding: 0.15em;
@@ -92,7 +149,7 @@ html , body{
     
 }
 
-.contentUpdate form section input {
+.contentUpdateDetails form section input {
     height: 2.2em;
     width: auto;
     padding: 0.18em;
@@ -107,18 +164,18 @@ html , body{
     border: none;
     outline: none;
     text-align:justify;
+    text-indent: 0.5em;
     
 }
-.contentUpdate form section input::placeholder{
-    color: rgba(94, 93, 93, 0.884);
+.contentUpdateDetails form section input::placeholder{
+    color: rgba(141, 138, 138, 0.568);
 }
 
-.contentUpdate form section button {
+.contentUpdateDetails form section button {
     height: 3.2em;
     width: 100%;
     max-width: 700px;
     border-radius: 0.6em;
-    /* border: 1.5px solid ; */
     background-color: #0966b3;
     color: #eff2f3;
     font-size: 0.75em;
@@ -127,15 +184,15 @@ html , body{
     letter-spacing: 0.15rem;
     box-shadow: 0px 0px 4px 0px;
     font-weight: 900;
-    border:none
+    border:none;
 }
 
-.contentUpdate form section button:hover {
+.contentUpdateDetails form section button:hover {
     box-shadow: 0px 0px 10px 0px ;
     cursor: pointer;
 }
 
-.contentUpdate form section label a {
+.contentUpdateDetails form section label a {
     text-decoration: none;
     color: #07728d;
     font-size: 1.18em;
@@ -146,6 +203,27 @@ html , body{
 
 
 @media(max-width: 700px) {
+    header{
+      display: grid;
+      grid-template-columns:1fr;
+      justify-items: center;
+      align-items: center;
+    } 
+    header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .08rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 2;
+}
 
     .content {
     display: grid;
