@@ -7,7 +7,7 @@ html, body {
     background-color: #0b0b0b;
     scroll-behavior: smooth;
     scrollbar-width:none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 header {
@@ -213,10 +213,6 @@ header nav ul li a:active {
 
 
 @media(max-width: 700px) {
-    ** {
-        box-sizing: border-box;
-        /* overflow: hidden; */
-    }
     header{
       display: grid;
       grid-template-columns:1fr;
@@ -237,42 +233,26 @@ header nav ul li a:active {
     font-weight: 400;
     font-size: 0.95rem;
     line-height: 2;
-}
+    }
 
     .content {
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    /* grid-template-columns: 500px; */
-    justify-self: center;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    height: 300px;
-    width: 500px;
-   }
-   .contentDetails {
-    width: auto;
-    height: 50px;
-    padding: 0;
-    margin: 0;
-    margin-top: 2.5em;
-    margin-bottom: 5.5em;
-    margin-right: 0.5em;
-    align-self: center;
-    text-align: center;
-}
-
-    .contentDetails h3 {
-        font-size: 2.5rem;
-        letter-spacing: 0.25rem;
-        color: #0966b3;
-        font-weight: 900;
-    }
-
-    .contentUpdateDetails form .signupNameDetails {
+        display: flex;
         flex-direction: column;
+        justify-self: center;
+        align-self: center;
+        padding: 0;
+        margin: 0;
     }
-    .contentUpdateDetails form section button {
-    width:auto;
-}
+
+    .content .contentDetails {
+        height: 0.345em;
+    }
+    .content .contentDetails p {
+        font-size: 0.45em;
+        margin-right:2.5em;
+        text-align: start;
+    }
+    .content .contentUpdateDetails h2 {
+        font-size: 1.3em;
+    }
 }
