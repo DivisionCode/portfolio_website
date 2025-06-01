@@ -456,59 +456,112 @@ header nav ul li:inactive {
 
 }
  
-footer hr {
+/* footer hr {
 width: 25%;
 margin-top: 3.5rem;
 box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
-}
+} */
+ /* margin-top: 0.5rem; */
+
 .contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #c8c6c4;
-    /* margin-top: 0.5rem; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self:stretch;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    margin-left: 2.85em;
+    margin-right: 0.85em;
+    height: 12em;
+    margin-top: 2.5em;
 }
 
-.contact h4 {
-    font-size: 1rem;
-    letter-spacing: 0.6rem;
+.contact .address {
+    justify-self: start;
+    align-self: start;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    font-size: 0.85em;
+    letter-spacing: 0.2em;
+    line-height: 1.2;    margin-top: 1.55em;
 }
-.contact hr {
-   width: 28%;
+
+.contact .contactDetails {
+    justify-self: end;
+    align-self: end;
+    margin-bottom: 1.15em;
+    margin-top: 0.55em;
 }
-.contact #connectForm {
-   padding-top: 0.5rem;
-   width: 100%;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
+.contact .address h4 {
+    padding: 0;
+    margin: 0;
 }
-.contact #connectForm input {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    background-color: #f2efece3;
-    color: rgb(232, 147, 35);
-    width: 15rem;
-    border-radius: 0.5rem;
-    border: 2px solid rgb(232, 147, 35);
-    border-style: outset ;
-    /* box-shadow: 2.5px 2.5px 5px 1px rgb(232, 147, 35); */
+.contact .contactDetails h4 {
+    padding: 0;
+    margin: 0;
 }
-.contact form button {
-    width: 5.5rem;
-    height: 2.2rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: #eb7210;
-    color: antiquewhite;
+
+.contact .contactDetails #connectForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.35em;
+    
+}
+
+.contact .contactDetails #connectForm input {
+    height: 1em;
+    font-size: 0.90em;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    margin: 0.12em;
+    text-indent: 0.10em;
+    background-color: #e9e7e6;
+    color: rgb(38, 111, 175);
+    width: 18em;
+    text-indent: 0.10em;
+    border-style: outset;
+    outline: none;
+    border: 0.5px solid #25a1dbad;
+    letter-spacing: 0.12em;
+    margin-top: 0.35em;
+}
+.contact .contactDetails #connectForm button {
+    font-size: 0.85em;
     font-weight: 600;
-    border: 2px solid rgb(232, 147, 35);
-    border-style: outset ;
-    cursor: pointer;
+    padding: 0.35em;
+    border-radius: 0.35em;
+    margin-top: 0.75em;
+    text-indent: 0.10em;
+    background-color: #1b77a1;
+    color: aliceblue;
+    border-style: outset;
+    outline: none;
+    border: 0.5px solid #25a1dbad;
+    letter-spacing: 0.12em;
+    width: 100%;
 }
+
+.contact .contactDetails #connectForm button:hover {
+    box-shadow: 1px 1px 0px 0px #25a3dda1;
+    cursor: pointer;
+    transition: ease-in-out 0.15s;
+}
+
+.contact h5 {
+    grid-column: 1 / span 2;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    width: 30%;
+}
+
 
 
 
@@ -616,7 +669,7 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     .projects .project-industries h4 {
         font-size: 2rem;
         height: auto;
-        margin-left: 10.5rem;
+        margin-left: 7rem;
         margin-top: 2.5rem;
         width: auto;
     }
@@ -653,60 +706,30 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     display: none;
     }
 
-
     .contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #c8c6c4;
-    margin-top: 2.5rem;
-}
-.contact h4 {
-    font-size: 1rem;
-    letter-spacing: 0.3rem;
-}
-.contact hr {
-   width: 28%;
-}
-.contact div {
-   padding-top: 0.5rem;
-   width: 40%;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-}
-.contact div input {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    background-color: #f2efece3;
-    color: rgb(232, 147, 35);
-    width: 17.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid rgb(232, 147, 35);
-    border-style: outset ;
-    /* box-shadow: 2.5px 2.5px 5px 1px rgb(232, 147, 35); */
-}
-.contact div button {
-    width: 5rem;
-    height: 2.2rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: #eb7210;
-    color: antiquewhite;
-    font-weight: 600;
-    border: 2px solid rgb(232, 147, 35);
-    border-style: outset ;
-}
-.contact h5 {
-    margin-right: 3rem;
-    margin-left: 3rem;
-    text-align: center;
-}
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: auto;
+    }
 
+    .contact .contactDetails {
+        width: 100%;
+    }
 
+    .contact .contactDetails #connectForm {
+        justify-content: start;
+        align-items: start;
+    }
+    .contact .contactDetails #connectForm button {
+        width: 6.25em;
+    }
+
+    .contact h5 {
+        width: auto;
+        text-align: center;
+    }
    
 }
 
