@@ -24,10 +24,15 @@ header p {
     padding: 0.5rem;
     letter-spacing: .15rem;
     color:rgba(128, 192, 238, 0.931);
+    cursor: pointer;
 }
 
 header p strong {
    color: rgb(202, 116, 18);
+}
+
+header p:hover {
+   cursor: pointer;
 }
 
 header nav ul {
@@ -559,17 +564,8 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     width: 100%;
     justify-self: center;
     align-self: center;
-    width: 30%;
+    width:36%;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -713,6 +709,9 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
         justify-content: space-evenly;
         width: auto;
     }
+    .contact .address {
+        line-height: 1.25em;
+    }
 
     .contact .contactDetails {
         width: 100%;
@@ -721,6 +720,10 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     .contact .contactDetails #connectForm {
         justify-content: start;
         align-items: start;
+        margin-left: 0.35em;
+    }
+    .contact .contactDetails h4 {
+        margin-left: 0.35em;
     }
     .contact .contactDetails #connectForm button {
         width: 6.25em;
@@ -729,6 +732,7 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     .contact h5 {
         width: auto;
         text-align: center;
+        line-height: 1.35em;
     }
    
 }
