@@ -167,15 +167,14 @@ main {
     gap: 1em;
     text-indent: 1em;
 }
-.dashboard .countInsights div {
-    /* border: 1px solid gold; */
-    background: rgba(255, 255, 255, 0.05); /* slightly lighter background */
+/* .dashboard .countInsights div {
+    background: rgba(255, 255, 255, 0.05); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 10px 10px 10px 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
+} */
 .dashboard .countInsights div h4 {
     font-size: 0.95em;
     font-weight: 900;
@@ -201,21 +200,7 @@ main {
     letter-spacing: 0.09em;
 }
 
-.dashboard .countInsights div section .present {
-   color: rgb(44, 202, 44);
-}
-.dashboard .countInsights div section .absent {
-   color: rgb(202, 62, 44);
-}
-.dashboard .countInsights div section .leave {
-   color: rgb(208, 211, 208);
-}
-.dashboard .countInsights div section .late {
-   color: rgb(235, 238, 52);
-}
-.dashboard .countInsights div section .pendingLeaves {
-   color: rgb(61, 190, 207);
-}
+
 
 
 
