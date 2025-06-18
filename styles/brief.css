@@ -5,15 +5,15 @@ html, body {
     /* overflow: hidden;
     box-sizing: border-box; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #0b0b0b;
+    background-color: #ecebeb;
     scroll-behavior: smooth;
     scrollbar-width:none;
+    background-image: url(../utlities/images/stone-texture.jpg);
 }
 
 header {
     display: flex;
     flex-direction: row;
-    color: #c8c6c4;
     font-weight: 900;
     justify-content: space-between;
     align-items: center;
@@ -23,12 +23,12 @@ header p {
     margin: 0.7rem;
     padding: 0.5rem;
     letter-spacing: .15rem;
-    color:rgba(128, 192, 238, 0.931);
+    color:rgb(108, 165, 206);
     cursor: pointer;
 }
 
 header p strong {
-   color: rgb(202, 116, 18);
+   color: rgb(190, 109, 17);
 }
 
 header p:hover {
@@ -54,9 +54,10 @@ header nav ul {
 }
 
 header nav ul li a{
-   color: rgb(246, 136, 10);
+   color: rgb(192, 108, 12);
     text-decoration: none;
     text-underline-offset: 0.0rem;
+    font-weight: 600;
 }
 
 header nav ul li a:active {
@@ -74,6 +75,7 @@ header nav ul li:inactive {
     grid-template-columns:4rem 1fr 1fr;
     overflow: hidden;
     box-sizing: border-box;
+
     height: 45rem;
 }
 
@@ -89,6 +91,17 @@ header nav ul li:inactive {
 .content .intro h2 {
     font-size: 3.5rem;
     font-weight: 400;
+    color: #1b77a1;
+}
+
+.content .intro h2 strong{
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.045em;
+    color: #7c7b79;
+}
+.content .intro h4 {
+    color: #7c7b79;
 }
 
 .content .intro p {
@@ -96,7 +109,9 @@ header nav ul li:inactive {
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: .15rem;
+    color: #61605f;
     word-spacing: .12rem;
+    font-weight: 400;
 }
 
 .content .profile-pic {
@@ -111,6 +126,7 @@ header nav ul li:inactive {
     max-width: 30rem;
     height: auto;
     border-radius: 0.5rem;
+    box-shadow: 2.5px 5px 10px 0.5px black;
 }
 
 .content .sidebar {
@@ -152,7 +168,8 @@ header nav ul li:inactive {
   -webkit-text-fill-color: transparent; 
 } */
 .intro section em {
-    color: rgb(215, 184, 49);
+    color: rgb(165, 139, 22);
+    font-weight: 600;
 }
 
 .intro section h4 {
@@ -161,7 +178,7 @@ header nav ul li:inactive {
 }
 .projects {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
   height: 100%;
@@ -171,7 +188,7 @@ header nav ul li:inactive {
   margin-right: 1.5rem;
 } 
 .projects .project-count , .project-completed , .project-industries, .project-domains{
-  color: white;
+  color: rgb(143, 140, 140);
   height: 80%;
   border-radius: 0.8rem;
 }
@@ -184,16 +201,18 @@ header nav ul li:inactive {
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
   margin-left: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 3rem;
+  letter-spacing: 0.085em;
+ text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
 }
 .projects .project-count h4{
   position: absolute;
-  color: #c8c6c4c7;
+    color:rgb(108, 165, 206);
   margin-top: 1rem;
   margin-right: 2.5rem;
   margin-left: 2.5rem;
-  font-weight: 900;
+  font-weight: 600;
   height: 50%;
   width: 75%;
   max-width: 10rem;
@@ -201,6 +220,8 @@ header nav ul li:inactive {
   justify-self: center;
   align-self: center;
   font-size: 8rem;
+ text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
+
 }
 
 
@@ -212,23 +233,27 @@ header nav ul li:inactive {
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
   margin-left: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 2.5rem;
+    letter-spacing: 0.085em;
+   text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
 }
 .projects .project-completed h4{
   position: absolute;
-  color: #c8c6c4c7;
+    color:rgb(108, 165, 206);
   margin-top: 1rem;
   margin-right: 2.5rem;
   margin-left: 2.5rem;
-  font-weight: 900;
+  font-weight: 600;
   height: 50%;
   width: 75%;
   max-width: 10rem;
   max-height: 10rem;
   justify-self: center;
   align-self: center;
-  font-size: 8rem;
+  font-size: 8rem;  
+ text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
+
 }
 
 .projects .project-industries h3{
@@ -239,16 +264,18 @@ header nav ul li:inactive {
   margin-bottom: 1.5rem;
   margin-right: 1.2rem;
   margin-left: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 2.5rem;
+  letter-spacing: 0.085em;
+   text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
 }
 .projects .project-industries h4{
   position: absolute;
-  color: #c8c6c4c7;
+    color:rgb(108, 165, 206);
   margin-top: 1rem;
   /* margin-right: 5rem; */
   margin-left: 5rem;
-  font-weight: 900;
+  font-weight: 600;
   height: 50%;
   width: 75%;
   max-width: 10rem;
@@ -257,6 +284,8 @@ header nav ul li:inactive {
   align-self: center;
   font-size: 8rem;
   cursor: pointer;
+   text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
+
 }
 
 .projects .project-domains h3{
@@ -267,13 +296,15 @@ header nav ul li:inactive {
   margin-bottom: 0.5rem;
   margin-right: 1.2rem;
   margin-left: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 2.5rem;
+  letter-spacing: 0.085em;
+   text-shadow: 1.5px 1.5px 2px rgb(66, 53, 35);
 }
 .projects .project-domains h4{
   position: relative;
   color: #c8c6c4c7;
-  font-weight: 900;
+  font-weight: 600;
   height: 70%;
   width: 100%;
   font-size: 1.5rem;
@@ -284,10 +315,12 @@ header nav ul li:inactive {
   /* background: -webkit-linear-gradient(#d5e3e3e8, rgba(80, 101, 101, 0.63)); */
   /* background-clip: text;
   -webkit-text-fill-color: transparent; */
+    color:white;
 }
 .projects .project-domains h4 ul li a:hover{
  text-decoration:overline;
  font-size: 1.25rem;
+ letter-spacing: 0.25em;
 }
 .projects .project-domains h4 ul {
       list-style: none;
@@ -325,7 +358,7 @@ header nav ul li:inactive {
     color:rgb(23, 92, 56);
 }
 .techSkills .express {
-    color:rgb(217, 233, 225);
+    color:rgb(131, 141, 136);
 }
 .techSkills .vue {
     color:green;
@@ -340,136 +373,12 @@ header nav ul li:inactive {
     color:rgb(215, 104, 215);
 }
 
-.workExperience {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 100%;
-    height: 90dvh;
-    box-sizing: border-box;
-    justify-items: center;
-    align-items: center;
-    color: #c8c6c4;
-    font-size: 0.9rem;
-}
-
-.workExperience .monaMedicosExp {
-    border: 1px solid gold;
-    box-sizing: border-box; 
-    width: 100%;
-    height: 0.1dvh;
-    margin-left: 8rem;
-    position: relative;
-}
-
- .workExperience .monaMedicosExp::after { 
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  bottom: -15px;
-  border-radius: 50%;
-  z-index: 1;
- }
-.workExperience .monaMedicosExp p {
-    /* border: 1px solid gold; */
-    position: absolute;
-    top: 50%;  
-    line-height: 1.5;
-    letter-spacing: 0.1rem;
-    padding-top: 2rem;
-}    
-.workExperience .illimitableExp {
-    position: relative;
-    border: 1px solid gold;
-    box-sizing: border-box; 
-    width: 100%;
-    height: 0.1dvh;
-}  
- .workExperience .illimitableExp::after { 
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  bottom: -15px;
-  border-radius: 50%;
-  z-index: 1;
- }
-.workExperience .illimitableExp p {
-    /* border: 1px solid gold; */
-    position: absolute;
-    bottom: 50%;
-    line-height: 1.5;
-    letter-spacing: 0.1rem;
-    padding-bottom: 2rem;
-}  
-.workExperience .ancileTechExp {
-    border: 1px solid gold;
-    box-sizing: border-box; 
-    width: 100%;
-    height: 0.1dvh; 
-    position: relative;
-} 
- .workExperience .ancileTechExp::after { 
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  bottom: -15px;
-  border-radius: 50%;
-  z-index: 1;
- }
-.workExperience .ancileTechExp p {
-    /* border: 1px solid gold; */
-    position: absolute;
-    top: 50%;
-    line-height: 1.5;
-    letter-spacing: 0.1rem;
-    padding-top: 2rem;
-}     
-.workExperience .superInfotechExp {
-    border: 1px solid gold;
-    box-sizing: border-box; 
-    width: 100%;
-    height: 0.1dvh;
-    margin-right: 8rem;
-    position: relative;
-}
-.workExperience .superInfotechExp::after { 
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  bottom: -15px;
-  border-radius: 50%;
-  z-index: 1;
- }
-.workExperience .superInfotechExp p{
-    /* border: 1px solid gold; */
-    position: absolute;
-    bottom: 50%;
-    line-height: 1.5;
-    letter-spacing: 0.1rem;
-    padding-bottom: 2rem;
-
-}
  
-/* footer hr {
-width: 25%;
-margin-top: 3.5rem;
-box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
-} */
- /* margin-top: 0.5rem; */
+footer {
+        color: #727070;
+}
 
 .contact {
-    color: #c8c6c4;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-self:stretch;
@@ -479,6 +388,7 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     margin-right: 0.85em;
     height: 12em;
     margin-top: 2.5em;
+    font-weight: 400;
 }
 
 .contact .address {
@@ -489,8 +399,10 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     margin-left: 0.25em;
     margin-right: 0.25em;
     font-size: 0.85em;
-    letter-spacing: 0.2em;
-    line-height: 1.2;    margin-top: 1.55em;
+    letter-spacing: 0.045em;
+    line-height: 1.5;    
+    margin-top: 1.55em;
+    font-weight: 600;
 }
 
 .contact .contactDetails {
@@ -501,11 +413,16 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
 }
 .contact .address h4 {
     padding: 0;
-    margin: 0;
+    margin: 0;    
+    letter-spacing: 0.065em;
+    font-weight: 600;
+    font-size: 1.10em;
 }
 .contact .contactDetails h4 {
     padding: 0;
     margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.065em;
 }
 
 .contact .contactDetails #connectForm {
@@ -527,13 +444,14 @@ box-shadow: 1.5px 1.5px 1.5px 1.5px #23e04c;
     text-indent: 0.10em;
     background-color: #e9e7e6;
     color: rgb(38, 111, 175);
-    width: 18em;
+    width: 16em;
     text-indent: 0.10em;
     border-style: outset;
     outline: none;
     border: 0.5px solid #25a1dbad;
     letter-spacing: 0.12em;
-    margin-top: 0.35em;
+    margin-top: 0.35em;   
+    font-weight: 600;
 }
 .contact .contactDetails #connectForm button {
     font-size: 0.85em;
