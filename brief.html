@@ -75,6 +75,10 @@
             <div class="project-industries">
                 <h3>Industries</h3>   
                 <h4>3</h4>                          
+            </div>            
+            <div class="project-industries">
+                <h3>Experience</h3>   
+                <h4>7+</h4>                          
             </div>
         </div>
         <div class="techSkills">
@@ -93,19 +97,21 @@
         <div class="project-samples">
             <div class="project-sample-header">
                 <ul>
-                    <li>D-ERP</li>
-                    <li>D-CRM</li>
-                    <li>D-PMS</li>
-                    <li>D-Analysis</li>
+                    <li class="tab active" data-tab="erp">D-ERP</li>
+                    <li class="tab " data-tab="crm">D-CRM</li>
+                    <li class="tab " data-tab="pms">D-PMS</li>
+                    <li class="tab " data-tab="trade">D-Trade</li>
+                    <li class="tab " data-tab="analysis">D-Analysis</li>
                 </ul>
             </div>
-            <div class="erp-slide">
+            <div class="slide active" id="erp">
                 <div class="erp-wireframe">
                     <img src="./utlities/images/erp-wireimage.png"/>
                 </div>
                 <div class="erp-details">
                     <p>
-                        ERP System | DCodeERP <br>
+                        <strong>ERP System | DCodeERP <br></strong>
+                        <br>
                         A full-stack ERP solution streamlining business operations like inventory, sales, HR, and finance.<br>
                         Built with Node.js, Express, MongoDB, and React, it reflects enterprise-grade architecture with secure APIs, modular design, and role-based access.<br>
                         <br>
@@ -118,24 +124,92 @@
                     </p>
                 </div>
             </div>
-            <!-- <div class="crm-slide">
-                <div class="crm-wireframe">2</div>
-                <div class="crm-details">2</div>
-            </div>
-            <div class="pharma-slide">
-                <div class="pharma-wireframe">3</div>
-                <div class="pharma-details">3</div>
-            </div>
-            <div class="trade-slide">
-                <div class="trade-wireframe">4</div>
-                <div class="trade-details">4</div>
-            </div>
-            <div class="analysis-slide">
-                <div class="analysis-wireframe">5</div>
-                <div class="analysis-details">5</div>
-            </div> -->
-        </div>
+            <div class="slide" id="crm">
+                <div class="crm-wireframe">                    
+                    <img src="./utlities/images/crm-wireframe.png"/>
+                </div>
+                <div class="crm-details">
+                    <p>
+                        <strong>CRM System | DCodeCRM <br></strong>
+                        <br>
+                        A modern Customer Relationship Management system for managing leads, pipelines, customer interactions, and follow-ups.<br>
+                        Built using Node.js, MongoDB, Express, and React, it ensures seamless integration with communication tools and contact history.<br>
+                        <br>
+                        Real-world features like lead scoring, activity logs, follow-up reminders, sales funnel tracking, and email engagement.<br>
+                        JWT Auth | REST APIs | CRM Lifecycle Automation | Modular & Scalable<br>
+                        <em>
+                            <br>
+                            "DCodeCRM: Agile, intelligent CRM built to maximize client relationships and sales performance."
+                        </em>
+                    </p>
 
+                </div>
+            </div>
+            <div class="slide" id="pms">
+                <div class="pharma-wireframe">
+                      <img src="./utlities/images/pms-wireframe.png"/>
+                </div>
+                <div class="pharma-details">
+                    <p>
+                        <strong>Pharma Management System | D-PMS <br></strong>
+                        <br>
+                        A collaborative task and project tracking platform designed for agile and enterprise teams.<br>
+                        Built using Vue.js, Node.js, and MongoDB, it offers real-time updates, kanban boards, and sprint analytics.<br>
+                        <br>
+                        Real-world features like drag-and-drop task boards, team assignments, deadline alerts, and status tracking.<br>
+                        Role-based access | Real-time updates | Modular Structure | REST APIs<br>
+                        <em>
+                            <br>
+                            "D-PMS: Streamlined project workflows with real-time collaboration and visibility."
+                        </em>
+                    </p>
+
+                </div>
+            </div>
+            <div class="slide" id="trade">
+                <div class="trade-wireframe">
+                      <img src="./utlities/images/trade-wireframe.png"/>
+                </div>
+                <div class="trade-details">
+                    <p>
+                        <strong>Trade Management System | D-Trade <br></strong>
+                        <br>
+                        An end-to-end solution to manage domestic and international trade operations, purchase orders, vendor contracts, and logistics.<br>
+                        Built using Node.js, Express, MongoDB, and React, it supports configurable workflows, real-time updates, and document tracking for supply chain transparency.<br>
+                        <br>
+                        Real-world features like purchase order automation, vendor & customer master, delivery tracking, export documentation, and compliance management.<br>
+                        JWT Auth | REST APIs | Trade Workflow Engine | Modular & Scalable<br>
+                        <em>
+                            <br>
+                            "D-Trade: Simplifying trade operations with secure, scalable systems tailored for global business flows."
+                        </em>                        
+                    </p>
+
+                </div>
+            </div>
+            <div class="slide" id="analysis">
+                <div class="analysis-wireframe">
+                      <img src="./utlities/images/analysis-wireframe.png"/>
+                </div>
+                <div class="analysis-details">
+                    <p>
+                        <strong>Business Intelligence & Data Analytics | D-Analysis <br></strong>
+                        <br>
+                        A comprehensive analytics dashboard providing real-time insights into sales, finances, KPIs, and operations.<br>
+                        Built with Node.js, MongoDB, Chart.js / Recharts, and secure APIs to visualize and analyze complex datasets.<br>
+                        <br>
+                        Real-world features like filterable charts, KPI widgets, data exports, user behavior tracking, and role-based analytics access.<br>
+                        JWT Auth | Dashboard APIs | Scalable Data Models | Exportable Reports<br>
+                        <em>
+                            <br>
+                            "D-Analysis: Unlock insights with powerful, interactive dashboards built for decision-makers."
+                        </em>                        
+                    </p>
+                                                                                  
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/brief.js"></script>
     </body>
     <footer>
         <div id="contacts" class="contact">
