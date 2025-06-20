@@ -333,7 +333,7 @@ header nav ul li:inactive {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    font-size: 1.5rem;
+    font-size: 1.2em;
     color: #c8c6c4c7;
     flex-wrap: wrap;
     margin-top: 0.8rem;
@@ -371,6 +371,103 @@ header nav ul li:inactive {
 }
 .techSkills .vstudio {
     color:rgb(215, 104, 215);
+}
+
+.project-samples {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3.5em;
+    margin-right: 2.5em;
+}
+
+.project-samples .project-sample-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    margin-bottom: 0.5em;
+}
+
+.project-samples .project-sample-header ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10em;
+    border: 1px solid gray;
+    margin: 0.15em;
+    padding: 0.15em;
+    border-radius: 0.5em;
+    border-style: hidden;
+}
+.project-samples .project-sample-header ul li {
+    list-style: none;
+    font-weight: 800;
+    border: 1px solid gray;
+    margin: 0.35em;
+    padding: 0.35em;
+    border-radius: 0.5em;
+    background-color: #1b77a1;
+    letter-spacing: 0.065em;
+    color: #ffffff;
+    border-style: hidden;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+}
+.project-samples .project-sample-header ul li:hover {
+    letter-spacing: 0.15em;
+    border-style: hidden;
+    color: #ffffff;
+    transition: all ease-in-out 0.40s;
+    background-color: #1b77a1;
+    cursor: pointer;
+}
+
+.project-samples .erp-slide {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8em;
+}
+.project-samples .erp-slide .erp-wireframe {
+    height: 20em;
+    width: 30em;
+    margin-left: 1.5em;
+    margin-top: 1.5em;
+    position: relative;
+    border-radius: 0.2em;
+    z-index: 1;
+    box-shadow: 2.5px 5px 10px 0.5px rgba(97, 96, 96, 0.521);
+}
+.project-samples .erp-slide .erp-wireframe img {
+    width: 100%;
+    max-width: 30rem;
+    height: 20em;   
+    border-radius: 0.8em;
+}
+.project-samples .erp-slide .erp-details {
+    width: 48em;
+    height: auto; /* ✅ Let the box grow with content */
+    position: absolute;
+    margin-left: 32em;
+    margin-top: 2em;
+    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
+    border: 0.2px transparent;
+    box-sizing: border-box;
+    padding: 1.5em; /* Optional: space inside the box */
+}
+.project-samples .erp-slide .erp-details p {
+    width: 100%; /* ✅ Full width of parent */
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.6;
+    color: #61605f;
+    font-weight: 500;
+    letter-spacing: 0.015em;
 }
 
  
@@ -616,6 +713,16 @@ footer {
         padding: 0%;
     }
 
+    .project-samples {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .project-samples .erp-slide {
+        display: flex;
+        flex-direction: column;
+    }
     .workExperience {
     display: none;
     }
