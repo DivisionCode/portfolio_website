@@ -376,7 +376,7 @@ header nav ul li:inactive {
 .project-samples {
     display: flex;
     flex-direction: column;
-    margin-left: 2.5em;
+    margin-left: 5em;
     margin-bottom: 5em;
     margin-top: 1em;
     margin-right: 2.5em;
@@ -390,6 +390,14 @@ header nav ul li:inactive {
     align-items: center;
     margin-top: 3em;
     margin-bottom: 0.5em;
+    background-color: rgba(255, 255, 255, 0.664);
+    border-radius: 0.5em;
+    /* box-shadow: 0.5px 0px 25px 0.5px rgba(0, 0, 0, 0.5); */
+    border-top: 0.5em;
+    border-bottom: 0.5em;
+    border-right: 0.5em;
+    border-left: 0.5em;
+
 }
 
 .project-samples .project-sample-header ul {
@@ -398,7 +406,6 @@ header nav ul li:inactive {
     justify-content: center;
     align-items: center;
     gap: 6em;
-    border: 1px solid gray;
     margin: 0.15em;
     padding: 0.15em;
     border-radius: 0.5em;
@@ -407,13 +414,11 @@ header nav ul li:inactive {
 .project-samples .project-sample-header ul li {
     list-style: none;
     font-weight: 800;
-    border: 1px solid gray;
     margin: 0.35em;
     padding: 0.35em;
     border-radius: 0.5em;
-    background-color: #1b77a1;
+    color: #1b77a1;
     letter-spacing: 0.065em;
-    color: #ffffff;
     border-style: hidden;
     padding-left: 1em;
     padding-right: 1em;
@@ -426,7 +431,13 @@ header nav ul li:inactive {
     color: #ffffff;
     transition: all 0.15s ease-in-out;
     background-color: #1b77a1;
-    cursor: pointer;
+    cursor: pointer;}
+
+.project-samples .project-sample-header .tab.active {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    text-decoration-thickness:0.20em;
+    text-decoration-style:solid;
 }
 
 .project-samples .slide {
@@ -441,7 +452,7 @@ header nav ul li:inactive {
     flex-direction: row;
     gap: 0.8em;
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0px);
 }
 
 .project-samples .slide .erp-wireframe {
@@ -466,11 +477,9 @@ header nav ul li:inactive {
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
-    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
-    border: 0.2px transparent;
     border-radius: 0.5em;
-    box-sizing: border-box;
-    padding: 1.5em; /* Optional: space inside the box */    border: none;
+    box-sizing: border-box;    
+    padding: 1.5em; /* Optional: space inside the box */    
 }
 .project-samples .slide .erp-details p {
     width: 100%; /* ✅ Full width of parent */
@@ -506,12 +515,10 @@ header nav ul li:inactive {
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
-    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
     border: 0.2px transparent;
     box-sizing: border-box;
     overflow:visible;
     border-radius: 0.5em;
-    overflow-x: hidden;
     padding: 1.5em; /* Optional: space inside the box */
 }
 .project-samples .slide .crm-details p {
@@ -548,7 +555,6 @@ header nav ul li:inactive {
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
-    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
     border: 0.2px transparent;
     border-radius: 0.5em;
     box-sizing: border-box;
@@ -588,7 +594,6 @@ header nav ul li:inactive {
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
-    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
     border: 0.2px transparent;
     box-sizing: border-box;
     border-radius: 0.5em;
@@ -628,7 +633,6 @@ header nav ul li:inactive {
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
-    box-shadow: 2.5px 5px 10px 0.5px rgba(145, 145, 145, 0.774);
     border: 0.2px transparent;
     border-radius: 0.5em;
     box-sizing: border-box;
