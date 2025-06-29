@@ -11,6 +11,7 @@ html, body {
     background-image: url(../utlities/images/stone-texture.webp);
 }
 
+
 header {
     display: flex;
     flex-direction: row;
@@ -351,6 +352,13 @@ header nav ul li:inactive {
     gap: 0.8em;
     opacity: 1;
     transform: translateX(0px);
+    animation-name: slideActive;
+    animation-duration: 1.2s;
+}
+
+@keyframes slideActive {
+   from {opacity: 0;}
+   to {opacity: 1;}
 }
 
 .project-samples .slide .erp-wireframe {
@@ -553,6 +561,9 @@ header nav ul li:inactive {
     letter-spacing: 0.015em;
 }
 
+
+
+
  
 footer {
         color: #727070;
@@ -616,7 +627,7 @@ footer {
 }
 
 .contact .contactDetails #connectForm input {
-    height: 1em;
+    height: 1.2em;
     font-size: 0.90em;
     padding: 0.25em;
     border-radius: 0.25em;
@@ -644,13 +655,13 @@ footer {
     color: aliceblue;
     border-style: outset;
     outline: none;
-    border: 0.5px solid #25a1dbad;
+    border: 0.5px solid #31b8f7;
     letter-spacing: 0.12em;
-    width: 100%;
+    width: 100%;height: 2.2em;
 }
 
 .contact .contactDetails #connectForm button:hover {
-    box-shadow: 1px 1px 0px 0px #25a3dda1;
+    box-shadow: 1px 1px 0px 0px #0e4761a1;
     cursor: pointer;
     transition: ease-in-out 0.15s;
 }
@@ -741,95 +752,6 @@ footer {
         }
         }
     }
-    /* .projects {
-        display: flex;
-       flex-direction: row;
-       max-height: 30rem;
-    } */
-    /* .projects .project-count  {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-    }
-    .projects .project-count h3 {
-        font-size: 1.5rem;
-        height: auto;
-        width: auto;
-        margin-right: 10rem;
-        margin-left: 2.5rem;
-    }
-    .projects .project-count h4 {
-        font-size: 2rem;
-        height: auto;
-        margin-left: 10rem;
-        margin-top: 2.5rem;
-        width: auto;
-    }
-
-    .projects .project-completed  {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-    }
-    .projects .project-completed h3 {
-        font-size: 1.5rem;
-        height: auto;
-        width: auto;
-        margin-right: 10rem;
-        margin-left: 2.5rem;
-    }
-    .projects .project-completed h4 {
-        font-size: 2rem;
-        height: auto;
-        margin-left: 10rem;
-        margin-top: 2.5rem;
-        width: auto;
-    }
-
-    .projects .project-industries  {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-    }
-    .projects .project-industries h3 {
-        font-size: 1.5rem;
-        height: auto;
-        width: auto;
-        margin-right: 10rem;
-        margin-left: 2.5rem;
-    }
-    .projects .project-industries h4 {
-        font-size: 2rem;
-        height: auto;
-        margin-left: 7rem;
-        margin-top: 2.5rem;
-        width: auto;
-    }
-
-    .projects .project-domains  {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        max-height: 350px;
-    }
-    .projects .project-domains h3 {
-        font-size: 1.5rem;
-        height: 25px;
-        width: 250px;
-    }
-    .projects .project-domains h4 {
-        font-size: 2rem;
-        height: auto;
-    }
-    .projects .project-domains h4 ul li a{
-        text-decoration: none;
-     }
-    .projects .project-domains h4 ul li a:hover{
-        text-decoration:overline;
-        font-size: 1.25rem;
-    } */
     .techSkills {
         line-height: 0%;
         margin-left: 2.5rem;
@@ -944,9 +866,7 @@ footer {
     margin-top: 15em;
     margin-bottom: 15em;
 }
-    .workExperience {
-    display: none;
-    }
+
 
     .contact {
         height: 100%;
