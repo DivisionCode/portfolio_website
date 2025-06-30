@@ -681,11 +681,12 @@ footer {
     padding-left: 0.25em;
     margin-left: 0.25em;
     margin-right: 0.25em;
-    font-size: 0.85em;
+    font-size: 0.90em;
     letter-spacing: 0.045em;
     line-height: 1.5;    
     margin-top: 1.55em;
     font-weight: 600;
+    line-height: 1.5;
 }
 
 .contact .contactDetails {
@@ -713,7 +714,7 @@ footer {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 0.35em;
     
 }
@@ -727,7 +728,7 @@ footer {
     text-indent: 0.10em;
     background-color: #e9e7e6;
     color: rgb(38, 111, 175);
-    width: 16em;
+    width: 22.8em;
     text-indent: 0.10em;
     border-style: outset;
     outline: none;
@@ -739,6 +740,15 @@ footer {
 .contact .contactDetails #connectForm #userText {
     width: 25em;
     height: 8em;
+    border-radius: 0.5em;
+    border: 0.5px solid #31b8f7;
+    background-color: #e9e7e6;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    text-indent: 0.10em;
+    color: rgb(38, 111, 175);
+     outline: none;
+     margin-top: 0.5em;
 }
 .contact .contactDetails #connectForm button {
     font-size: 0.85em;
