@@ -380,16 +380,16 @@ header nav ul li:inactive {
 }
 .project-samples .slide .erp-details {
     width: auto;
-    height: 20em; /* ✅ Let the box grow with content */
+    height: 20em; 
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
     border-radius: 0.5em;
     box-sizing: border-box;    
-    padding: 1.5em; /* Optional: space inside the box */    
+    padding: 1.5em;   
 }
 .project-samples .slide .erp-details p {
-    width: 100%; /* ✅ Full width of parent */
+    width: 100%; 
     height: 100%;
     margin: 0;
     word-wrap: break-word;
@@ -398,7 +398,8 @@ header nav ul li:inactive {
     line-height: 1.6;
     color: #61605f;
     font-weight: 500;
-    letter-spacing: 0.015em;    border: none;
+    letter-spacing: 0.015em;    
+    border: none;
 }
 
 .project-samples .slide .crm-wireframe {
@@ -430,8 +431,8 @@ header nav ul li:inactive {
     padding: 1.5em; /* Optional: space inside the box */
 }
 .project-samples .slide .crm-details p {
-    width: 100%; /* ✅ Full width of parent */
-    height: 100%; /* ✅ Full width of parent */
+    width: 100%; 
+    height: 100%;
     margin: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -460,7 +461,7 @@ header nav ul li:inactive {
 }
 .project-samples .slide .pharma-details {
     width: auto;
-    height: 20em; /* ✅ Let the box grow with content */
+    height: 20em; 
     position: absolute;
     margin-left: 32em;
     margin-top: 2.6em;
@@ -470,7 +471,7 @@ header nav ul li:inactive {
     padding: 1.5em; /* Optional: space inside the box */
 }
 .project-samples .slide .pharma-details p {
-    width: 100%; /* ✅ Full width of parent */
+    width: 100%;
     margin: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -559,6 +560,97 @@ header nav ul li:inactive {
     color: #61605f;
     font-weight: 500;
     letter-spacing: 0.015em;
+}
+
+.education {
+    .education-details {
+        .education-caption {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            border: 1px solid gold;
+            margin: 3em;
+            color: #1b77a1;
+            background-color: #ffffff9a;
+            border-style: hidden;
+            border-radius: 0.5em;
+
+
+        }
+        p {
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        p:hover {
+            cursor: pointer;
+        }
+
+        .tab.active {
+            text-decoration: underline;
+            text-underline-offset: 0.5rem;
+            text-decoration-thickness:0.20em;
+            text-decoration-style:solid;
+        }
+
+        .table {
+        display: none;
+        opacity: 0;
+                    margin: 0 ;
+                    padding: 0;
+        transform: translateX(30px);
+        transition: all 0.5s ease-in-out;
+            margin-right: 3.7em;
+            margin-left: 3.7em;
+
+        }
+
+       .table.active {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 0.8em;
+            opacity: 1;
+            margin: 0 ;
+            padding: 0;
+            transform: translateX(0px);
+            animation-name: slideActive;
+            animation-duration: 1.2s;
+            margin-right: 3.7em;
+            margin-left: 3.7em;
+            text-align: center;
+
+
+            th {
+                padding-left:1.5em;
+                padding-right:1.5em;
+                padding-bottom:1.5em;
+                justify-content: space-evenly;
+                color: #1b77a1;
+            }
+
+            tr {
+                font-weight: 400;
+                letter-spacing: 0.15em;
+                font-size: 0.8em;
+                text-align: center;
+                line-height: 2.1;
+            }
+
+            td {
+                padding-right: 1em;
+                padding-bottom: 1em;
+                padding-left: 1em;
+                line-height: 2.1;
+            }
+
+            strong {
+                color: #1b77a1;
+            }
+        }
+    }
 }
 
 
@@ -860,12 +952,90 @@ footer {
 }
 .project-samples .slide .analysis-details {
     width: 20em;
-    height: auto; /* ✅ Let the box grow with content */
+    height: auto;
     position: absolute;
     margin-left: 0.15em;
     margin-top: 15em;
     margin-bottom: 15em;
 }
+
+.education {
+    .education-details {
+        .education-caption {
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            margin: 1.5em;
+        }
+        p {
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            font-size: 1em;
+            height: 1.2em;
+            margin-left: 0.5em;
+            text-align: center;
+            border-radius: 0.5em;
+        }
+
+        p:hover {
+            cursor: pointer;
+        }
+
+        .tab.active {
+            text-decoration: underline;
+            text-decoration-style:solid;
+            color: #1b77a1;
+            padding-top: 0.15em ;
+            font-weight: 800;
+            text-underline-offset: 0.5rem;
+            text-decoration-thickness:0.20em;
+        }
+
+        .table {
+        display: none;
+        opacity: 0;
+        margin: 0 ;
+        padding: 0;
+        transform: translateX(30px);
+        transition: all 0.5s ease-in-out;
+
+        }
+
+       .table.active {
+            opacity: 1;
+            margin: 0 ;
+            padding: 0;
+            overflow-y: scroll;
+
+
+            th {
+                padding-left:0.5em;
+                padding-right:0.5em;
+                padding-bottom:0.5em;
+            }
+
+            tr {
+                font-weight: 400;
+                letter-spacing: 0.15em;
+                font-size: 0.8em;
+                text-align: center;
+                line-height: 1.5;
+            }
+
+            td {
+                padding-right: 1em;
+                padding-bottom: 1em;
+                padding-left: 1em;
+                line-height: 1.2;
+            }
+
+            strong {
+                color: #1b77a1;
+            }
+        }
+    }
+}
+
 
 
     .contact {
