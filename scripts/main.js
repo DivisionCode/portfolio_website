@@ -27,4 +27,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     });
+
+    // const form =document.getElementById('connectForm');
+    // form.addEventListener('submit', function(e) {
+    //     e.preventDefault();
+
+    //     const data = {
+    //         name: document.getElementById('userName').value,
+    //         email: document.getElementById('userEmail').value,
+    //         message: document.getElementById('userText').value,
+    //     };
+
+    //     fetch("https://formsubmit.co/ajax/singh.rsingh.rohit@gmail.com", {
+    //         method: "POST",
+    //         headers: {'Content-Type': 'application/json'},
+    //     })
+    //     .then(response => {
+    //         if(response.ok) {
+    //             alert("Message sent Successfully!");
+    //             form.reset();
+    //         } else {
+    //             alert("Failed to send.Please Try Again.")
+    //         }
+    //     })
+    //     .catch( error => {
+    //         alert("Error" + error.message);
+    //     });
+    // });
 });
