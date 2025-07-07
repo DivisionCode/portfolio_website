@@ -1,14 +1,15 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
     /* overflow: hidden;
     box-sizing: border-box; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #ecebeb;
     scroll-behavior: smooth;
     scrollbar-width:none;
-    background-color: #9eeaec9a;
+    background-image: url(../utlities/images/vintage-pink-telephone-composition.jpg);
+    background-size: cover;         /* makes image cover the entire area */
+    background-repeat: no-repeat;   /* prevents image from repeating */
+    background-position: center;
 }
 
 
@@ -73,10 +74,11 @@ header nav ul li:inactive {
 
 .content {
     display: grid;
-    grid-template-columns:4rem 1fr 4em;
+    grid-template-columns:4rem 1fr 20em;
     overflow: hidden;
     box-sizing: border-box;
-    height: 38rem;
+    height: 45rem;
+    justify-items: start;
 }
 
 .content .sidebar {
@@ -107,13 +109,197 @@ header nav ul li:inactive {
     width: 1.5rem;
 }
 
-.contactForm {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #c8c6c4;
-    border-radius: 5em;
+.content .contactForm {
+    background: rgba(255, 255, 255, 0.15); /* semi-transparent background */
+    color: #ffffffde; /* light text */
+    border-radius: 2em; /* slightly smaller for modern feel */
     width: 100%;
-    max-width: 50em;
+    max-width: 65em;
+    margin: 1.5em;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.content .contactForm h2{
+    /* color: rgb(131, 127, 127); */
+    color: #4c707c;
+    justify-self: start;
+    font-size: 4.5em;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style:normal;
+    margin-bottom: 1em;
+    font-weight: 900;
+}
+
+.content .contactDetails{
+    display: grid;
+    grid-template-columns: 25em 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.content .contactDetails .addressDetails p{ 
+    justify-self: center;
+    align-items: center;
+    line-height: 2.2;
+    color: #7d858b;
+    letter-spacing: 0.10em;
+    font-weight: 600;
+    b {
+        color: #4c707c;
+            font: 800;
+    }
+    height: 100%;
+}
+
+.content .contactDetails .emailForm { 
+    display: flex;
+    flex-direction: column ;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 0.6em;
+        padding: 0.6em;
+        label {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 0.2em;
+            letter-spacing: 0.125em;
+            color:#9099a0;
+        }
+
+        input[type=email]{
+            border-radius: 0.45em;
+            height: 2em;
+            margin: 0.15em;
+            font-size: 0.90em;
+            font-weight: 600;
+            letter-spacing: 0.125em;
+            text-indent: 0.15em;
+            color: #4c707c;
+            border: 0.5px outset #c8c6c4;
+            outline: none;
+            margin-bottom: 0.25em;
+        }
+
+        input[type=email]:focus {
+            border: 0.5px outset #c8c6c4;
+        }
+        input[type=email]::placeholder {
+            color: #4c707c;
+        }
+
+        textarea  {
+             border-radius: 0.45em;
+            height: 12em;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 0.125em;
+            line-height: 1.7;
+            text-indent: 0.25em;
+            color: #4c707c;
+            border: 0.5px outset #c8c6c4;
+            outline: none;
+            margin-left: 0.33em;
+            margin-right: 0.15em;
+            margin-top: 0.15em;
+            margin-bottom: 0.15em;
+        }
+
+        button[type=submit] {
+            border-radius: 0.45em;
+
+            height: 2.5em;
+            margin-top: 0.65em;
+            font-size: 0.95em;
+            font-weight: 800;
+            letter-spacing: 0.125em;
+            text-indent: 0.15em;
+            color: white;
+            border: 0.5px outset #c8c6c4;
+            background-color: #4c707c;
+            outline: none;
+        }
+    }
+}
+
+    footer .trademark {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        margin-right: 0.3em;
+        margin-left: 0.3em;
+        color: #7d858b;
+    }
+
+    
+
+
+@media(max-width: 600px) {
+    header{
+      display: grid;
+      grid-template-columns:1fr;
+      justify-items: center;
+      align-items: center;
+    } 
+    header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .08rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 2;
+}
+    .content {
+        grid-template-columns:1fr;
+        height: 68rem;
+    }
+
+    .content .contactDetails{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+    .content .contactForm h2{
+        font-size: 2.5em;
+        letter-spacing: 0.125;
+    }
+
+    .content .contactDetails .emailForm { 
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 0em;
+            padding: 0em;
+        }
+    }
+
+    footer .trademark {
+        justify-self: center;
+        text-align: center;
+        width: 25em;
+        margin-right: 0.3em;
+        margin-left: 0.3em;
+        color: #7d858b;
+    }
 }
