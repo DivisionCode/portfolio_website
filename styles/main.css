@@ -675,21 +675,6 @@ footer {
     font-weight: 400;
 }
 
-.contact .address {
-    justify-self: start;
-    align-self: start;
-    padding-right: 0.25em;
-    padding-left: 0.25em;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
-    font-size: 0.90em;
-    letter-spacing: 0.045em;
-    line-height: 1.5;    
-    margin-top: 1.55em;
-    font-weight: 600;
-    line-height: 1.5;
-}
-
 .contact .downloads h4 {
     margin-left: 0.28em;
 }
@@ -716,87 +701,33 @@ footer {
     text-decoration-thickness: 0.12em;
 }
 
+.contact .links p a:link {
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    color:#10506e;
+    text-decoration: none;
+    margin-left: 0.28em;
+}
+
+.contact .links p a:visited {
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color:#10506e;
+    text-decoration: none;
+}
+
+.contact .links p a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-thickness: 0.12em;
+}
+
 .contact .contactDetails {
     justify-self: end;
     align-self: end;
     margin-bottom: 1.15em;
     margin-top: 0.55em;
-}
-.contact .address h4 {
-    padding: 0;
-    margin: 0;    
-    letter-spacing: 0.065em;
-    font-weight: 600;
-    font-size: 1.10em;
-}
-.contact .contactDetails h4 {
-    padding: 0;
-    margin: 0;
-    font-weight: 600;
-    letter-spacing: 0.065em;
-}
-
-.contact .contactDetails #connectForm {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* align-items: center; */
-    margin-top: 0.35em;
-    
-}
-
-.contact .contactDetails #connectForm input {
-    height: 1.2em;
-    font-size: 0.90em;
-    padding: 0.25em;
-    border-radius: 0.25em;
-    margin: 0.12em;
-    text-indent: 0.10em;
-    background-color: #e9e7e6;
-    color: rgb(38, 111, 175);
-    width: 22.8em;
-    text-indent: 0.10em;
-    border-style: outset;
-    outline: none;
-    border: 0.5px solid #25a1dbad;
-    letter-spacing: 0.12em;
-    margin-top: 0.35em;   
-    font-weight: 600;
-}
-.contact .contactDetails #connectForm #userText {
-    width: 25em;
-    height: 8em;
-    border-radius: 0.5em;
-    border: 0.5px solid #31b8f7;
-    background-color: #e9e7e6;
-    letter-spacing: 0.12em;
-    font-weight: 600;
-    text-indent: 0.10em;
-    color: rgb(38, 111, 175);
-     outline: none;
-     margin-top: 0.5em;
-}
-.contact .contactDetails #connectForm button {
-    font-size: 0.85em;
-    font-weight: 600;
-    padding: 0.35em;
-    border-radius: 0.35em;
-    margin-top: 0.75em;
-    text-indent: 0.10em;
-    background-color: #1b77a1;
-    color: aliceblue;
-    border-style: outset;
-    outline: none;
-    border: 0.5px solid #31b8f7;
-    letter-spacing: 0.12em;
-    width: 100%;height: 2.2em;
-}
-
-.contact .contactDetails #connectForm button:hover {
-    box-shadow: 1px 1px 0px 0px #0e4761a1;
-    cursor: pointer;
-    transition: ease-in-out 0.15s;
 }
 
 .contact h5 {
@@ -1090,8 +1021,6 @@ footer {
     }
 }
 
-
-
     .contact {
         height: 100%;
         display: flex;
@@ -1099,24 +1028,9 @@ footer {
         justify-content: space-evenly;
         width: auto;
     }
-    .contact .address {
-        line-height: 1.25em;
-    }
 
     .contact .contactDetails {
         width: 100%;
-    }
-
-    .contact .contactDetails #connectForm {
-        justify-content: start;
-        align-items: start;
-        margin-left: 0.35em;
-    }
-    .contact .contactDetails h4 {
-        margin-left: 0.35em;
-    }
-    .contact .contactDetails #connectForm button {
-        width: 6.25em;
     }
 
     .contact h5 {
