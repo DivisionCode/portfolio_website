@@ -1,0 +1,119 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow: hidden;
+    box-sizing: border-box; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #ecebeb;
+    scroll-behavior: smooth;
+    scrollbar-width:none;
+    background-color: #9eeaec9a;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    font-weight: 900;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p {
+    margin: 0.7rem;
+    padding: 0.5rem;
+    letter-spacing: .15rem;
+    color:rgb(93, 142, 177);
+    cursor: pointer;
+}
+
+header p strong {
+   color: rgb(190, 109, 17);
+}
+
+header p:hover {
+   cursor: pointer;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    align-items: center;
+    margin: 0.7rem;
+    padding: 0.5rem;
+    gap: 3rem ;
+    list-style-type: none;
+    cursor: pointer;
+    letter-spacing: .10rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-decoration: none;
+    text-underline-offset: 0.0rem;
+}
+
+header nav ul li a{
+   color: rgb(192, 108, 12);
+    text-decoration: none;
+    text-underline-offset: 0.0rem;
+    font-weight: 600;
+}
+
+header nav ul li a:active {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
+header nav ul li:inactive {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
+.content {
+    display: grid;
+    grid-template-columns:4rem 1fr 4em;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 38rem;
+}
+
+.content .sidebar {
+    place-self: end;
+}
+
+.sidebar nav ul {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 1000;
+    list-style-type: none;
+    gap: 1.2rem;
+}
+
+.content .sidebar nav ul li {
+    cursor: pointer;
+}
+
+.content .sidebar nav ul li img {
+    width: 1.5rem;
+}
+
+.contactForm {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c8c6c4;
+    border-radius: 5em;
+    width: 100%;
+    max-width: 50em;
+}
