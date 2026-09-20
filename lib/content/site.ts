@@ -76,16 +76,17 @@ export const socials: SocialLink[] = [
 export const navLinks = [
   { label: "Ventures", href: "/#ventures" },
   { label: "Products", href: "/#products" },
+  { label: "Architecture", href: "/#architecture" },
   { label: "Approach", href: "/#approach" },
   { label: "Stack", href: "/#stack" },
   { label: "Credentials", href: "/#credentials" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 
-/** Headline counters. Derived where possible so they cannot drift from the data. */
+/** Headline counters. Numeric so the hero can animate them up. */
 export const metrics = [
-  { value: "7+", label: "Years building", detail: "Enterprise systems in production" },
-  { value: "4", label: "Ventures", detail: "Founded or co-founded" },
-  { value: "8", label: "Products shipped", detail: "Under DCodeIntellect" },
-  { value: "3+", label: "Industries", detail: "Private capital, music, commerce" },
+  { value: 7, suffix: "+", label: "Years building", detail: "Enterprise systems in production" },
+  { value: 4, suffix: "", label: "Ventures", detail: "Founded or co-founded" },
+  { value: 8, suffix: "", label: "Products shipped", detail: "Under DCodeIntellect" },
+  { value: 87, suffix: "", label: "Technologies", detail: "Across the production stack" },
 ] as const;

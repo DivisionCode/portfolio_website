@@ -13,10 +13,10 @@ export function Tag({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-md px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap",
+        "inline-flex items-center rounded-md border px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap transition-colors",
         tone === "accent"
-          ? "bg-accent-soft text-accent"
-          : "bg-sunken text-ink-faint",
+          ? "border-accent/30 bg-accent-dim text-accent-bright"
+          : "border-line bg-overlay/60 text-ink-faint",
         className,
       )}
     >
@@ -30,15 +30,19 @@ export function StatusPill({ status }: { status: "live" | "building" | "archived
 
   return (
     <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] text-ink-faint">
-      <span
-        aria-hidden
-        className={cn(
-          "inline-block size-1.5 rounded-full",
-          status === "live" && "bg-emerald-600",
-          status === "building" && "bg-amber-500",
-          status === "archived" && "bg-ink-ghost",
-        )}
-      />
+      <span aria-hidden className="relative flex size-1.5">
+        {status === "live" ? (
+          <span className="absolute inline-flex size-full rounded-full bg-emerald-400 opacity-70 [animation:pulse-ring_2.6s_ease-out_infinite]" />
+        ) : null}
+        <span
+          className={cn(
+            "relative inline-flex size-1.5 rounded-full",
+            status === "live" && "bg-emerald-400",
+            status === "building" && "bg-accent",
+            status === "archived" && "bg-ink-ghost",
+          )}
+        />
+      </span>
       {copy}
     </span>
   );

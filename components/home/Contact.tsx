@@ -20,7 +20,7 @@ export function Contact() {
             <div className="flex items-baseline justify-between gap-4 border-t border-line py-3.5">
               <dt className="label-mono">Email</dt>
               <dd>
-                <a href={`mailto:${profile.email}`} className="hover:text-accent">
+                <a href={`mailto:${profile.email}`} className="transition-colors hover:text-accent-bright">
                   {profile.email}
                 </a>
               </dd>
@@ -28,7 +28,7 @@ export function Contact() {
             <div className="flex items-baseline justify-between gap-4 border-t border-line py-3.5">
               <dt className="label-mono">Phone</dt>
               <dd>
-                <a href={`tel:${profile.phone}`} className="hover:text-accent">
+                <a href={`tel:${profile.phone}`} className="transition-colors hover:text-accent-bright">
                   {profile.phoneDisplay}
                 </a>
               </dd>
@@ -49,7 +49,7 @@ export function Contact() {
                   href={profile.cv}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-accent"
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-accent-bright"
                 >
                   Download PDF
                   <Icon name="download" size={13} />

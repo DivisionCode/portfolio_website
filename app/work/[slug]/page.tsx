@@ -44,7 +44,12 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
   const siteLink = item.links.find((link) => link.kind === "site");
 
   return (
-    <article className="container-page pt-24 pb-[var(--section-y)] md:pt-32">
+    <article className="relative pt-24 pb-[var(--section-y)] md:pt-32">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem]">
+        <div className="grid-field absolute inset-0" />
+        <div className="absolute -top-40 left-1/3 h-[28rem] w-[34rem] rounded-full bg-accent/[0.09] blur-[120px]" />
+      </div>
+      <div className="container-page">
       <Link
         href={item.kind === "venture" ? "/#ventures" : "/#products"}
         className="group inline-flex items-center gap-2 text-[0.8125rem] text-ink-faint transition-colors hover:text-ink"
@@ -66,7 +71,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
           <span className="font-mono text-[0.6875rem] text-ink-ghost">{item.period}</span>
         </div>
 
-        <h1 className="mt-5 text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] tracking-[-0.04em]">
+        <h1 className="mt-5 text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] tracking-[-0.04em] text-gradient">
           {item.wordmark ?? item.name}
         </h1>
 
@@ -88,7 +93,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
               className={
                 link === siteLink
                   ? "inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.875rem] font-medium text-canvas transition-opacity hover:opacity-85"
-                  : "inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-[0.875rem] transition-colors hover:bg-sunken"
+                  : "inline-flex items-center gap-2 rounded-full border border-line bg-raised px-5 py-2.5 text-[0.875rem] text-ink-muted transition-colors hover:border-line-strong hover:text-ink"
               }
             >
               <Icon
@@ -189,7 +194,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
 
       <Link
         href="/#contact"
-        className="group mt-8 flex items-center justify-between gap-5 border-t border-line pt-8"
+        className="card group mt-8 flex items-center justify-between gap-5 p-7 transition-transform duration-500 hover:-translate-y-1"
       >
         <span>
           <span className="block text-lg">Working on something like this?</span>
@@ -200,9 +205,10 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
         <Icon
           name="arrowRight"
           size={18}
-          className="shrink-0 text-ink-ghost transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"
+          className="shrink-0 text-ink-ghost transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-bright"
         />
       </Link>
+      </div>
     </article>
   );
 }

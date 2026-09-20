@@ -27,7 +27,7 @@ export function Credentials() {
         role="tablist"
         aria-label="Credential categories"
         onKeyDown={onKeyDown}
-        className="flex flex-wrap gap-1"
+        className="flex flex-wrap gap-1.5"
       >
         {credentialGroups.map((item, index) => {
           const selected = index === activeIndex;
@@ -44,10 +44,10 @@ export function Credentials() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setActiveIndex(index)}
               className={cn(
-                "rounded-full px-3.5 py-1.5 text-[0.8125rem] transition-colors",
+                "rounded-full border px-3.5 py-1.5 text-[0.8125rem] transition-colors",
                 selected
-                  ? "bg-ink text-canvas"
-                  : "text-ink-faint hover:bg-sunken hover:text-ink",
+                  ? "border-accent/40 bg-accent-dim text-accent-bright"
+                  : "border-line text-ink-faint hover:border-line-strong hover:text-ink",
               )}
             >
               {item.label}
@@ -74,11 +74,11 @@ export function Credentials() {
           hidden={groupIndex !== activeIndex}
           className="mt-5"
         >
-          <ul>
+          <ul className="card overflow-hidden">
             {group.items.map((item) => (
               <li
                 key={`${item.title}-${item.year}`}
-                className="grid gap-y-1 border-t border-line py-4 last:border-b md:grid-cols-[1.4fr_1.5fr_5rem_auto] md:items-baseline md:gap-x-8"
+                className="grid gap-y-1 border-t border-line px-5 py-4 transition-colors duration-300 first:border-t-0 hover:bg-overlay/40 md:grid-cols-[1.4fr_1.5fr_5rem_auto] md:items-baseline md:gap-x-8 md:px-6"
               >
                 <p className="text-[0.9375rem] leading-snug">{item.title}</p>
 
@@ -93,7 +93,7 @@ export function Credentials() {
                     href={item.verify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent hover:underline md:justify-self-end"
+                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent-bright hover:underline md:justify-self-end"
                   >
                     Verify
                     <Icon name="arrowUpRight" size={11} />

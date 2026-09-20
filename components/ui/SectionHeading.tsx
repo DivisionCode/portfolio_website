@@ -17,18 +17,23 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("mb-8 md:mb-10", className)}>
-      <div className="flex items-baseline justify-between gap-6 border-b border-line pb-3">
-        <span className="label-mono">{eyebrow}</span>
+    <div data-reveal className={cn("mb-9 md:mb-12", className)}>
+      <div className="flex items-baseline justify-between gap-6">
+        <span className="label-mono flex items-center gap-2.5">
+          <span aria-hidden className="inline-block size-1 rounded-full bg-accent" />
+          {eyebrow}
+        </span>
         {aside ? <span className="label-mono shrink-0">{aside}</span> : null}
       </div>
 
-      <h2 className="mt-7 max-w-2xl text-[clamp(1.625rem,3.4vw,2.25rem)] leading-[1.12]">
+      <div className="rule-fade mt-3.5 mb-7" />
+
+      <h2 className="max-w-3xl text-[clamp(1.875rem,4vw,2.875rem)] leading-[1.06]">
         {title}
       </h2>
 
       {lead ? (
-        <p className="mt-3.5 max-w-xl text-[0.9375rem] leading-[1.6] text-ink-faint">
+        <p className="mt-5 max-w-2xl text-[0.9375rem] leading-[1.7] text-ink-faint md:text-base">
           {lead}
         </p>
       ) : null}

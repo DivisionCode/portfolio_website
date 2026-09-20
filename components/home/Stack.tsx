@@ -1,45 +1,57 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SpotlightGroup } from "@/components/ui/Spotlight";
 import { stackGroups } from "@/lib/content/stack";
 
 export function Stack() {
   const total = stackGroups.reduce((sum, group) => sum + group.items.length, 0);
 
   return (
-    <section id="stack" className="container-page scroll-mt-20 py-[var(--section-y)]">
+    <section id="stack" className="container-page scroll-mt-24 py-[var(--section-y)]">
       <SectionHeading
         eyebrow="Stack"
-        title="What I reach for, and why it's that one."
-        lead="Chosen per problem rather than per habit, which is why there's both a document store and a relational one on this list, and why .NET is still here."
-        aside={`${total} tools`}
+        title={
+          <>
+            What I reach for,{" "}
+            <span className="text-ink-faint">and why it is that one.</span>
+          </>
+        }
+        lead="Chosen per problem rather than per habit, which is why there is both a document store and a relational one on this list, and why .NET is still here."
+        aside={`${total} technologies`}
       />
 
-      <dl>
+      <SpotlightGroup className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {stackGroups.map((group) => (
           <div
             key={group.id}
-            className="grid gap-y-3 border-t border-line py-5 last:border-b md:grid-cols-[13rem_1fr] md:gap-x-10"
+            data-spotlight
+            data-reveal
+            className="card spotlight flex flex-col p-6"
           >
-            <div>
-              <dt className="text-[0.9375rem] font-medium">{group.title}</dt>
-              <p className="mt-1 text-[0.8125rem] leading-snug text-ink-ghost">
-                {group.blurb}
-              </p>
+            <div className="flex items-baseline justify-between gap-3">
+              <h3 className="text-[1rem] tracking-[-0.015em]">{group.title}</h3>
+              <span className="font-mono text-[0.6875rem] text-ink-ghost">
+                {String(group.items.length).padStart(2, "0")}
+              </span>
             </div>
 
-            <dd className="flex flex-wrap items-center gap-x-5 gap-y-2.5 md:pt-1">
+            <p className="mt-2 text-[0.8125rem] leading-[1.6] text-ink-ghost">
+              {group.blurb}
+            </p>
+
+            <ul className="mt-5 flex flex-wrap gap-1.5">
               {group.items.map((tech) => (
-                <span
+                <li
                   key={tech.name}
                   title={tech.note}
-                  className="font-mono text-[0.75rem] whitespace-nowrap text-ink-muted"
+                  className="rounded-md border border-line bg-overlay/50 px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap text-ink-muted transition-colors duration-300 hover:border-accent/40 hover:text-accent-bright"
                 >
                   {tech.name}
-                </span>
+                </li>
               ))}
-            </dd>
+            </ul>
           </div>
         ))}
-      </dl>
+      </SpotlightGroup>
     </section>
   );
 }

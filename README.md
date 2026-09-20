@@ -20,10 +20,10 @@ Next.js application. The previous version is still in git history at
 | Output    | `output: "export"`, plain files, no Node runtime needed  |
 | Hosting   | Netlify (`netlify.toml` sets headers, CSP and redirects)  |
 
-Everything the page needs ships as static HTML. Only three components are
-client components: the header, the command palette and the credential tabs.
-There is no animation library: content must never depend on an animation
-succeeding in order to be visible.
+Everything the page needs ships as static HTML. Six components are client
+components: the header, the scroll-progress bar, the command palette, the
+metric counters, the card spotlight and the credential tabs. There is no
+animation library; motion is native CSS.
 
 ---
 
@@ -35,6 +35,8 @@ npm run dev        # http://localhost:3000
 npm run build      # static export into out/
 npm run typecheck  # tsc --noEmit
 npm run lint       # eslint
+npm run shoot      # screenshots into screens/
+npm run verify     # fails if any on-screen element is invisible
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -51,6 +53,7 @@ means editing one of these files, no JSX required.
 | `lib/content/site.ts`         | Name, bio, contact details, socials, nav, metrics   |
 | `lib/content/work.ts`         | The 4 ventures and 8 products, incl. case studies   |
 | `lib/content/stack.ts`        | The 11 technology groups                            |
+| `lib/content/architecture.ts` | The 8 platform layers in the architecture section   |
 | `lib/content/approach.ts`     | The five engineering principles                     |
 | `lib/content/credentials.ts`  | Education and certifications, with verify links     |
 | `lib/content/experience.ts`   | Employment history, **see below**                  |
@@ -95,14 +98,21 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
 
 - **No em dashes.** Anywhere, in copy or in comments. Use a colon, a full stop
   or a comma. A middle dot (·) separates title segments.
-- **Design tokens** live in `app/globals.css` under `@theme`. One canvas, one
-  accent (`--color-accent`), monochrome everywhere else. Change a token there
-  and it propagates.
-- **Custom utilities** (`container-page`, `panel`, `label-mono`, `row-rule`)
-  are defined with Tailwind v4's `@utility`.
-- **No scroll animations.** An earlier build hid every section behind a
-  `whileInView` reveal that never fired, leaving the page blank. Content
-  renders immediately.
+- **Design tokens** live in `app/globals.css` under `@theme`. One dark canvas,
+  one accent ramp (`--color-accent` through `--color-accent-cyan`), and depth
+  from gradient hairlines rather than drop shadows.
+- **Custom utilities** (`container-page`, `card`, `spotlight`, `grid-field`,
+  `dot-field`, `label-mono`, `rule-fade`, `text-gradient`) are defined with
+  Tailwind v4's `@utility`.
+- **Animation may never gate content.** Scroll reveals use the native
+  `animation-timeline: view()` and are declared *only* inside
+  `@supports (animation-timeline: view())`, so an unsupporting browser applies
+  no rule and the content is simply visible. An earlier build hid every section
+  behind a JS `whileInView` callback that never fired, leaving 39 elements
+  permanently invisible. `npm run verify` exists to stop that happening again:
+  it scrolls each page and fails if anything on screen sits at opacity 0.
+- **Geometry is SVG and CSS**, not a canvas or a WebGL bundle. The hero lattice
+  renders in the static HTML and costs no JavaScript.
 - **Tabs render every panel**, with inactive ones `hidden`. That is the correct
   ARIA shape and it keeps all content in the static HTML for crawlers.
 - **Images are unoptimised** by necessity, `next/image` optimisation needs a

@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 import { navLinks, profile } from "@/lib/content/site";
 import { Icon } from "@/components/ui/Icon";
 import { CommandPalette } from "./CommandPalette";
+import { ScrollProgress } from "./ScrollProgress";
 
 const sectionIds = navLinks.map((link) => link.href.replace("/#", ""));
 
@@ -63,7 +64,7 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
           scrolled
-            ? "border-b border-line bg-canvas/85 backdrop-blur-lg"
+            ? "border-b border-line bg-canvas/70 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -76,7 +77,7 @@ export function Header() {
           </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-0.5">
               {navLinks.map((link) => {
                 const id = link.href.replace("/#", "");
                 const isActive = active === id;
@@ -86,11 +87,17 @@ export function Header() {
                       href={link.href}
                       aria-current={isActive ? "true" : undefined}
                       className={cn(
-                        "text-[0.8125rem] transition-colors",
+                        "relative rounded-full px-3 py-1.5 text-[0.8125rem] transition-colors duration-300",
                         isActive ? "text-ink" : "text-ink-faint hover:text-ink",
                       )}
                     >
-                      {link.label}
+                      {isActive ? (
+                        <span
+                          aria-hidden
+                          className="absolute inset-0 rounded-full border border-line bg-raised"
+                        />
+                      ) : null}
+                      <span className="relative">{link.label}</span>
                     </Link>
                   </li>
                 );
@@ -143,12 +150,13 @@ export function Header() {
             </button>
           </div>
         </div>
+        <ScrollProgress />
       </header>
 
       <div
         id="mobile-nav"
         hidden={!menuOpen}
-        className="fixed inset-0 z-40 bg-canvas lg:hidden"
+        className="fixed inset-0 z-40 bg-canvas/95 backdrop-blur-xl lg:hidden"
       >
         <nav aria-label="Mobile" className="container-page pt-20 pb-10">
           <ul className="flex flex-col">

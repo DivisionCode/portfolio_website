@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { Ventures } from "@/components/home/Ventures";
+import { Architecture } from "@/components/home/Architecture";
 import { Products } from "@/components/home/Products";
 import { Approach } from "@/components/home/Approach";
 import { Stack } from "@/components/home/Stack";
@@ -19,6 +20,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Ventures />
+      <Architecture />
       <Products />
       <Approach />
       <Stack />
@@ -26,11 +28,16 @@ export default function HomePage() {
 
       <section
         id="credentials"
-        className="container-page scroll-mt-20 py-[var(--section-y)]"
+        className="container-page scroll-mt-24 py-[var(--section-y)]"
       >
         <SectionHeading
           eyebrow="Credentials"
-          title="Verified, where verification exists."
+          title={
+            <>
+              Verified,{" "}
+              <span className="text-ink-faint">where verification exists.</span>
+            </>
+          }
           lead="Every certificate links to the issuer's own record rather than an image of a PDF."
           aside={`${credentialCount} records`}
         />

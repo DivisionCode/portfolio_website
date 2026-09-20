@@ -170,10 +170,10 @@ export function CommandPalette({
         type="button"
         aria-label="Close command menu"
         onClick={close}
-        className="absolute inset-0 cursor-default bg-ink/25 backdrop-blur-sm"
+        className="absolute inset-0 cursor-default bg-black/70 backdrop-blur-sm"
       />
 
-      <div className="panel relative w-full max-w-xl overflow-hidden shadow-2xl shadow-ink/10">
+      <div className="card relative w-full max-w-xl overflow-hidden shadow-2xl shadow-black/60">
         <div className="flex items-center gap-3 border-b border-line px-4">
           <Icon name="arrowRight" size={15} className="shrink-0 text-ink-ghost" />
           <input
@@ -189,7 +189,7 @@ export function CommandPalette({
             aria-label="Search"
             className="w-full bg-transparent py-3.5 text-sm outline-none placeholder:text-ink-ghost"
           />
-          <kbd className="shrink-0 rounded bg-sunken px-1.5 py-0.5 font-mono text-[0.625rem] text-ink-ghost">
+          <kbd className="shrink-0 rounded border border-line px-1.5 py-0.5 font-mono text-[0.625rem] text-ink-ghost">
             ESC
           </kbd>
         </div>
@@ -220,7 +220,7 @@ export function CommandPalette({
                     }}
                     className={cn(
                       "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors",
-                      index === cursor ? "bg-sunken" : "bg-transparent",
+                      index === cursor ? "bg-overlay" : "bg-transparent",
                     )}
                   >
                     <Icon
@@ -233,7 +233,7 @@ export function CommandPalette({
                       className={cn(
                         "shrink-0",
                         copied && command.id === "action:email"
-                          ? "text-emerald-600"
+                          ? "text-emerald-400"
                           : "text-ink-ghost",
                       )}
                     />

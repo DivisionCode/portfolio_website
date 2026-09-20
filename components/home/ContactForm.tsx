@@ -11,7 +11,7 @@ const FALLBACK_ACTION = CONTACT_FORM_ENDPOINT.replace("/ajax/", "/");
 type Status = "idle" | "sending" | "sent" | "error";
 
 const fieldClass =
-  "w-full rounded-lg border border-line bg-raised px-3.5 py-2.5 text-[0.9375rem] transition-colors outline-none placeholder:text-ink-ghost focus:border-accent disabled:opacity-50";
+  "w-full rounded-lg border border-line bg-overlay/60 px-3.5 py-2.5 text-[0.9375rem] transition-colors outline-none placeholder:text-ink-ghost focus:border-accent focus:bg-overlay disabled:opacity-50";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -61,7 +61,7 @@ export function ContactForm() {
       onSubmit={onSubmit}
       action={FALLBACK_ACTION}
       method="POST"
-      className="flex flex-col gap-4"
+      className="card flex flex-col gap-4 p-6 md:p-7"
     >
       <input type="hidden" name="_subject" value="New message from dcodeintellect" />
       <input type="hidden" name="_captcha" value="false" />
@@ -151,7 +151,7 @@ export function ContactForm() {
       {status === "error" ? (
         <p
           role="alert"
-          className="flex items-start gap-2.5 rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-[0.8125rem] text-red-800"
+          className="flex items-start gap-2.5 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-[0.8125rem] text-red-200"
         >
           <Icon name="alert" size={15} className="mt-0.5 shrink-0" />
           <span>
