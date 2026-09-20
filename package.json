@@ -17,7 +17,8 @@
     "form": "node scripts/form.mjs",
     "gaps": "node scripts/gaps.mjs",
     "perf": "node scripts/perf.mjs",
-    "capture": "node scripts/capture.mjs"
+    "capture": "node scripts/capture.mjs",
+    "ga": "node scripts/ga.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
