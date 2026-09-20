@@ -13,7 +13,7 @@ export function Tag({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-md border px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap transition-colors",
+        "inline-flex items-center rounded-md border px-2 py-1 meta whitespace-nowrap transition-colors",
         tone === "accent"
           ? "border-line-strong bg-accent-dim text-accent"
           : "border-line bg-overlay/60 text-ink-faint",
@@ -29,7 +29,7 @@ export function StatusPill({ status }: { status: "live" | "building" | "archived
   const copy = { live: "Live", building: "In build", archived: "Archived" }[status];
 
   return (
-    <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] text-ink-faint">
+    <span className="inline-flex items-center gap-1.5 meta text-ink-faint">
       <span aria-hidden className="relative flex size-1.5">
         {status === "live" ? (
           <span className="absolute inline-flex size-full rounded-full bg-live opacity-70 [animation:pulse-ring_2.6s_ease-out_infinite]" />

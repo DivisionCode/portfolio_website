@@ -35,7 +35,7 @@ export function Experience() {
                 ) : null}
                 <div>
                   <p className="font-medium">{role.company}</p>
-                  <p className="mt-0.5 font-mono text-[0.6875rem] text-ink-ghost">
+                  <p className="mt-0.5 meta text-ink-ghost">
                     {role.period}
                   </p>
                 </div>

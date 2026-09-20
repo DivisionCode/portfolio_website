@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,21 +10,19 @@ import { GA_MEASUREMENT_ID, SITE_URL, profile, socials } from "@/lib/content/sit
 import { ventures } from "@/lib/content/work";
 
 /*
-  Geist is the default on every Next.js starter, which is exactly why it reads
-  as generated. Schibsted Grotesk is a variable grotesque with real detail in
-  the g, a and R, and JetBrains Mono gives the metadata a voice of its own.
+  One typeface for the whole interface.
+
+  There is no monospace: a terminal face on labels reads as a developer
+  default rather than as a design decision. Hierarchy comes from size, weight,
+  case and tracking instead, which is harder to get right and looks it.
+
+  Schibsted Grotesk is a variable grotesque with genuine detail in the a, g
+  and R, and it is not the Next.js default the way Geist is.
 */
 const sans = Schibsted_Grotesk({
   variable: "--font-sans-face",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono-face",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -135,7 +133,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${mono.variable} antialiased`}
+      className={`${sans.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col bg-canvas text-ink">

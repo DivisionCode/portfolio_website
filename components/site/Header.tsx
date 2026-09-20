@@ -48,7 +48,8 @@ export function Header() {
 
     const measure = () => {
       frame = 0;
-      const line = window.scrollY + 140;
+      // Comfortably below where a clicked section lands (its scroll-mt, 96px).
+      const line = window.scrollY + 150;
       const atBottom =
         window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
 
@@ -114,7 +115,7 @@ export function Header() {
               <span className="text-[0.9375rem] font-medium tracking-[-0.02em]">
                 {profile.name}
               </span>
-              <span className="mt-1 hidden font-mono text-[0.5625rem] tracking-[0.16em] text-ink-ghost uppercase sm:block">
+              <span className="mt-1 hidden text-[0.5625rem] tracking-[0.16em] text-ink-ghost uppercase sm:block">
                 {profile.brand}
               </span>
             </span>
@@ -159,7 +160,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setPaletteOpen(true)}
-              className="hidden size-8 items-center justify-center rounded-full border border-line font-mono text-[0.625rem] text-ink-faint transition-colors hover:border-line-strong hover:text-ink md:inline-flex"
+              className="hidden size-8 items-center justify-center rounded-full border border-line text-[0.625rem] tracking-[0.02em] text-ink-faint transition-colors hover:border-line-strong hover:text-ink md:inline-flex"
               aria-label="Open command menu"
             >
               ⌘K

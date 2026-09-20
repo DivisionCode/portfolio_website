@@ -104,16 +104,24 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
   chromatic thing on the site is the green "live" dot. Gradient text, a
   violet-to-cyan ramp and blurred glow blobs are what made an earlier pass read
   as generated.
-- **Typefaces** are Schibsted Grotesk and JetBrains Mono, not Geist, which is
-  the Next.js default and therefore the default look.
+- **One typeface, no monospace.** A terminal face on labels reads as a
+  developer default rather than a design decision. Hierarchy comes from size,
+  weight, case and tracking: `label-mono` for uppercase eyebrows, `meta` for
+  small metadata. Geist is avoided because it is the Next.js default.
 - **Light and dark.** Token values live on `:root` and flip under
   `:root[data-theme="light"]`; `@theme inline` points Tailwind's utilities at
   them. An inline script in `<body>` applies the stored choice before paint, so
   there is no flash. Anything drawn in SVG must use `currentColor`, not a
   hard-coded white, or it vanishes in light mode.
 - **Nav order must match page order.** The scroll spy walks sections in
-  document order and takes the last one past the header; `npm run navspy`
-  fails if the highlight and the section disagree.
+  document order and takes the last one past the header.
+- **Only one scroll offset.** `scroll-padding-top` on `<html>` and `scroll-mt`
+  on each section both apply and add up, which landed a clicked section 192px
+  down while the spy line sat at 140px and left the highlight one behind. The
+  sections own the offset; `<html>` sets none.
+- `npm run navspy` checks the highlight while scrolling, `npm run navclick`
+  checks it after clicking each nav link with smooth scroll on. The bug only
+  reproduced under the second.
 - **Design tokens** live in `app/globals.css` under `@theme`, including a 4px
   radius scale and per-heading optical tracking.
 - **Custom utilities** (`container-page`, `card`, `spotlight`, `grid-field`,

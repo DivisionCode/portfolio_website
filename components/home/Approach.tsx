@@ -33,7 +33,7 @@ export function Approach() {
               index === 0 ? "md:col-span-2 lg:col-span-2" : "",
             ].join(" ")}
           >
-            <span className="font-mono text-[2.25rem] leading-none text-ink-ghost/50 transition-colors duration-500 group-hover:text-ink-faint">
+            <span className="text-[2.25rem] leading-none text-ink-ghost/50 transition-colors duration-500 group-hover:text-ink-faint">
               {principle.index}
             </span>
 
@@ -45,7 +45,7 @@ export function Approach() {
               {principle.body}
             </p>
 
-            <p className="mt-6 flex items-start gap-2.5 border-t border-line pt-4 font-mono text-[0.6875rem] leading-relaxed text-ink-ghost">
+            <p className="mt-6 flex items-start gap-2.5 border-t border-line pt-4 meta leading-relaxed text-ink-ghost">
               <span
                 aria-hidden
                 className="mt-1.5 h-px w-4 shrink-0 bg-line-strong"

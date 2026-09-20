@@ -77,7 +77,7 @@ export function Architecture() {
                       {layer.tech.map((item) => (
                         <li
                           key={item}
-                          className="rounded-md border border-line bg-overlay/60 px-2 py-1 font-mono text-[0.6875rem] text-ink-muted transition-colors duration-300 group-hover:border-line-strong"
+                          className="rounded-md border border-line bg-overlay/60 px-2 py-1 meta text-ink-muted transition-colors duration-300 group-hover:border-line-strong"
                         >
                           {item}
                         </li>

@@ -51,7 +51,7 @@ export function Credentials() {
               )}
             >
               {item.label}
-              <span className="ml-1.5 font-mono text-[0.6875rem] opacity-60">
+              <span className="ml-1.5 meta opacity-60">
                 {item.items.length}
               </span>
             </button>
@@ -86,20 +86,20 @@ export function Credentials() {
                   {item.issuer}
                 </p>
 
-                <p className="font-mono text-[0.75rem] text-ink-ghost">{item.year}</p>
+                <p className="meta text-ink-ghost">{item.year}</p>
 
                 {item.verify ? (
                   <a
                     href={item.verify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent hover:underline md:justify-self-end"
+                    className="inline-flex items-center gap-1 justify-self-start meta text-accent hover:underline md:justify-self-end"
                   >
                     Verify
                     <Icon name="arrowUpRight" size={11} />
                   </a>
                 ) : (
-                  <span className="font-mono text-[0.6875rem] text-ink-ghost md:justify-self-end">
+                  <span className="meta text-ink-ghost md:justify-self-end">
                     {item.verifyLabel ?? "n/a"}
                   </span>
                 )}

@@ -74,7 +74,7 @@ function VentureCard({
         {venture.wordmark ?? venture.name}
       </h3>
 
-      <p className="mt-2.5 font-mono text-[0.6875rem] tracking-wide text-ink-faint">
+      <p className="mt-2.5 text-[0.6875rem] tracking-[0.04em] text-ink-faint">
         {venture.role}
       </p>
 
@@ -105,7 +105,7 @@ function VentureCard({
       ) : null}
 
       <div className="mt-auto pt-8">
-        <p className="font-mono text-[0.6875rem] leading-relaxed text-ink-ghost">
+        <p className="meta leading-relaxed text-ink-ghost">
           {venture.stack.slice(0, wide ? 8 : 4).join("  ·  ")}
         </p>
 
@@ -119,7 +119,7 @@ function VentureCard({
             />
           </span>
           {site ? (
-            <span className="font-mono text-[0.6875rem] text-ink-ghost">
+            <span className="meta text-ink-ghost">
               {site.label}
             </span>
           ) : null}

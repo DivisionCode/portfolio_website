@@ -189,7 +189,7 @@ export function CommandPalette({
             aria-label="Search"
             className="w-full bg-transparent py-3.5 text-sm outline-none placeholder:text-ink-ghost"
           />
-          <kbd className="shrink-0 rounded border border-line px-1.5 py-0.5 font-mono text-[0.625rem] text-ink-ghost">
+          <kbd className="shrink-0 rounded border border-line px-1.5 py-0.5 text-[0.625rem] tracking-[0.02em] text-ink-ghost">
             ESC
           </kbd>
         </div>
@@ -242,7 +242,7 @@ export function CommandPalette({
                         ? "Copied to clipboard"
                         : command.label}
                     </span>
-                    <span className="hidden max-w-[45%] truncate font-mono text-[0.6875rem] text-ink-ghost sm:block">
+                    <span className="hidden max-w-[45%] truncate meta text-ink-ghost sm:block">
                       {command.hint}
                     </span>
                   </button>

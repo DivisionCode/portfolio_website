@@ -66,9 +66,9 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <StatusPill status={item.status} />
           <span aria-hidden className="h-3 w-px bg-line-strong" />
-          <span className="font-mono text-[0.6875rem] text-ink-faint">{item.role}</span>
+          <span className="meta text-ink-faint">{item.role}</span>
           <span aria-hidden className="h-3 w-px bg-line-strong" />
-          <span className="font-mono text-[0.6875rem] text-ink-ghost">{item.period}</span>
+          <span className="meta text-ink-ghost">{item.period}</span>
         </div>
 
         <h1 className="mt-5 text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] tracking-[-0.04em] ">
@@ -148,7 +148,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
                     key={fact.label}
                     className="flex items-baseline justify-between gap-4 border-b border-line py-2.5"
                   >
-                    <dt className="font-mono text-[0.6875rem] text-ink-ghost">
+                    <dt className="meta text-ink-ghost">
                       {fact.label}
                     </dt>
                     <dd className="text-right text-[0.8125rem] text-ink-muted">

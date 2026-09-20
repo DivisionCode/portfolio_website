@@ -11,7 +11,8 @@
     "shoot": "node scripts/shoot.mjs",
     "verify": "node scripts/verify.mjs",
     "smoke": "node scripts/clicks.mjs",
-    "navspy": "node scripts/navspy.mjs"
+    "navspy": "node scripts/navspy.mjs",
+    "navclick": "node scripts/navclick.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

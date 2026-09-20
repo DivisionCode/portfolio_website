@@ -36,7 +36,7 @@ export function StackTicker() {
                 {row.map((name, position) => (
                   <li
                     key={`${name}-${position}`}
-                    className="flex items-center gap-6 pr-6 font-mono text-[0.8125rem] whitespace-nowrap text-ink-ghost"
+                    className="flex items-center gap-6 pr-6 text-[0.8125rem] tracking-[0.02em] whitespace-nowrap text-ink-ghost"
                   >
                     {name}
                     <span aria-hidden className="size-0.5 rounded-full bg-ink-ghost/60" />

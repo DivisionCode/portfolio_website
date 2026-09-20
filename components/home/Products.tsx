@@ -47,12 +47,12 @@ export function Products() {
                   <p className="text-[0.9375rem] leading-snug text-ink-muted transition-colors duration-300 group-hover:text-ink">
                     {product.tagline}
                   </p>
-                  <p className="mt-1 font-mono text-[0.6875rem] text-ink-ghost md:hidden">
+                  <p className="mt-1 meta text-ink-ghost md:hidden">
                     {product.stack.join("  ·  ")}
                   </p>
                 </div>
 
-                <p className="hidden font-mono text-[0.6875rem] leading-relaxed text-ink-ghost md:block">
+                <p className="hidden meta leading-relaxed text-ink-ghost md:block">
                   {product.stack.join("  ·  ")}
                 </p>
 

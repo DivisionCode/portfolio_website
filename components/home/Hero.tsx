@@ -142,7 +142,7 @@ function Figure({ value, suffix }: { value: number; suffix: string }) {
     <Counter
       value={value}
       suffix={suffix}
-      className="inline-block h-[0.9em] align-baseline font-mono text-[1.75em] leading-[0.9] tracking-[-0.04em] text-ink tabular-nums"
+      className="inline-block h-[0.9em] align-baseline text-[1.75em] leading-[0.9] tracking-[-0.04em] text-ink tabular-nums"
     />
   );
 }

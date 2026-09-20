@@ -162,7 +162,7 @@ export function HeroLattice({ className }: { className?: string }) {
               x={x}
               y={y + node.dy}
               textAnchor="middle"
-              className="fill-[var(--color-ink-ghost)] font-mono text-[10px] tracking-[0.18em]"
+              className="fill-[var(--color-ink-ghost)] text-[10px] tracking-[0.02em] tracking-[0.18em]"
             >
               {node.label}
             </text>

@@ -39,7 +39,7 @@ export default function NotFound() {
             <li key={item.slug}>
               <Link
                 href={`/work/${item.slug}/`}
-                className="inline-block rounded-full border border-line px-4 py-2 font-mono text-[0.75rem] text-ink-faint transition-colors hover:border-line-strong hover:text-ink"
+                className="inline-block rounded-full border border-line px-4 py-2 meta text-ink-faint transition-colors hover:border-line-strong hover:text-ink"
               >
                 {item.name}
               </Link>

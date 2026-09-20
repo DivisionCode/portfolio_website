@@ -30,7 +30,7 @@ export function Stack() {
           >
             <div className="flex items-baseline justify-between gap-3">
               <h3 className="text-[1rem] tracking-[-0.015em]">{group.title}</h3>
-              <span className="font-mono text-[0.6875rem] text-ink-ghost">
+              <span className="meta text-ink-ghost">
                 {String(group.items.length).padStart(2, "0")}
               </span>
             </div>
@@ -44,7 +44,7 @@ export function Stack() {
                 <li
                   key={tech.name}
                   title={tech.note}
-                  className="rounded-md border border-line bg-overlay/50 px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap text-ink-muted transition-colors duration-300 hover:border-line-strong hover:text-accent"
+                  className="rounded-md border border-line bg-overlay/50 px-2 py-1 meta whitespace-nowrap text-ink-muted transition-colors duration-300 hover:border-line-strong hover:text-accent"
                 >
                   {tech.name}
                 </li>
