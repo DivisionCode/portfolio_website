@@ -1,106 +1,62 @@
-"use client";
-
-import { useRef, useState, type KeyboardEvent } from "react";
-import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
-import { credentialGroups } from "@/lib/content/credentials";
+import { SpotlightGroup } from "@/components/ui/Spotlight";
+import { credentialsByYear } from "@/lib/content/credentials";
 
+/**
+ * A register, grouped by year rather than sat behind tabs.
+ *
+ * Tabs made sense for three categories and ten rows. With education gone there
+ * are six certifications across two categories, and hiding four of them to
+ * show two was costing more than it saved. The year does the organising
+ * instead, which is the axis that actually means something on a credential
+ * list, and it drops a client component from the page.
+ *
+ * Verification is the point of the section, so it is the one thing set as an
+ * affordance rather than as text.
+ */
 export function Credentials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const onKeyDown = (event: KeyboardEvent) => {
-    const last = credentialGroups.length - 1;
-    let next: number | null = null;
-    if (event.key === "ArrowRight") next = activeIndex === last ? 0 : activeIndex + 1;
-    else if (event.key === "ArrowLeft") next = activeIndex === 0 ? last : activeIndex - 1;
-    if (next !== null) {
-      event.preventDefault();
-      setActiveIndex(next);
-      tabRefs.current[next]?.focus();
-    }
-  };
-
   return (
-    <div>
-      <div
-        role="tablist"
-        aria-label="Credential categories"
-        onKeyDown={onKeyDown}
-        className="flex flex-wrap gap-1.5"
-      >
-        {credentialGroups.map((item, index) => {
-          const selected = index === activeIndex;
-          return (
-            <button
-              key={item.id}
-              ref={(node) => {
-                tabRefs.current[index] = node;
-              }}
-              role="tab"
-              id={`cred-tab-${item.id}`}
-              aria-selected={selected}
-              aria-controls={`cred-panel-${item.id}`}
-              tabIndex={selected ? 0 : -1}
-              onClick={() => setActiveIndex(index)}
-              className={cn(
-                "rounded-full border px-3.5 py-1.5 text-[0.8125rem] transition-colors",
-                selected
-                  ? "border-line-strong bg-accent-dim text-accent"
-                  : "border-line text-ink-faint hover:border-line-strong hover:text-ink",
-              )}
-            >
-              {item.label}
-              <span className="ml-1.5 meta opacity-60">
-                {item.items.length}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/*
-        Every panel stays in the DOM, inactive ones `hidden`. Correct ARIA
-        shape, and it keeps all the certifications in the static HTML for
-        crawlers rather than only after a click.
-      */}
-      {credentialGroups.map((group, groupIndex) => (
+    <SpotlightGroup>
+      {credentialsByYear.map(({ year, items }) => (
         <div
-          key={group.id}
-          role="tabpanel"
-          id={`cred-panel-${group.id}`}
-          aria-labelledby={`cred-tab-${group.id}`}
-          tabIndex={0}
-          hidden={groupIndex !== activeIndex}
-          className="mt-5"
+          key={year}
+          data-reveal
+          className="grid border-t border-line py-6 md:grid-cols-[4.5rem_1fr] md:gap-x-8"
         >
-          <ul className="card overflow-clip">
-            {group.items.map((item) => (
+          <p className="label-mono pt-1 pb-4 md:pb-0">{year}</p>
+
+          <ul>
+            {items.map((item) => (
               <li
-                key={`${item.title}-${item.year}`}
-                className="grid gap-y-1 border-t border-line px-5 py-4 transition-colors duration-300 first:border-t-0 hover:bg-overlay/40 md:grid-cols-[1.4fr_1.5fr_5rem_auto] md:items-baseline md:gap-x-8 md:px-6"
+                key={item.title}
+                data-spotlight
+                className="spotlight group relative -mx-4 grid gap-x-8 gap-y-2 rounded-[var(--radius-md)] px-4 py-3.5 md:grid-cols-[1fr_auto] md:items-baseline"
               >
-                <p className="text-[0.9375rem] leading-snug">{item.title}</p>
-
-                <p className="text-[0.8125rem] leading-snug text-ink-faint">
-                  {item.issuer}
-                </p>
-
-                <p className="meta text-ink-ghost">{item.year}</p>
+                <div>
+                  <h3 className="text-[1.0625rem] leading-snug transition-colors duration-300 group-hover:text-accent">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="text-[0.875rem] text-ink-faint">{item.issuer}</span>
+                    <span className="meta">
+                      {item.category} · {item.scope} · {item.validity}
+                    </span>
+                  </p>
+                </div>
 
                 {item.verify ? (
                   <a
                     href={item.verify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 justify-self-start meta text-accent hover:underline md:justify-self-end"
+                    className="inline-flex shrink-0 items-center gap-1.5 justify-self-start rounded-full border border-line px-3.5 py-1.5 text-[0.8125rem] text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink md:justify-self-end"
                   >
                     Verify
-                    <Icon name="arrowUpRight" size={11} />
+                    <Icon name="arrowUpRight" size={12} />
                   </a>
                 ) : (
-                  <span className="meta text-ink-ghost md:justify-self-end">
-                    {item.verifyLabel ?? "n/a"}
+                  <span className="meta shrink-0 justify-self-start md:justify-self-end">
+                    {item.verifyLabel}
                   </span>
                 )}
               </li>
@@ -108,6 +64,6 @@ export function Credentials() {
           </ul>
         </div>
       ))}
-    </div>
+    </SpotlightGroup>
   );
 }

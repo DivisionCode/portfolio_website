@@ -9,14 +9,9 @@ import { Experience } from "@/components/home/Experience";
 import { Credentials } from "@/components/home/Credentials";
 import { Contact } from "@/components/home/Contact";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { credentialGroups } from "@/lib/content/credentials";
+import { credentials } from "@/lib/content/credentials";
 
 export default function HomePage() {
-  const credentialCount = credentialGroups.reduce(
-    (sum, group) => sum + group.items.length,
-    0,
-  );
-
   return (
     <>
       <Hero />
@@ -41,8 +36,8 @@ export default function HomePage() {
               <span className="text-ink-faint">where verification exists.</span>
             </>
           }
-          lead="Every certificate links to the issuer's own record rather than an image of a PDF."
-          aside={`${credentialCount} records`}
+          lead="Every certificate links to the issuer's own record rather than an image of a PDF. Degrees and schooling are on the CV."
+          aside={`${credentials.length} certifications`}
         />
         <Credentials />
       </section>

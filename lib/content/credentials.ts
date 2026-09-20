@@ -1,6 +1,8 @@
 export type Credential = {
   title: string;
   issuer: string;
+  /** Technical certifications versus process and quality ones. */
+  category: "Technical" | "Professional";
   scope: string;
   year: string;
   validity: string;
@@ -9,121 +11,80 @@ export type Credential = {
   verifyLabel?: string;
 };
 
-export type CredentialGroup = {
-  id: string;
-  label: string;
-  caption: string;
-  items: Credential[];
-};
-
-export const credentialGroups: CredentialGroup[] = [
+/**
+ * Certifications only.
+ *
+ * Schools and degrees used to sit here too, under a third tab. They are on the
+ * CV, and on a page that leads with four ventures they were the least
+ * interesting thing in the section.
+ *
+ * Newest first: the list is rendered grouped by year, so the order here is the
+ * order on the page.
+ */
+export const credentials: Credential[] = [
   {
-    id: "education",
-    label: "Education",
-    caption: "Degrees and general education",
-    items: [
-      {
-        title: "Bachelor of Computer Applications",
-        issuer: "Indira Gandhi National Open University (IGNOU) · Vikas Bhawan",
-        scope: "Open & distance learning",
-        year: "Pursuing",
-        validity: "n/a",
-        verify: null,
-      },
-      {
-        title: "Diploma in Computer Science & Engineering",
-        issuer:
-          "Karnataka State Open University (KSOU) · Baba Saheb Ambedkar Institute of Technology and Management",
-        scope: "Regular",
-        year: "2014",
-        validity: "n/a",
-        verify: null,
-      },
-      {
-        title: "Higher Secondary (12th)",
-        issuer:
-          "West Bengal Council of Higher Secondary Education · Shree Satyanarayan Madhav Mishra Vidyalaya",
-        scope: "Regular",
-        year: "2012",
-        validity: "n/a",
-        verify: null,
-      },
-      {
-        title: "Secondary (10th)",
-        issuer: "West Bengal Board of Secondary Education · Hindmotor High School",
-        scope: "Regular",
-        year: "2010",
-        validity: "n/a",
-        verify: null,
-      },
-    ],
+    title: "IBM Certified React Developer",
+    issuer: "IBM · Coursera",
+    category: "Technical",
+    scope: "Global professional",
+    year: "2025",
+    validity: "Lifetime",
+    verify: "https://www.coursera.org/account/accomplishments/verify/XE06LJ7KOTVN",
   },
   {
-    id: "technical",
-    label: "Technical",
-    caption: "Engineering and machine-learning certifications",
-    items: [
-      {
-        title: "IBM Certified React Developer",
-        issuer: "IBM · Coursera",
-        scope: "Global professional",
-        year: "2025",
-        validity: "Lifetime",
-        verify:
-          "https://www.coursera.org/account/accomplishments/verify/XE06LJ7KOTVN",
-      },
-      {
-        title: "Supervised Machine Learning: Regression and Classification",
-        issuer: "DeepLearning.AI · Stanford University",
-        scope: "Global professional",
-        year: "2024",
-        validity: "Lifetime",
-        verify:
-          "https://www.coursera.org/account/accomplishments/verify/CGRHU1JNRE6N",
-      },
-      {
-        title: "Mathematics for Machine Learning: Linear Algebra",
-        issuer: "Imperial College London",
-        scope: "Global professional",
-        year: "2024",
-        validity: "Lifetime",
-        verify:
-          "https://www.coursera.org/account/accomplishments/verify/9H4XWK4B1PB5",
-      },
-      {
-        title: "Responsive Web Design",
-        issuer: "freeCodeCamp",
-        scope: "Global",
-        year: "2025",
-        validity: "Lifetime",
-        verify:
-          "https://www.freecodecamp.org/certification/divisioncode/responsive-web-design",
-      },
-      {
-        title: "O Level",
-        issuer:
-          "National Institute of Electronics and Information Technology (NIELIT)",
-        scope: "National",
-        year: "2017",
-        validity: "Lifetime",
-        verify: null,
-        verifyLabel: "Hard copy",
-      },
-    ],
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    category: "Technical",
+    scope: "Global",
+    year: "2025",
+    validity: "Lifetime",
+    verify:
+      "https://www.freecodecamp.org/certification/divisioncode/responsive-web-design",
   },
   {
-    id: "professional",
-    label: "Professional",
-    caption: "Process and quality certifications",
-    items: [
-      {
-        title: "Six Sigma White Belt",
-        issuer: "The Council for Six Sigma Certification (CSSC)",
-        scope: "Global",
-        year: "2025",
-        validity: "Lifetime",
-        verify: "/docs/six-sigma-white-belt.pdf",
-      },
-    ],
+    title: "Six Sigma White Belt",
+    issuer: "The Council for Six Sigma Certification (CSSC)",
+    category: "Professional",
+    scope: "Global",
+    year: "2025",
+    validity: "Lifetime",
+    verify: "/docs/six-sigma-white-belt.pdf",
+  },
+  {
+    title: "Supervised Machine Learning: Regression and Classification",
+    issuer: "DeepLearning.AI · Stanford University",
+    category: "Technical",
+    scope: "Global professional",
+    year: "2024",
+    validity: "Lifetime",
+    verify: "https://www.coursera.org/account/accomplishments/verify/CGRHU1JNRE6N",
+  },
+  {
+    title: "Mathematics for Machine Learning: Linear Algebra",
+    issuer: "Imperial College London",
+    category: "Technical",
+    scope: "Global professional",
+    year: "2024",
+    validity: "Lifetime",
+    verify: "https://www.coursera.org/account/accomplishments/verify/9H4XWK4B1PB5",
+  },
+  {
+    title: "O Level",
+    issuer: "National Institute of Electronics and Information Technology (NIELIT)",
+    category: "Technical",
+    scope: "National",
+    year: "2017",
+    validity: "Lifetime",
+    verify: null,
+    verifyLabel: "Hard copy",
   },
 ];
+
+/** Grouped by year, newest first, for the register layout. */
+export const credentialsByYear: { year: string; items: Credential[] }[] =
+  credentials.reduce<{ year: string; items: Credential[] }[]>((years, item) => {
+    const existing = years.find((entry) => entry.year === item.year);
+    if (existing) existing.items.push(item);
+    else years.push({ year: item.year, items: [item] });
+    return years;
+  }, []);

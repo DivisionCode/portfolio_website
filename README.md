@@ -25,10 +25,9 @@ components: the header, the scroll-progress bar, the command palette, the
 theme toggle, the metric counters, the product explorer and the credential
 tabs. There is no animation library; motion is native CSS.
 
-**Tabbed surfaces keep every panel in the DOM**, with the inactive ones
-`hidden`. That is the correct ARIA shape and it means all eight products and
-every certification are in the static HTML for crawlers, not just the selected
-one.
+Degrees and schooling are deliberately not on the page. They are on the CV,
+and on a page that leads with four ventures they were the least interesting
+thing in the section.
 
 ---
 
@@ -64,7 +63,7 @@ means editing one of these files, no JSX required.
 | `lib/content/stack.ts`        | The 11 technology groups                            |
 | `lib/content/architecture.ts` | The 8 platform layers in the architecture section   |
 | `lib/content/approach.ts`     | The five engineering principles                     |
-| `lib/content/credentials.ts`  | Education and certifications, with verify links     |
+| `lib/content/credentials.ts`  | Certifications, with verify links                   |
 | `lib/content/experience.ts`   | Employment history, **see below**                  |
 
 Adding a venture or product to `work.ts` automatically creates its
