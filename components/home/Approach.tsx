@@ -16,7 +16,7 @@ import { principles } from "@/lib/content/approach";
  */
 export function Approach() {
   return (
-    <section id="approach" className="container-page scroll-mt-24 py-[var(--section-y)]">
+    <section id="approach" className="container-page scroll-mt-24 pt-[var(--section-y)]">
       <SectionHeading
         index="04"
         eyebrow="Approach"

@@ -11,7 +11,7 @@ const SPAN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"
 
 export function Ventures() {
   return (
-    <section id="ventures" className="container-page scroll-mt-24 py-[var(--section-y)]">
+    <section id="ventures" className="container-page scroll-mt-24 pt-[var(--section-y)]">
       <SectionHeading
         index="01"
         eyebrow="Ventures"

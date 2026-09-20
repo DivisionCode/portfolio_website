@@ -9,7 +9,7 @@ export function Hero() {
   const [years, ventures, products, tech] = metrics;
 
   return (
-    <section className="relative isolate overflow-clip pt-24 pb-[var(--section-y)] md:pt-28">
+    <section className="relative isolate overflow-clip pt-24 pb-[calc(var(--section-y)*0.75)] md:pt-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="grid-field absolute inset-0" />
         <div className="wash absolute inset-0" />

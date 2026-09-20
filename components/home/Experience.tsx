@@ -11,7 +11,7 @@ export function Experience() {
   if (publishedExperience.length === 0) return null;
 
   return (
-    <section id="experience" className="container-page scroll-mt-24 py-[var(--section-y)]">
+    <section id="experience" className="container-page scroll-mt-24 pt-[var(--section-y)]">
       <SectionHeading
         index="06"
         eyebrow="Experience"

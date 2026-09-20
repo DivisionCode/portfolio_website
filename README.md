@@ -46,6 +46,7 @@ npm run navspy     # checks the nav highlights the section you are in
 npm run navclick   # same, but by clicking, with smooth scroll on
 npm run dashes     # fails on any em dash, or anything that renders as one
 npm run form       # submits the contact form with the network intercepted
+npm run gaps       # prints the ink-to-ink gap between every section
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -118,6 +119,10 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
   which renders as an em dash even though no dash exists in the source.
   `npm run dashes` checks every dash-like codepoint across the source *and*
   the built HTML, plus that faux-rule pattern.
+- **Sections pad the top only.** `--section-y` on both sides doubles at every
+  boundary: two 100px paddings read as a 200px hole. One side means one gap.
+  Contact carries a bottom because the footer follows it. `npm run gaps`
+  prints the real ink-to-ink distances.
 - **Monochrome.** There is no accent hue. Emphasis is luminance, and the only
   chromatic thing on the site is the green "live" dot. Gradient text, a
   violet-to-cyan ramp and blurred glow blobs are what made an earlier pass read

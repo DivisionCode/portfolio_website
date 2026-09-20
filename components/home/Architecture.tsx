@@ -12,7 +12,7 @@ export function Architecture() {
   return (
     <section
       id="architecture"
-      className="relative scroll-mt-24 overflow-clip py-[var(--section-y)]"
+      className="relative scroll-mt-24 overflow-clip pt-[var(--section-y)]"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="dot-field absolute inset-0" />

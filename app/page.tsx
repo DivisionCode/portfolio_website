@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <section
         id="credentials"
-        className="container-page scroll-mt-24 py-[var(--section-y)]"
+        className="container-page scroll-mt-24 pt-[var(--section-y)]"
       >
         <SectionHeading
           index="07"

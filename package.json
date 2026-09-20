@@ -14,7 +14,8 @@
     "navspy": "node scripts/navspy.mjs",
     "navclick": "node scripts/navclick.mjs",
     "dashes": "node scripts/dashes.mjs",
-    "form": "node scripts/form.mjs"
+    "form": "node scripts/form.mjs",
+    "gaps": "node scripts/gaps.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

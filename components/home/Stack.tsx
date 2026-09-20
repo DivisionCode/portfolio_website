@@ -6,7 +6,7 @@ export function Stack() {
   const total = stackGroups.reduce((sum, group) => sum + group.items.length, 0);
 
   return (
-    <section id="stack" className="container-page scroll-mt-24 py-[var(--section-y)]">
+    <section id="stack" className="container-page scroll-mt-24 pt-[var(--section-y)]">
       <SectionHeading
         index="05"
         eyebrow="Stack"

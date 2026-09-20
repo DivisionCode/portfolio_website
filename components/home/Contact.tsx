@@ -7,7 +7,7 @@ export function Contact() {
   const { location } = profile;
 
   return (
-    <section id="contact" className="container-page scroll-mt-20 py-[var(--section-y)]">
+    <section id="contact" className="container-page scroll-mt-20 pt-[var(--section-y)] pb-[calc(var(--section-y)*0.8)]">
       <SectionHeading
         index="08"
         eyebrow="Contact"

@@ -6,7 +6,7 @@ import { products } from "@/lib/content/work";
 
 export function Products() {
   return (
-    <section id="products" className="container-page scroll-mt-24 py-[var(--section-y)]">
+    <section id="products" className="container-page scroll-mt-24 pt-[var(--section-y)]">
       <SectionHeading
         index="03"
         eyebrow="Product line"
