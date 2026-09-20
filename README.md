@@ -47,6 +47,7 @@ npm run navclick   # same, but by clicking, with smooth scroll on
 npm run dashes     # fails on any em dash, or anything that renders as one
 npm run form       # submits the contact form with the network intercepted
 npm run gaps       # prints the ink-to-ink gap between every section
+npm run perf       # load, scroll frame times, pointer cost, DOM weight
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -123,6 +124,14 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
   boundary: two 100px paddings read as a 200px hole. One side means one gap.
   Contact carries a bottom because the footer follows it. `npm run gaps`
   prints the real ink-to-ink distances.
+- **Nothing full-screen and fixed may be clever.** The grain overlay is a
+  plain pre-rasterised tile. Both `contain: paint` and a `mix-blend-mode` read
+  from a custom property halved the scroll frame rate on it, the second because
+  the browser cannot know the value resolves to `normal` and so declines to
+  optimise the layer.
+- **Pointer handlers touch one element.** The spotlight updates only the card
+  under the cursor, never the whole group: reading 37 rects per `pointermove`
+  is layout thrash on a handler that fires 120 times a second.
 - **Monochrome.** There is no accent hue. Emphasis is luminance, and the only
   chromatic thing on the site is the green "live" dot. Gradient text, a
   violet-to-cyan ramp and blurred glow blobs are what made an earlier pass read

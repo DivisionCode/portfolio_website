@@ -25,7 +25,7 @@ export function StackTicker() {
         {rows.map((row, index) => (
           <div
             key={index}
-            className="flex w-max"
+            className="flex w-max will-change-transform [backface-visibility:hidden]"
             style={{
               animation: `${index === 0 ? "marquee-left" : "marquee-right"} ${index === 0 ? 68 : 84}s linear infinite`,
             }}
