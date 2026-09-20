@@ -20,10 +20,15 @@ Next.js application. The previous version is still in git history at
 | Output    | `output: "export"`, plain files, no Node runtime needed  |
 | Hosting   | Netlify (`netlify.toml` sets headers, CSP and redirects)  |
 
-Everything the page needs ships as static HTML. Six components are client
+Everything the page needs ships as static HTML. Seven components are client
 components: the header, the scroll-progress bar, the command palette, the
-metric counters, the card spotlight and the credential tabs. There is no
-animation library; motion is native CSS.
+theme toggle, the metric counters, the product explorer and the credential
+tabs. There is no animation library; motion is native CSS.
+
+**Tabbed surfaces keep every panel in the DOM**, with the inactive ones
+`hidden`. That is the correct ARIA shape and it means all eight products and
+every certification are in the static HTML for crawlers, not just the selected
+one.
 
 ---
 
