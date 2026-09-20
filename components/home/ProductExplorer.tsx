@@ -5,19 +5,20 @@ import { useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
 import { Tag } from "@/components/ui/Tag";
+import { ProductSchematic } from "@/components/visual/ProductSchematic";
 import type { WorkItem } from "@/lib/content/work";
 
 /**
- * Master and detail rather than eight near-identical table rows.
+ * Index, detail, and a schematic drawn from the product's own modules.
  *
- * A flat table gave every product the same weight and left two thirds of the
- * width empty, so nothing held the eye. Here the index stays scannable on the
- * left while the right side actually uses the space: what the system does, the
- * modules it carries, the stack it runs on.
+ * Two earlier shapes failed here. A flat table gave every product the same
+ * weight and left two thirds of the width empty. Master and detail fixed the
+ * scanning but still left a void under any product with only two modules,
+ * because a column of prose cannot fill a panel sized for five.
  *
- * Every panel stays in the DOM with the inactive ones `hidden`, so all eight
- * products are in the static HTML for crawlers rather than only the selected
- * one. Each also has its own /work/<slug>/ page.
+ * The schematic solves both: it is generated from the module list, so it grows
+ * with the content instead of leaving a hole, and every product ends up with a
+ * different shape rather than eight copies of one row.
  */
 export function ProductExplorer({ items }: { items: WorkItem[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -66,11 +67,10 @@ export function ProductExplorer({ items }: { items: WorkItem[] }) {
               onClick={() => setActiveIndex(index)}
               onMouseEnter={() => setActiveIndex(index)}
               className={cn(
-                "relative flex w-full items-baseline gap-4 border-t border-line px-5 py-3.5 text-left transition-colors duration-200 first:border-t-0 md:px-6",
+                "relative flex w-full items-baseline gap-3.5 border-t border-line px-5 py-3.5 text-left transition-colors duration-200 first:border-t-0 md:px-6",
                 selected ? "bg-overlay" : "hover:bg-overlay/50",
               )}
             >
-              {/* Marker that grows in on the active row */}
               <span
                 aria-hidden
                 className={cn(
@@ -88,20 +88,22 @@ export function ProductExplorer({ items }: { items: WorkItem[] }) {
               </span>
               <span
                 className={cn(
-                  "flex-1 text-[0.9375rem] transition-colors",
+                  "flex-1 truncate text-[0.9375rem] whitespace-nowrap transition-colors",
                   selected ? "text-ink" : "text-ink-muted",
                 )}
               >
                 {item.name}
               </span>
-              <span className="meta hidden shrink-0 sm:block">{item.domains[0]}</span>
+              <span className="meta hidden max-w-[7.5rem] shrink-0 truncate sm:block">
+                {item.domains[0]}
+              </span>
             </button>
           );
         })}
       </div>
 
       {/* ── Detail ─────────────────────────────────────────────────────── */}
-      <div className="relative">
+      <div>
         {items.map((item, index) => (
           <div
             key={item.slug}
@@ -110,37 +112,21 @@ export function ProductExplorer({ items }: { items: WorkItem[] }) {
             aria-labelledby={`product-tab-${item.slug}`}
             tabIndex={0}
             hidden={index !== activeIndex}
-            className="flex h-full flex-col p-6 md:p-8"
+            className="grid gap-x-10 gap-y-8 p-6 md:p-8 xl:grid-cols-[minmax(0,20rem)_1fr] xl:items-center"
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
+            {/* Prose */}
+            <div>
               <h3 className="text-[1.5rem] tracking-[-0.03em]">{item.name}</h3>
-              <span className="meta">{item.domains.join(" · ")}</span>
-            </div>
 
-            <p className="mt-2 text-[1rem] leading-snug text-ink-muted">
-              {item.tagline}
-            </p>
+              <p className="mt-2 text-[1rem] leading-snug text-ink-muted">
+                {item.tagline}
+              </p>
 
-            <p className="mt-4 max-w-2xl text-[0.875rem] leading-[1.75] text-ink-faint">
-              {item.summary}
-            </p>
+              <p className="mt-4 text-[0.875rem] leading-[1.75] text-ink-faint">
+                {item.summary}
+              </p>
 
-            <ul className="mt-6 grid gap-x-8 gap-y-2.5 border-t border-line pt-6 sm:grid-cols-2">
-              {item.highlights.map((highlight) => (
-                <li key={highlight.title} className="flex items-baseline gap-2.5">
-                  <span
-                    aria-hidden
-                    className="size-1 shrink-0 translate-y-[-0.15em] rounded-full bg-ink-ghost"
-                  />
-                  <span className="text-[0.8125rem] leading-snug text-ink-muted">
-                    {highlight.title}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-auto pt-8">
-              <ul className="flex flex-wrap gap-1.5">
+              <ul className="mt-6 flex flex-wrap gap-1.5">
                 {item.stack.map((tech) => (
                   <li key={tech}>
                     <Tag>{tech}</Tag>
@@ -148,7 +134,7 @@ export function ProductExplorer({ items }: { items: WorkItem[] }) {
                 ))}
               </ul>
 
-              <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-line pt-5">
+              <div className="mt-6 flex flex-wrap items-center gap-6">
                 <Link
                   href={`/work/${item.slug}/`}
                   className="group inline-flex items-center gap-2 text-[0.875rem] font-medium"
@@ -177,6 +163,26 @@ export function ProductExplorer({ items }: { items: WorkItem[] }) {
                   ))}
               </div>
             </div>
+
+            {/* Module fan, generated from this product's own modules */}
+            <figure className="min-w-0">
+              <figcaption className="label-mono mb-4 xl:mb-6">
+                {item.highlights.length} modules
+              </figcaption>
+              <ProductSchematic
+                label={item.name.split(" ")[0]}
+                modules={item.highlights.map((highlight) => highlight.title)}
+                className="h-auto w-full"
+              />
+              {/* The same titles as text, since the figure is decorative. */}
+              <ul className="sr-only">
+                {item.highlights.map((highlight) => (
+                  <li key={highlight.title}>
+                    {highlight.title}: {highlight.body}
+                  </li>
+                ))}
+              </ul>
+            </figure>
           </div>
         ))}
       </div>
