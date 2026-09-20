@@ -30,26 +30,31 @@ const point = (angle: number, radius: number) => {
  */
 export function HeroLattice({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 560 560" className={className} aria-hidden="true" fill="none">
+    <svg
+      viewBox="0 0 560 560"
+      className={`text-ink ${className ?? ""}`}
+      aria-hidden="true"
+      fill="none"
+    >
       <defs>
         {/*
           Rings fade around their circumference rather than drawing at an even
           weight, which reads as lighting rather than as an outline.
         */}
         <linearGradient id="ring-a" x1="0" y1="0" x2="0.6" y2="1">
-          <stop offset="0%" stopColor="#fff" stopOpacity="0.20" />
-          <stop offset="55%" stopColor="#fff" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="#fff" stopOpacity="0.14" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.20" />
+          <stop offset="55%" stopColor="currentColor" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.14" />
         </linearGradient>
 
         <linearGradient id="spoke" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#fff" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#fff" stopOpacity="0.06" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.06" />
         </linearGradient>
 
         <radialGradient id="core-wash">
-          <stop offset="0%" stopColor="#fff" stopOpacity="0.09" />
-          <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.09" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -83,7 +88,7 @@ export function HeroLattice({ className }: { className?: string }) {
           cx={C}
           cy={C}
           r={R_ORBIT}
-          stroke="oklch(1 0 0 / 9%)"
+          stroke="currentColor" strokeOpacity="0.14"
           strokeWidth="1"
           strokeDasharray="1 6"
         />
@@ -99,7 +104,7 @@ export function HeroLattice({ className }: { className?: string }) {
             const { x, y } = point(i * 60 - 90, R_INNER);
             return `${x.toFixed(1)},${y.toFixed(1)}`;
           }).join(" ")}
-          stroke="oklch(1 0 0 / 11%)"
+          stroke="currentColor" strokeOpacity="0.16"
           strokeWidth="1"
         />
       </g>
@@ -135,7 +140,7 @@ export function HeroLattice({ className }: { className?: string }) {
               cx={x}
               cy={y}
               r={6}
-              fill="#fff"
+              fill="currentColor"
               opacity="0.16"
               style={{
                 transformOrigin: `${x}px ${y}px`,
@@ -148,11 +153,11 @@ export function HeroLattice({ className }: { className?: string }) {
               cx={x}
               cy={y}
               r={3.5}
-              stroke="#fff"
-              strokeOpacity="0.55"
+              stroke="currentColor"
+              strokeOpacity="0.6"
               strokeWidth="1"
             />
-            <circle cx={x} cy={y} r={1.25} fill="#fff" fillOpacity="0.8" />
+            <circle cx={x} cy={y} r={1.25} fill="currentColor" fillOpacity="0.85" />
             <text
               x={x}
               y={y + node.dy}
@@ -166,12 +171,12 @@ export function HeroLattice({ className }: { className?: string }) {
       })}
 
       {/* Core rings: the frame the portrait sits inside */}
-      <circle cx={C} cy={C} r={72} stroke="oklch(1 0 0 / 10%)" strokeWidth="1" />
+      <circle cx={C} cy={C} r={72} stroke="currentColor" strokeOpacity="0.14" strokeWidth="1" />
       <circle
         cx={C}
         cy={C}
         r={80}
-        stroke="oklch(1 0 0 / 22%)"
+        stroke="currentColor" strokeOpacity="0.28"
         strokeWidth="1"
         strokeDasharray="2 8"
         style={{

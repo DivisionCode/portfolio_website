@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 
 import { Header } from "@/components/site/Header";
+import { themeScript } from "@/components/site/ThemeToggle";
 import { Footer } from "@/components/site/Footer";
 import { GA_MEASUREMENT_ID, SITE_URL, profile, socials } from "@/lib/content/site";
 import { ventures } from "@/lib/content/work";
@@ -138,6 +139,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col bg-canvas text-ink">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <Header />
         <main id="main" className="flex-1">
           {children}

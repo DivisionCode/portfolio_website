@@ -24,10 +24,10 @@ await mkdir(OUT, { recursive: true });
 for (const shot of SHOTS) {
   const page = await browser.newPage({
     viewport: { width: shot.width, height: shot.height },
-    deviceScaleFactor: 2,
+    deviceScaleFactor: shot.full ? 1 : 2,
   });
 
-  await page.goto(BASE + shot.path, { waitUntil: "networkidle" });
+  await page.goto(BASE + shot.path, { waitUntil: "load" });
 
   // Drive every scroll-reveal to its end state, then return to the top.
   await page.evaluate(async () => {

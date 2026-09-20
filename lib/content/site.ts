@@ -75,8 +75,8 @@ export const socials: SocialLink[] = [
 
 export const navLinks = [
   { label: "Ventures", href: "/#ventures" },
-  { label: "Products", href: "/#products" },
   { label: "Architecture", href: "/#architecture" },
+  { label: "Products", href: "/#products" },
   { label: "Approach", href: "/#approach" },
   { label: "Stack", href: "/#stack" },
   { label: "Credentials", href: "/#credentials" },

@@ -2,9 +2,12 @@ import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { Counter } from "@/components/ui/Counter";
 import { HeroLattice } from "@/components/visual/HeroLattice";
+import { Monogram } from "@/components/visual/Monogram";
 import { metrics, profile, socials } from "@/lib/content/site";
 
 export function Hero() {
+  const [years, ventures, products, tech] = metrics;
+
   return (
     <section className="relative isolate overflow-clip pt-24 pb-[var(--section-y)] md:pt-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -13,13 +16,12 @@ export function Hero() {
       </div>
 
       <div className="container-page">
-        {/*
-          Masthead strip. An editorial device: the page states where it is
-          before it states who it is, and it gives the hero a top edge to hang
-          from instead of floating in space.
-        */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line pb-4">
-          <span className="label-mono">{profile.brand}</span>
+        {/* Masthead strip: the page states where it is before it states who. */}
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line pb-4">
+          <span className="group/mark flex items-center gap-2.5">
+            <Monogram className="size-5 text-ink" />
+            <span className="label-mono text-ink-muted">{profile.brand}</span>
+          </span>
           <span aria-hidden className="hidden h-2.5 w-px bg-line-strong sm:block" />
           <span className="label-mono">
             {profile.location.region}, {profile.location.country}
@@ -36,13 +38,18 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="grid items-center gap-12 pt-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:pt-16">
-          <div data-reveal>
-            <h1 className="text-[clamp(3.25rem,8.5vw,6.5rem)] leading-[0.86]">
+        {/*
+          The lattice bleeds past the right edge of the container rather than
+          sitting in its own column. Cropping the artifact is what stops the
+          hero reading as two boxes side by side.
+        */}
+        <div className="relative">
+          <div className="relative z-10 max-w-2xl pt-14 lg:pt-20" data-reveal>
+            <h1 className="text-[clamp(3.25rem,8.5vw,6.25rem)] leading-[0.86]">
               Rohit Singh
             </h1>
 
-            <p className="mt-8 max-w-xl text-[clamp(1.125rem,2.2vw,1.4375rem)] leading-[1.3] tracking-[-0.02em] text-ink-muted">
+            <p className="mt-8 text-[clamp(1.125rem,2.2vw,1.4375rem)] leading-[1.3] tracking-[-0.02em] text-ink-muted">
               Senior software engineer.{" "}
               <span className="text-ink">Co-founder at Fundrev.</span>
             </p>
@@ -54,7 +61,7 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-2">
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.875rem] font-medium text-canvas transition-colors duration-200 hover:bg-white"
+                className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.875rem] font-medium text-canvas transition-opacity duration-200 hover:opacity-90"
               >
                 Start a conversation
                 <Icon
@@ -93,8 +100,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Lattice, with the portrait as its core */}
-          <div className="relative mx-auto aspect-square w-full max-w-[28rem]">
+          <div className="relative mx-auto mt-16 aspect-square w-full max-w-[21rem] lg:absolute lg:top-1/2 lg:-right-[16%] lg:mt-0 lg:w-[42rem] lg:max-w-none lg:-translate-y-1/2">
             <HeroLattice className="animate-drift absolute inset-0 size-full" />
             <Image
               src="/media/profile.jpg"
@@ -102,28 +108,41 @@ export function Hero() {
               width={800}
               height={800}
               priority
-              sizes="200px"
-              className="absolute top-1/2 left-1/2 size-[24%] -translate-x-1/2 -translate-y-1/2 rounded-full object-cover grayscale-[0.2]"
+              sizes="(max-width: 1024px) 80px, 160px"
+              className="absolute top-1/2 left-1/2 size-[23%] -translate-x-1/2 -translate-y-1/2 rounded-full object-cover"
             />
           </div>
         </div>
 
-        {/* Metrics, divided by rules rather than boxed */}
-        <dl data-reveal className="mt-14 grid grid-cols-2 border-t border-line md:grid-cols-4">
-          {metrics.map((metric, index) => (
-            <div
-              key={metric.label}
-              className={`py-6 pr-8 ${index > 0 ? "md:border-l md:border-line md:pl-8" : ""}`}
-            >
-              <dd className="font-mono text-[2rem] leading-none tracking-[-0.04em] tabular-nums md:text-[2.375rem]">
-                <Counter value={metric.value} suffix={metric.suffix} />
-              </dd>
-              <dt className="mt-3.5 text-[0.8125rem] text-ink-muted">{metric.label}</dt>
-              <p className="mt-1 text-[0.75rem] text-ink-ghost">{metric.detail}</p>
-            </div>
-          ))}
-        </dl>
+        {/*
+          The numbers as a sentence, not a counter grid. A grid of four boxes
+          asserts figures; a line of prose with the figures set large reads as
+          something a person wrote.
+        */}
+        <p
+          data-reveal
+          className="relative z-10 mt-20 max-w-4xl border-t border-line pt-8 text-[clamp(1rem,2vw,1.1875rem)] leading-[2.1] text-ink-faint"
+        >
+          <Figure value={years.value} suffix={years.suffix} /> years building enterprise
+          systems in production.{" "}
+          <Figure value={ventures.value} suffix={ventures.suffix} /> ventures founded or
+          co-founded, <Figure value={products.value} suffix={products.suffix} /> products
+          shipped under {profile.brand}, and{" "}
+          <Figure value={tech.value} suffix={tech.suffix} /> technologies I have actually
+          put my hands on.
+        </p>
       </div>
     </section>
+  );
+}
+
+/** A numeral set large and in mono, sitting inline in the sentence. */
+function Figure({ value, suffix }: { value: number; suffix: string }) {
+  return (
+    <Counter
+      value={value}
+      suffix={suffix}
+      className="inline-block h-[0.9em] align-baseline font-mono text-[1.75em] leading-[0.9] tracking-[-0.04em] text-ink tabular-nums"
+    />
   );
 }

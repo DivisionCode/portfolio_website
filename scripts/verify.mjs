@@ -47,11 +47,11 @@ for (const path of PAGES) {
         const opacity = Number.parseFloat(style.opacity);
         const filter = style.filter;
 
-        // Decorative overlays legitimately sit at 0 until hovered.
-        const decorative =
-          el.getAttribute("aria-hidden") === "true" ||
-          el.classList.contains("spotlight");
-        if (decorative) continue;
+        // Decoration is allowed to be part-opacity: hover overlays, the
+        // lattice's pulse rings, the ticker. Check the ancestors too, since
+        // the aria-hidden usually sits on the wrapper, not the shape.
+        if (el.closest('[aria-hidden="true"]')) continue;
+        if (el.closest(".spotlight")) continue;
 
         if (opacity < 0.99) {
           problems.push(`opacity ${opacity} on ${el.tagName}.${String(el.className).slice(0, 36)}`);

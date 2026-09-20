@@ -12,7 +12,7 @@ const page = await browser.newPage({
   viewport: { width: 1440, height: 900 },
   deviceScaleFactor: 1.5,
 });
-await page.goto(BASE, { waitUntil: "networkidle" });
+await page.goto(BASE, { waitUntil: "load" });
 await page.waitForTimeout(800);
 
 for (const id of IDS) {

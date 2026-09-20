@@ -38,6 +38,7 @@ npm run lint       # eslint
 npm run shoot      # screenshots into screens/
 npm run verify     # fails if any settled element is faded or blurred
 npm run smoke      # clicks the nav, CTA and command palette for real
+npm run navspy     # checks the nav highlights the section you are in
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -105,6 +106,14 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
   as generated.
 - **Typefaces** are Schibsted Grotesk and JetBrains Mono, not Geist, which is
   the Next.js default and therefore the default look.
+- **Light and dark.** Token values live on `:root` and flip under
+  `:root[data-theme="light"]`; `@theme inline` points Tailwind's utilities at
+  them. An inline script in `<body>` applies the stored choice before paint, so
+  there is no flash. Anything drawn in SVG must use `currentColor`, not a
+  hard-coded white, or it vanishes in light mode.
+- **Nav order must match page order.** The scroll spy walks sections in
+  document order and takes the last one past the header; `npm run navspy`
+  fails if the highlight and the section disagree.
 - **Design tokens** live in `app/globals.css` under `@theme`, including a 4px
   radius scale and per-heading optical tracking.
 - **Custom utilities** (`container-page`, `card`, `spotlight`, `grid-field`,
