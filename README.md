@@ -45,6 +45,7 @@ npm run smoke      # clicks the nav, CTA and command palette for real
 npm run navspy     # checks the nav highlights the section you are in
 npm run navclick   # same, but by clicking, with smooth scroll on
 npm run dashes     # fails on any em dash, or anything that renders as one
+npm run form       # submits the contact form with the network intercepted
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -89,6 +90,13 @@ The form posts to [FormSubmit](https://formsubmit.co), no backend, no API key.
 **It needs activating once.** Submit the form yourself after the first deploy;
 FormSubmit emails a confirmation link to `singh.rsingh.rohit@gmail.com`. Click
 it and every later submission is delivered. Until then submissions are held.
+
+`npm run form` exercises the whole path with the network intercepted, so it
+never sends a real message and never consumes that one-time activation. It
+checks that validation blocks an empty submit, that the request is shaped the
+way FormSubmit expects, that the success state renders and clears the form,
+that a rejection surfaces as an error rather than a silent no-op, and that the
+no-JS fallback is wired.
 
 Built in:
 

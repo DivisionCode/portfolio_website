@@ -13,7 +13,8 @@
     "smoke": "node scripts/clicks.mjs",
     "navspy": "node scripts/navspy.mjs",
     "navclick": "node scripts/navclick.mjs",
-    "dashes": "node scripts/dashes.mjs"
+    "dashes": "node scripts/dashes.mjs",
+    "form": "node scripts/form.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
