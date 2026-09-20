@@ -31,6 +31,8 @@ export type WorkItem = {
   accentVar: string;
   cover?: string;
   coverAlt?: string;
+  /** Screenshot of the live site, captured by scripts/capture.mjs. */
+  preview?: string;
   domains: string[];
   stack: string[];
   highlights: WorkHighlight[];
@@ -59,6 +61,7 @@ export const ventures: WorkItem[] = [
       "The engineering constraint that shapes everything: every figure the system produces has to be tied back to its source document or ERP record. An investment committee cannot act on a number it cannot trace, so traceability is a property of the data model, not a feature bolted on at the reporting layer.",
     ],
     links: [{ label: "fundrev.ai", href: "https://fundrev.ai/", kind: "site" }],
+    preview: "/media/site/fundrev.jpg",
     accentVar: "--color-fundrev",
     domains: ["Private equity", "AI systems", "Fintech"],
     stack: [
@@ -129,6 +132,7 @@ export const ventures: WorkItem[] = [
       { label: "tunegramlive.in", href: "https://tunegramlive.in/", kind: "site" },
       { label: "hello@tunegramlive.in", href: "mailto:hello@tunegramlive.in", kind: "mail" },
     ],
+    preview: "/media/site/tunegram.jpg",
     accentVar: "--color-tunegram",
     domains: ["Marketplace", "Music tech", "Consumer"],
     stack: [
@@ -187,6 +191,7 @@ export const ventures: WorkItem[] = [
         kind: "repo",
       },
     ],
+    preview: "/media/site/arthmala.jpg",
     accentVar: "--color-arthmala",
     domains: ["Craft commerce", "Brand", "Full-stack"],
     stack: ["Vue 3", "Vite", "Express", "MongoDB", "Vercel Functions"],

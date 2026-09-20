@@ -48,6 +48,7 @@ npm run dashes     # fails on any em dash, or anything that renders as one
 npm run form       # submits the contact form with the network intercepted
 npm run gaps       # prints the ink-to-ink gap between every section
 npm run perf       # load, scroll frame times, pointer cost, DOM weight
+npm run capture    # re-screenshot the venture sites into public/media/site
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -65,6 +66,19 @@ means editing one of these files, no JSX required.
 | `lib/content/work.ts`         | The 4 ventures and 8 products, incl. case studies   |
 | `lib/content/stack.ts`        | The 11 technology groups                            |
 | `lib/content/architecture.ts` | The 8 platform layers in the architecture section   |
+
+### Venture screenshots
+
+`npm run capture` screenshots fundrev.ai, tunegramlive.in and
+arthmala.vercel.app into `public/media/site/`, and each case study uses its own
+shot as the backdrop behind the masthead. The images are committed, so the
+build never depends on those sites being up; re-run it when one of them
+changes.
+
+The backdrop is masked diagonally, strongest at the top right and gone by the
+bottom left, which is where the masthead type sits. That is what keeps it
+readable at a blur low enough to still recognise the site. Products have no
+live sites, so they fall back to the plain grid.
 | `lib/content/approach.ts`     | The five engineering principles                     |
 | `lib/content/credentials.ts`  | Certifications, with verify links                   |
 | `lib/content/experience.ts`   | Employment history, **see below**                  |

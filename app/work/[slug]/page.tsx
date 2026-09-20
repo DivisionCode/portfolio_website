@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import { Icon } from "@/components/ui/Icon";
 import { StatusPill, Tag } from "@/components/ui/Tag";
+import { SiteBackdrop } from "@/components/visual/SiteBackdrop";
 import { SITE_URL } from "@/lib/content/site";
 import { allWork, getWorkBySlug } from "@/lib/content/work";
 
@@ -45,9 +46,19 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
 
   return (
     <article className="relative pt-24 pb-[var(--section-y)] md:pt-32">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem]">
-        <div className="grid-field absolute inset-0" />
-        <div className="absolute -top-40 left-1/3 h-[28rem] w-[34rem] rounded-full bg-accent/[0.09] blur-[120px]" />
+      {/*
+        Where there is a live site, its own screenshot is the atmosphere behind
+        the masthead. Everything else falls back to the plain grid.
+      */}
+      <div className="absolute inset-x-0 top-0 -z-10 h-[38rem]">
+        {item.preview ? (
+          <SiteBackdrop src={item.preview} priority />
+        ) : (
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="grid-field absolute inset-0" />
+            <div className="wash absolute inset-0" />
+          </div>
+        )}
       </div>
       <div className="container-page">
       <Link
