@@ -39,6 +39,8 @@ npm run shoot      # screenshots into screens/
 npm run verify     # fails if any settled element is faded or blurred
 npm run smoke      # clicks the nav, CTA and command palette for real
 npm run navspy     # checks the nav highlights the section you are in
+npm run navclick   # same, but by clicking, with smooth scroll on
+npm run dashes     # fails on any em dash, or anything that renders as one
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -98,8 +100,12 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
 
 ## Conventions worth knowing
 
-- **No em dashes.** Anywhere, in copy or in comments. Use a colon, a full stop
-  or a comma. A middle dot (·) separates title segments.
+- **No em dashes, and nothing shaped like one.** Not in copy, not in comments.
+  Use a colon, a full stop or a comma; a middle dot (·) separates title
+  segments. This also rules out a decorative 1px rule sitting next to text,
+  which renders as an em dash even though no dash exists in the source.
+  `npm run dashes` checks every dash-like codepoint across the source *and*
+  the built HTML, plus that faux-rule pattern.
 - **Monochrome.** There is no accent hue. Emphasis is luminance, and the only
   chromatic thing on the site is the green "live" dot. Gradient text, a
   violet-to-cyan ramp and blurred glow blobs are what made an earlier pass read

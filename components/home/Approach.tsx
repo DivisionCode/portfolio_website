@@ -1,7 +1,19 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SpotlightGroup } from "@/components/ui/Spotlight";
 import { principles } from "@/lib/content/approach";
 
+/**
+ * An editorial numbered list, not a grid of cards.
+ *
+ * The card version had two problems. A card sharing a row with a taller
+ * sibling stretched and pushed its footnote to the bottom, leaving a void that
+ * looked broken. And the oversized ghost numerals were filler: they took the
+ * space a card needs to justify itself without adding anything.
+ *
+ * Here the index sits in its own narrow column, the content hangs off it, and
+ * the rule at the top of each entry does the separating a background was doing
+ * badly. The footnote is labelled rather than introduced by a decorative
+ * hairline, which read as an em dash.
+ */
 export function Approach() {
   return (
     <section id="approach" className="container-page scroll-mt-24 py-[var(--section-y)]">
@@ -17,44 +29,37 @@ export function Approach() {
         lead="Not a philosophy. These are the decisions that turned out to matter, learned on systems that are still running."
       />
 
-      <SpotlightGroup className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <ol className="grid gap-x-16 md:grid-cols-2">
         {principles.map((principle, index) => (
-          <article
+          <li
             key={principle.index}
-            data-spotlight
             data-reveal
             className={[
-              "card spotlight group flex flex-col p-6 transition-transform duration-500 hover:-translate-y-1 md:p-7",
-              /*
-                Five cards in a three-column grid only tile without holes if
-                exactly one of them is double width: 2+1 on the first row, then
-                1+1+1. Spanning the last card too left two empty cells.
-              */
-              index === 0 ? "md:col-span-2 lg:col-span-2" : "",
+              "group grid grid-cols-[2.25rem_1fr] gap-x-4 border-t border-line py-7 md:py-8",
+              // The fifth entry runs full width so the list does not end on a
+              // ragged half row.
+              index === principles.length - 1 ? "md:col-span-2" : "",
             ].join(" ")}
           >
-            <span className="text-[2.25rem] leading-none text-ink-ghost/50 transition-colors duration-500 group-hover:text-ink-faint">
+            <span className="label-mono pt-1.5 text-ink-ghost transition-colors duration-300 group-hover:text-ink-faint">
               {principle.index}
             </span>
 
-            <h3 className="mt-5 text-[1.125rem] leading-snug tracking-[-0.02em]">
-              {principle.title}
-            </h3>
+            <div className="max-w-xl">
+              <h3 className="text-[1.0625rem] leading-snug">{principle.title}</h3>
 
-            <p className="mt-3 flex-1 text-[0.875rem] leading-[1.7] text-ink-faint">
-              {principle.body}
-            </p>
+              <p className="mt-3 text-[0.875rem] leading-[1.75] text-ink-faint">
+                {principle.body}
+              </p>
 
-            <p className="mt-6 flex items-start gap-2.5 border-t border-line pt-4 meta leading-relaxed text-ink-ghost">
-              <span
-                aria-hidden
-                className="mt-1.5 h-px w-4 shrink-0 bg-line-strong"
-              />
-              {principle.evidence}
-            </p>
-          </article>
+              <p className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[0.8125rem] leading-relaxed text-ink-ghost">
+                <span className="label-mono text-ink-ghost">Evidence</span>
+                {principle.evidence}
+              </p>
+            </div>
+          </li>
         ))}
-      </SpotlightGroup>
+      </ol>
     </section>
   );
 }

@@ -1,0 +1,16 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const theme = process.argv[3] ?? "dark";
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1.4 });
+await p.addInitScript((t) => { try { localStorage.setItem("theme", t); } catch {} }, theme);
+await p.goto("http://localhost:3000/", { waitUntil: "load" });
+await p.waitForTimeout(1200);
+const id = process.argv[2];
+await p.locator(`#${id}`).scrollIntoViewIfNeeded();
+await p.evaluate(() => window.scrollBy(0, 500));
+await p.waitForTimeout(800);
+await p.evaluate(() => window.scrollBy(0, -500));
+await p.waitForTimeout(700);
+await p.locator(`#${id}`).screenshot({ path: `screens/one-${id}.png` });
+console.log(id, Math.round((await p.locator(`#${id}`).boundingBox()).height) + "px", theme);
+await b.close();
