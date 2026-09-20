@@ -21,7 +21,7 @@ export const stackGroups: StackGroup[] = [
   {
     id: "languages",
     title: "Languages",
-    blurb: "Typed where it earns its keep, and two decades of .NET still paying rent.",
+    blurb: "Typed where it earns its keep, and .NET still earning its place.",
     items: [
       { name: "TypeScript", note: "Strict, everywhere new" },
       { name: "JavaScript" },

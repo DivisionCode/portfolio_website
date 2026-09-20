@@ -116,7 +116,7 @@ export function Header() {
                 {profile.name}
               </span>
               <span className="mt-1 hidden text-[0.5625rem] tracking-[0.16em] text-ink-ghost uppercase sm:block">
-                {profile.brand}
+                {profile.group}
               </span>
             </span>
           </Link>

@@ -4,6 +4,21 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SpotlightGroup } from "@/components/ui/Spotlight";
 import { products } from "@/lib/content/work";
 
+/** So the heading cannot drift from the number of products actually listed. */
+const NUMERALS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"];
+
+/**
+ * A tiled grid rather than a table.
+ *
+ * This was a single card with eight rows in it, which read as a spreadsheet:
+ * every product the same height, the same weight, nothing to look at. Tiles
+ * separated by hairlines give each system its own space and let the stack sit
+ * at the foot of the tile instead of in a cramped column.
+ *
+ * The hairlines are the 1px grid gap showing the container's background, so
+ * there is one border rather than a border per cell, and no double lines where
+ * tiles meet.
+ */
 export function Products() {
   return (
     <section id="products" className="container-page scroll-mt-24 pt-[var(--section-y)]">
@@ -12,59 +27,45 @@ export function Products() {
         eyebrow="Product line"
         title={
           <>
-            Eight systems shipped under{" "}
+            {NUMERALS[products.length]} systems shipped under{" "}
             <span className="text-ink-faint">DCodeIntellect.</span>
           </>
         }
-        lead="ERP, CRM, pharmacy, trade, analytics, commerce and the tooling around them. Each built the way it would have to be built if a business were going to run on it for five years."
+        lead="ERP, CRM, pharmacy management, commerce and the tooling around them. Each built to the standard a business would need to actually run on it: authentication, role-based access, modular services and a deployment path that does not depend on me."
         aside={`${products.length} products`}
       />
 
-      <SpotlightGroup className="card overflow-clip">
-        <ul>
-          {products.map((product, index) => (
-            <li key={product.slug} data-reveal>
-              <Link
-                href={`/work/${product.slug}/`}
-                data-spotlight
-                className="spotlight group relative grid gap-y-2 border-t border-line px-5 py-5 first:border-t-0 md:grid-cols-[2.25rem_8.5rem_1fr_19rem_1.25rem] md:items-baseline md:gap-x-6 md:px-7 md:py-5"
-              >
-                {/* Accent edge that wipes in from the top on hover */}
-                <span
-                  aria-hidden
-                  className="absolute inset-y-0 left-0 w-px origin-top scale-y-0 bg-ink transition-transform duration-400 group-hover:scale-y-100"
-                />
+      <SpotlightGroup className="grid gap-px overflow-clip rounded-xl border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product, index) => (
+          <Link
+            key={product.slug}
+            href={`/work/${product.slug}/`}
+            data-spotlight
+            data-reveal
+            className="spotlight group relative flex flex-col bg-raised p-6 transition-colors duration-300 hover:bg-overlay/40 md:p-7"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <span className="label-mono">{String(index + 1).padStart(2, "0")}</span>
+              <Icon
+                name="arrowUpRight"
+                size={15}
+                className="text-ink-ghost transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+              />
+            </div>
 
-                <span className="label-mono hidden md:block">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+            <h3 className="mt-7 text-[1.3125rem] tracking-[-0.03em] transition-colors duration-300 group-hover:text-accent">
+              {product.name}
+            </h3>
 
-                <h3 className="text-[1.0625rem] tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent">
-                  {product.name}
-                </h3>
+            <p className="mt-2.5 text-[0.9375rem] leading-snug text-ink-muted">
+              {product.tagline}
+            </p>
 
-                <div>
-                  <p className="text-[0.9375rem] leading-snug text-ink-muted transition-colors duration-300 group-hover:text-ink">
-                    {product.tagline}
-                  </p>
-                  <p className="mt-1 meta text-ink-ghost md:hidden">
-                    {product.stack.join("  ·  ")}
-                  </p>
-                </div>
-
-                <p className="hidden meta leading-relaxed text-ink-ghost md:block">
-                  {product.stack.join("  ·  ")}
-                </p>
-
-                <Icon
-                  name="arrowUpRight"
-                  size={15}
-                  className="hidden text-ink-ghost transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent md:block"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+            <p className="meta mt-auto pt-8 leading-relaxed">
+              {product.stack.join("  ·  ")}
+            </p>
+          </Link>
+        ))}
       </SpotlightGroup>
     </section>
   );

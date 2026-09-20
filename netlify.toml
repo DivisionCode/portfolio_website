@@ -56,3 +56,14 @@
   from = "/payrollDashboard.html"
   to = "/work/d-erp/"
   status = 301
+
+# Retired products. The pages existed, so the URLs are kept alive.
+[[redirects]]
+  from = "/work/d-trade/*"
+  to = "/#products"
+  status = 301
+
+[[redirects]]
+  from = "/work/d-analysis/*"
+  to = "/#products"
+  status = 301

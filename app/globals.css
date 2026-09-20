@@ -116,6 +116,21 @@
     min-width: 0;
   }
 
+  /*
+    Safari's UA sheet gives a:any-link `cursor: auto` and leaves the hand to an
+    internal heuristic; Chrome's gives `cursor: pointer` outright. Tailwind's
+    preflight overrides neither, so every link on this site showed an I-beam or
+    an arrow in Safari until the element had been interacted with, which is why
+    the page felt like it needed a click to wake up. State it explicitly.
+  */
+  a[href],
+  button:not(:disabled),
+  summary,
+  label[for],
+  [role="button"] {
+    cursor: pointer;
+  }
+
   html {
     scroll-behavior: smooth;
     /*

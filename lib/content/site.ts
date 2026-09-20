@@ -8,14 +8,17 @@ export const CONTACT_FORM_ENDPOINT =
 
 export const profile = {
   name: "Rohit Singh",
+  /** The parent brand. Everything he owns sits under it. */
+  group: "Sushraj Ventures",
+  /** The engineering studio inside the group, and the name on the product line. */
   brand: "DCodeIntellect",
   /** Rendered as the <h1> support line. Kept short on purpose. */
-  headline: "Senior software engineer. Founder, and the technical lead others build on.",
-  role: "Senior Software Engineer · Founder · Technical Lead",
-  bio: "I build the systems companies actually run on. I lead the engineering at Fundrev, an AI operating system for private capital, and at Tunegram, where I built the platform end to end. Alongside that I run my own: Arthmala, the DCodeIntellect product line, and a GMP pharmaceutical distribution business.",
+  headline: "Senior software engineer. Founder of Sushraj Ventures.",
+  role: "Senior Software Engineer · Founder, Sushraj Ventures",
+  bio: "I build the systems companies actually run on. Sushraj Ventures is my group: Sushraj Pharma in GMP-certified pharmaceutical distribution, the craft studio Arthmala, and the DCodeIntellect product line. Outside the group I am the senior software engineer behind Fundrev, an AI operating system for private capital, and co-founder and tech lead at Tunegram.",
   /** Used in metadata and the JSON-LD Person node. */
   seoDescription:
-    "Rohit Singh, senior software engineer. Technical lead at Fundrev and Tunegram, founder of Arthmala and DCodeIntellect. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
+    "Rohit Singh, senior software engineer and founder of Sushraj Ventures: Sushraj Pharma in GMP-certified pharmaceutical distribution, the craft studio Arthmala and the DCodeIntellect product line. Senior software engineer on Fundrev, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
   tagline: "Where code meets clarity, and data drives decisions.",
   location: {
     city: "Daulatpur Chowk",
@@ -83,10 +86,23 @@ export const navLinks = [
   { label: "Contact", href: "/#contact" },
 ] as const;
 
+/**
+ * First year of professional work. The years figure is derived from it rather
+ * than hardcoded, so it cannot quietly go stale between rebuilds.
+ */
+export const CAREER_START = 2013;
+
+const yearsBuilding = new Date().getFullYear() - CAREER_START;
+
 /** Headline counters. Numeric so the hero can animate them up. */
 export const metrics = [
-  { value: 7, suffix: "+", label: "Years building", detail: "Enterprise systems in production" },
-  { value: 4, suffix: "", label: "Ventures", detail: "Founded or led" },
-  { value: 8, suffix: "", label: "Products shipped", detail: "Under DCodeIntellect" },
+  {
+    value: yearsBuilding,
+    suffix: "+",
+    label: "Years building",
+    detail: "Enterprise systems in production",
+  },
+  { value: 3, suffix: "", label: "Ventures", detail: "Founded, under Sushraj" },
+  { value: 6, suffix: "", label: "Products shipped", detail: "Under DCodeIntellect" },
   { value: 87, suffix: "", label: "Technologies", detail: "Across the production stack" },
 ] as const;

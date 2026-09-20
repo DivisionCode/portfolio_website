@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Icon } from "@/components/ui/Icon";
 import { StatusPill, Tag } from "@/components/ui/Tag";
 import { SiteBackdrop } from "@/components/visual/SiteBackdrop";
+import { WorkFlow } from "@/components/work/WorkFlow";
 import { SITE_URL } from "@/lib/content/site";
 import { allWork, getWorkBySlug } from "@/lib/content/work";
 
@@ -123,6 +124,8 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
         </div>
       </header>
 
+      {item.flow ? <WorkFlow steps={item.flow} /> : null}
+
       <div className="grid gap-12 pt-10 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
         <div>
           <div className="flex max-w-2xl flex-col gap-5">
@@ -171,16 +174,19 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
             </div>
           ) : null}
 
-          <div>
-            <p className="label-mono border-b border-line pb-2.5">Built with</p>
-            <ul className="mt-3.5 flex flex-wrap gap-1.5">
-              {item.stack.map((tech) => (
-                <li key={tech}>
-                  <Tag>{tech}</Tag>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* A business with no shipped platform yet has no stack to list. */}
+          {item.stack.length > 0 ? (
+            <div>
+              <p className="label-mono border-b border-line pb-2.5">Built with</p>
+              <ul className="mt-3.5 flex flex-wrap gap-1.5">
+                {item.stack.map((tech) => (
+                  <li key={tech}>
+                    <Tag>{tech}</Tag>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <div>
             <p className="label-mono border-b border-line pb-2.5">Domains</p>

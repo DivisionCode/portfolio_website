@@ -8,6 +8,9 @@ import { layers } from "@/lib/content/architecture";
  * The spine is the whole point of the section: it is the request path, and
  * every layer hangs off the same line rather than sitting in its own box.
  */
+/** Counted from the layers so the figure in the heading can never go stale. */
+const technologies = new Set(layers.flatMap((layer) => layer.tech)).size;
+
 export function Architecture() {
   return (
     <section
@@ -23,12 +26,12 @@ export function Architecture() {
           eyebrow="Architecture"
           title={
             <>
-              What a request actually touches{" "}
-              <span className="text-ink-faint">on the way down.</span>
+              Eight layers I design, ship{" "}
+              <span className="text-ink-faint">and keep running in production.</span>
             </>
           }
-          lead="The Fundrev platform, layer by layer. Technologies only: nothing here names an internal service or anything that is not already public."
-          aside={`${layers.length} layers`}
+          lead="Durable orchestration, transactional and analytical data kept apart, infrastructure defined in a repository, and tracing that spans all of it. Every technology below is one I have taken into production and operated, and each layer names the systems it runs in."
+          aside={`${layers.length} layers · ${technologies} technologies`}
         />
 
         <SpotlightGroup className="relative">
@@ -67,6 +70,11 @@ export function Architecture() {
                       {layer.title}
                     </h3>
                     <span className="label-mono mt-2 block md:hidden">{layer.index}</span>
+
+                    {/* Where the layer runs, so the breadth is evidenced. */}
+                    <p className="meta mt-2.5 leading-relaxed">
+                      {layer.provenIn.join("  ·  ")}
+                    </p>
                   </div>
 
                   <div>

@@ -1,4 +1,14 @@
 export type WorkKind = "venture" | "product";
+
+/**
+ * "owned" is a company that sits inside his group, Sushraj Ventures.
+ * "led" is a platform outside the group. The two are not the same relationship
+ * as each other either: he co-founded Tunegram and leads its engineering, while
+ * Fundrev belongs to its founders and he is the senior engineer on it. Keeping
+ * all of this apart is the whole point, because folding it together would
+ * misrepresent both him and the other founders involved.
+ */
+export type WorkGroup = "owned" | "led";
 export type WorkStatus = "live" | "building" | "archived";
 
 export type WorkLink = {
@@ -18,6 +28,7 @@ export type WorkItem = {
   /** Optional stylised wordmark shown in place of `name` in display contexts. */
   wordmark?: string;
   kind: WorkKind;
+  group?: WorkGroup;
   role: string;
   period: string;
   status: WorkStatus;
@@ -37,6 +48,8 @@ export type WorkItem = {
   stack: string[];
   highlights: WorkHighlight[];
   facts?: { label: string; value: string }[];
+  /** An ordered path through the business, drawn as a rail on the home page. */
+  flow?: string[];
   /** Featured items get the large treatment on the home page. */
   featured?: boolean;
 };
@@ -46,10 +59,59 @@ export type WorkItem = {
  * ------------------------------------------------------------------------- */
 export const ventures: WorkItem[] = [
   {
+    slug: "sushraj-pharma",
+    name: "Sushraj Pharma",
+    kind: "venture",
+    group: "owned",
+    role: "Founder",
+    period: "2026",
+    status: "live",
+    tagline: "GMP-certified pharmaceutical distribution, from order to doorstep.",
+    summary:
+      "A distribution business built on partnerships with GMP-certified manufacturers and established brands. Orders are quoted against the molecule, routed to the factory best able to fulfil them, and held under one record through to delivery.",
+    narrative: [
+      "The distribution arm of Sushraj Ventures. Distribution at this end of pharma still runs on phone calls, spreadsheets and message threads. A client asks what a molecule costs, someone works it out by hand against whichever factory has capacity, and the answer arrives hours later with no record of how it was reached.",
+      "The business is operating now, on the ground. We take the order, place it with a GMP-certified factory we are associated with, and stay with the consignment through manufacture, transit and delivery rather than handing it off and hoping.",
+      "The platform I am building puts that on rails: quoting by medicine and by molecule rather than only by brand, order capture, and the handoffs between client, factory and logistics in one system instead of a thread. It is the same problem as every other system on this page, which is a process nobody has tooled, carrying the cost.",
+    ],
+    links: [],
+    accentVar: "--color-dcode",
+    domains: ["Pharmaceutical distribution", "Supply chain", "Operations"],
+    stack: [],
+    highlights: [
+      {
+        title: "Quoting by molecule",
+        body: "Pricing worked out against the molecule and the factory that will actually make it, not only against a brand name.",
+      },
+      {
+        title: "Order routing",
+        body: "Orders placed with the GMP-certified factory best able to fulfil them, from a roster of associated manufacturers and brands.",
+      },
+      {
+        title: "Manufacture to delivery",
+        body: "One record follows the consignment through production, transit and delivery, so there is always an answer to where it is.",
+      },
+      {
+        title: "Client engagement",
+        body: "The conversation, the quote and the order live in the same place rather than across a thread and a spreadsheet.",
+      },
+    ],
+    facts: [
+      { label: "Status", value: "Operating" },
+      { label: "Platform", value: "In build" },
+      { label: "Supply", value: "GMP-certified factories" },
+      { label: "Group", value: "Sushraj Ventures" },
+      { label: "Role", value: "Founder" },
+    ],
+    flow: ["Quote", "Order", "Manufacture", "Transit", "Delivery"],
+    featured: true,
+  },
+  {
     slug: "fundrev",
     name: "Fundrev",
     kind: "venture",
-    role: "Technical Lead",
+    group: "led",
+    role: "Senior Software Engineer",
     period: "Present",
     status: "live",
     tagline: "The AI operating system for private capital.",
@@ -117,7 +179,8 @@ export const ventures: WorkItem[] = [
     slug: "tunegram",
     name: "Tunegram",
     kind: "venture",
-    role: "Technical Lead",
+    group: "led",
+    role: "Co-founder and Tech Lead",
     period: "Present",
     status: "live",
     tagline: "Where indie musicians stream, perform, and get booked.",
@@ -126,7 +189,7 @@ export const ventures: WorkItem[] = [
     narrative: [
       "Live music booking in India runs through intermediaries who take a percentage for making an introduction. For an independent artist playing weekend gigs, that percentage is the difference between the work being worth doing and not.",
       "Tunegram removes the intermediary by making discovery and booking the same surface. Artists build a presence by doing what they already do, recording over the karaoke catalogue, charting, publishing to a feed, and event managers browse that living record instead of a static roster, then message and book directly.",
-      "As tech lead I own the platform end to end. It runs on Cloudflare's edge network, which keeps audio-heavy pages fast across Indian mobile networks, and its agentic features are built on the Claude Agent SDK.",
+      "I co-founded Tunegram and lead its engineering, and built the platform end to end. It sits outside Sushraj Ventures, which is my own group. It runs on Cloudflare's edge network, which keeps audio-heavy pages fast across Indian mobile networks, and its agentic features are built on the Claude Agent SDK.",
     ],
     links: [
       { label: "tunegramlive.in", href: "https://tunegramlive.in/", kind: "site" },
@@ -164,6 +227,7 @@ export const ventures: WorkItem[] = [
       { label: "Built with", value: "Claude Agent SDK" },
       { label: "Hosted on", value: "Cloudflare's edge network" },
       { label: "Made in", value: "India" },
+      { label: "Role", value: "Co-founder and Tech Lead" },
     ],
     featured: true,
   },
@@ -172,6 +236,7 @@ export const ventures: WorkItem[] = [
     name: "Arthmala",
     wordmark: "अर्थ Mala",
     kind: "venture",
+    group: "owned",
     role: "Founder",
     period: "Present",
     status: "live",
@@ -215,12 +280,13 @@ export const ventures: WorkItem[] = [
     slug: "dcodeintellect",
     name: "DCodeIntellect",
     kind: "venture",
+    group: "owned",
     role: "Founder",
     period: "2018 to present",
     status: "live",
     tagline: "The studio behind the product line.",
     summary:
-      "My engineering brand and the home of eight shipped systems: ERP, CRM, pharmacy, trade, analytics, commerce and the tooling around them.",
+      "My engineering brand and the product line under it: ERP, CRM, pharmacy management, commerce and the tooling around them.",
     narrative: [
       "DCodeIntellect started as a name to put on work and became the studio the rest of it runs through. Everything in the product line below was designed, built and shipped under it.",
       "The through-line across those systems is enterprise shape: modular boundaries, role-based access from the first migration rather than bolted on later, REST contracts that a second team can pick up, and reporting that reconciles against the operational data it came from.",
@@ -237,12 +303,16 @@ export const ventures: WorkItem[] = [
     stack: ["Node.js", "Express", "MongoDB", "SQL Server", "React", "Vue", ".NET"],
     highlights: [
       {
-        title: "Eight systems shipped",
+        title: "Six systems shipped",
         body: "ERP, CRM, pharmacy management, trade operations, analytics, commerce, geolocation and the meta hub that indexes them.",
       },
       {
         title: "Enterprise shape by default",
         body: "JWT auth, role-based access, modular MVC structure and REST APIs. The parts that decide whether a system survives its second year.",
+      },
+      {
+        title: "Built to hand over",
+        body: "Each system is documented and deployable on its own, so a client can run it without the person who wrote it standing next to them.",
       },
     ],
     featured: true,
@@ -341,63 +411,6 @@ export const products: WorkItem[] = [
     featured: true,
   },
   {
-    slug: "d-trade",
-    name: "D-Trade",
-    kind: "product",
-    role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
-    status: "live",
-    tagline: "Trade operations, end to end.",
-    summary:
-      "Domestic and international trade operations, purchase orders, vendor contracts, logistics and export documentation, with configurable workflows and document tracking for supply-chain transparency.",
-    narrative: [
-      "Export trade is a documentation problem wearing a logistics costume. The goods move on time when the paperwork does.",
-      "D-Trade models the workflow rather than the forms: a purchase order carries its vendor contract, its delivery milestones and its export documents as one tracked object, so at any point you can answer where a shipment is and what is still missing before it clears.",
-    ],
-    links: [],
-    accentVar: "--color-dcode",
-    cover: "/media/work/trade.webp",
-    coverAlt: "D-Trade interface wireframe",
-    domains: ["Supply chain", "Trade"],
-    stack: ["Node.js", "Express", "MongoDB", "React", "JWT"],
-    highlights: [
-      { title: "PO automation", body: "Purchase orders generated and tracked through their lifecycle." },
-      { title: "Vendor & customer master", body: "One authoritative record per counterparty." },
-      { title: "Delivery tracking", body: "Milestones against the order, not a separate spreadsheet." },
-      { title: "Export documentation", body: "Documents attached to the shipment they clear." },
-      { title: "Compliance", body: "Configurable workflow gates before a shipment can advance." },
-    ],
-    featured: true,
-  },
-  {
-    slug: "d-analysis",
-    name: "D-Analysis",
-    kind: "product",
-    role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
-    status: "live",
-    tagline: "Dashboards built for decisions.",
-    summary:
-      "A BI and analytics layer over sales, finance, KPI and operational data: filterable charts, KPI widgets and exportable reports behind role-based access.",
-    narrative: [
-      "A dashboard that everyone can see everything on is a dashboard nobody trusts with real numbers. D-Analysis puts analytics behind the same role model as the systems feeding it.",
-      "Charts are filterable rather than fixed, KPIs are widgets over live queries rather than cached snapshots, and every view exports, because the number always ends up in a deck eventually.",
-    ],
-    links: [],
-    accentVar: "--color-dcode",
-    cover: "/media/work/analysis.webp",
-    coverAlt: "D-Analysis dashboard wireframe",
-    domains: ["Business intelligence", "Analytics"],
-    stack: ["Node.js", "Express", "MongoDB", "Chart.js", "Recharts"],
-    highlights: [
-      { title: "Filterable charts", body: "Slice by period, segment and owner without a rebuild." },
-      { title: "KPI widgets", body: "Live queries rather than nightly snapshots." },
-      { title: "Exportable reports", body: "Every view leaves as a file when it needs to." },
-      { title: "Role-based analytics", body: "Access scoped the same way the source systems scope it." },
-    ],
-    featured: true,
-  },
-  {
     slug: "shopverse",
     name: "ShopVerse",
     kind: "product",
@@ -480,6 +493,12 @@ export const products: WorkItem[] = [
 ];
 
 export const allWork: WorkItem[] = [...ventures, ...products];
+
+/** Companies Rohit founded, under Sushraj Ventures. */
+export const owned = ventures.filter((v) => v.group === "owned");
+
+/** Companies he does not own, where he is the senior engineer on the platform. */
+export const led = ventures.filter((v) => v.group === "led");
 
 export function getWorkBySlug(slug: string): WorkItem | undefined {
   return allWork.find((item) => item.slug === slug);

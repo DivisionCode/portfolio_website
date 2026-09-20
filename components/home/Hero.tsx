@@ -4,6 +4,7 @@ import { Counter } from "@/components/ui/Counter";
 import { HeroLattice } from "@/components/visual/HeroLattice";
 import { Monogram } from "@/components/visual/Monogram";
 import { metrics, profile, socials } from "@/lib/content/site";
+import { owned } from "@/lib/content/work";
 
 export function Hero() {
   const [years, ventures, products, tech] = metrics;
@@ -20,7 +21,7 @@ export function Hero() {
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line pb-4">
           <span className="group/mark flex items-center gap-2.5">
             <Monogram className="size-5 text-ink" />
-            <span className="label-mono text-ink-muted">{profile.brand}</span>
+            <span className="label-mono text-ink-muted">{profile.group}</span>
           </span>
           <span aria-hidden className="hidden h-2.5 w-px bg-line-strong sm:block" />
           <span className="label-mono">
@@ -51,7 +52,7 @@ export function Hero() {
 
             <p className="mt-8 text-[clamp(1.125rem,2.2vw,1.4375rem)] leading-[1.3] tracking-[-0.02em] text-ink-muted">
               Senior software engineer.{" "}
-              <span className="text-ink">Founder and technical lead.</span>
+              <span className="text-ink">Founder of {profile.group}.</span>
             </p>
 
             <p className="mt-6 max-w-lg text-[0.9375rem] leading-[1.75] text-ink-faint">
@@ -100,8 +101,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-16 aspect-square w-full max-w-[21rem] lg:absolute lg:top-1/2 lg:-right-[16%] lg:mt-0 lg:w-[42rem] lg:max-w-none lg:-translate-y-1/2">
-            <HeroLattice className="animate-drift absolute inset-0 size-full" />
+          <div className="relative mx-auto mt-16 aspect-square w-full max-w-[21rem] lg:absolute lg:top-[54%] lg:-right-[16%] lg:mt-0 lg:w-[40rem] lg:max-w-none lg:-translate-y-1/2">
+            <HeroLattice
+              labels={owned.map((venture) => venture.name.toUpperCase())}
+              className="animate-drift absolute inset-0 size-full"
+            />
             <Image
               src="/media/profile.jpg"
               alt={`${profile.name}, ${profile.role}`}
@@ -125,8 +129,10 @@ export function Hero() {
         >
           <Figure value={years.value} suffix={years.suffix} /> years building enterprise
           systems in production.{" "}
-          <Figure value={ventures.value} suffix={ventures.suffix} /> ventures founded or led, <Figure value={products.value} suffix={products.suffix} /> products
-          shipped under {profile.brand}, and{" "}
+          <Figure value={ventures.value} suffix={ventures.suffix} /> businesses of my own
+          under {profile.group},{" "}
+          <Figure value={products.value} suffix={products.suffix} /> products shipped under{" "}
+          {profile.brand}, and{" "}
           <Figure value={tech.value} suffix={tech.suffix} /> technologies I have actually
           put my hands on.
         </p>

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: `%s, ${profile.name}`,
   },
   description: profile.seoDescription,
-  applicationName: profile.brand,
+  applicationName: profile.group,
   authors: [{ name: profile.name, url: SITE_URL }],
   creator: profile.name,
   keywords: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
-    siteName: profile.brand,
+    siteName: profile.group,
     title: `${profile.name} · ${profile.role}`,
     description: profile.seoDescription,
     url: SITE_URL,

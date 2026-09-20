@@ -4,15 +4,16 @@ const R_ORBIT = 176;
 const R_INNER = 104;
 
 /**
- * Four orbit nodes, evenly spaced, top first. Labels are centred on their node
- * so the longest one stays inside the frame.
+ * Orbit nodes, evenly spaced from the top, one per business.
+ *
+ * They are passed in rather than hard-coded, because the previous list mixed
+ * companies Rohit owns with two he does not. This figure is his own orbit, so
+ * only his own businesses belong in it.
+ *
+ * Labels sit above a node in the top half and below one in the bottom half, so
+ * they never collide with the ring.
  */
-const NODES = [
-  { label: "FUNDREV", angle: -90, dy: -22 },
-  { label: "TUNEGRAM", angle: 0, dy: 30 },
-  { label: "ARTHMALA", angle: 90, dy: 30 },
-  { label: "DCODEINTELLECT", angle: 180, dy: -22 },
-] as const;
+const nodeOffset = (angle: number) => (Math.sin((angle * Math.PI) / 180) > 0 ? 30 : -22);
 
 const point = (angle: number, radius: number) => {
   const rad = (angle * Math.PI) / 180;
@@ -28,7 +29,17 @@ const point = (angle: number, radius: number) => {
  * for. Entirely SVG and CSS, so it renders in the static HTML and costs no
  * JavaScript.
  */
-export function HeroLattice({ className }: { className?: string }) {
+export function HeroLattice({
+  labels,
+  className,
+}: {
+  labels: readonly string[];
+  className?: string;
+}) {
+  const nodes = labels.map((label, index) => ({
+    label,
+    angle: -90 + (360 / labels.length) * index,
+  }));
   return (
     <svg
       viewBox="0 0 560 560"
@@ -110,7 +121,7 @@ export function HeroLattice({ className }: { className?: string }) {
       </g>
 
       {/* Spokes, with flow travelling outward */}
-      {NODES.map((node, index) => {
+      {nodes.map((node, index) => {
         const inner = point(node.angle, R_INNER);
         const outer = point(node.angle, R_ORBIT);
         return (
@@ -132,7 +143,7 @@ export function HeroLattice({ className }: { className?: string }) {
       })}
 
       {/* Orbit nodes */}
-      {NODES.map((node, index) => {
+      {nodes.map((node, index) => {
         const { x, y } = point(node.angle, R_ORBIT);
         return (
           <g key={node.label}>
@@ -160,7 +171,7 @@ export function HeroLattice({ className }: { className?: string }) {
             <circle cx={x} cy={y} r={1.25} fill="currentColor" fillOpacity="0.85" />
             <text
               x={x}
-              y={y + node.dy}
+              y={y + nodeOffset(node.angle)}
               textAnchor="middle"
               className="fill-[var(--color-ink-ghost)] text-[10px] tracking-[0.02em] tracking-[0.18em]"
             >

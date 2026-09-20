@@ -13,7 +13,7 @@ export function Footer() {
         <div className="group/mark flex items-center gap-3">
           <Monogram className="size-6 text-ink" />
           <div>
-          <p className="text-[0.9375rem] font-medium">{profile.brand}</p>
+          <p className="text-[0.9375rem] font-medium">{profile.group}</p>
           <p className="mt-1 text-[0.8125rem] text-ink-ghost">
             © {year} · {profile.location.region}, {profile.location.country}
           </p>
