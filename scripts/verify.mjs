@@ -23,7 +23,11 @@ for (const path of PAGES) {
   // The page sets scroll-behavior: smooth, so a programmatic jump animates and
   // the view timeline is genuinely mid-way when we sample. Turn it off so each
   // stop is measured at rest.
-  await page.addStyleTag({ content: "html{scroll-behavior:auto !important}" });
+  // Injected directly rather than with addStyleTag, which fails the whole run
+  // if the page happens to log a CSP violation while it is being added.
+  await page.evaluate(() => {
+    document.documentElement.style.setProperty("scroll-behavior", "auto", "important");
+  });
   await page.waitForTimeout(900);
 
   const height = await page.evaluate(() => document.body.scrollHeight);
