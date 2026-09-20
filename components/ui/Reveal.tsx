@@ -1,49 +1,26 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  /** Stagger index — each step adds 60ms. */
-  delay?: number;
   className?: string;
   as?: "div" | "li" | "section" | "article";
+  /** Accepted and ignored — kept so call sites don't all need editing. */
+  delay?: number;
   y?: number;
 };
 
 /**
- * Scroll-triggered entrance. Motion here is decoration only: with reduced
- * motion the content renders in place, immediately and fully opaque.
+ * Plain wrapper.
+ *
+ * This used to be a scroll-triggered entrance built on motion's `whileInView`.
+ * It server-rendered `opacity: 0` and relied on an intersection callback to
+ * undo it — which never fired, leaving 39 elements permanently invisible and
+ * the whole page blank below the header.
+ *
+ * Content must never depend on an animation succeeding in order to be seen.
+ * Any motion added back here belongs on elements that are already visible.
  */
-export function Reveal({
-  children,
-  delay = 0,
-  className,
-  as = "div",
-  y = 16,
-}: RevealProps) {
-  const reduced = useReducedMotion();
-  const Component = motion[as];
-
-  if (reduced) {
-    const Static = as;
-    return <Static className={className}>{children}</Static>;
-  }
-
-  return (
-    <Component
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.62,
-        delay: delay * 0.06,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-    >
-      {children}
-    </Component>
-  );
+export function Reveal({ children, className, as = "div" }: RevealProps) {
+  const Component = as;
+  return <Component className={className}>{children}</Component>;
 }

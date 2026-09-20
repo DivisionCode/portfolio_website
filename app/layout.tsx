@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { SocialRail } from "@/components/site/SocialRail";
 import { GA_MEASUREMENT_ID, SITE_URL, profile, socials } from "@/lib/content/site";
 import { ventures } from "@/lib/content/work";
 
@@ -18,14 +17,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -85,8 +76,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08080a",
-  colorScheme: "dark",
+  themeColor: "#fbfbf9",
+  colorScheme: "light",
 };
 
 /** Structured data so search and LLM surfaces get the relationships right. */
@@ -136,12 +127,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col bg-canvas text-ink">
         <Header />
-        <SocialRail />
         <main id="main" className="flex-1">
           {children}
         </main>

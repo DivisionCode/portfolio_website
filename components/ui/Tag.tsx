@@ -13,10 +13,10 @@ export function Tag({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-[0.6875rem] tracking-wide whitespace-nowrap",
+        "inline-flex items-center rounded-md px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap",
         tone === "accent"
-          ? "border-line-accent bg-accent-dim text-accent-soft"
-          : "border-line bg-overlay/60 text-ink-faint",
+          ? "bg-accent-soft text-accent"
+          : "bg-sunken text-ink-faint",
         className,
       )}
     >
@@ -25,18 +25,17 @@ export function Tag({
   );
 }
 
-/** Live/building/archived pill with a pulsing dot for anything currently live. */
 export function StatusPill({ status }: { status: "live" | "building" | "archived" }) {
   const copy = { live: "Live", building: "In build", archived: "Archived" }[status];
 
   return (
-    <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] tracking-wide text-ink-faint">
+    <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] text-ink-faint">
       <span
         aria-hidden
         className={cn(
           "inline-block size-1.5 rounded-full",
-          status === "live" && "animate-pulse-dot bg-emerald-400",
-          status === "building" && "bg-accent",
+          status === "live" && "bg-emerald-600",
+          status === "building" && "bg-amber-500",
           status === "archived" && "bg-ink-ghost",
         )}
       />

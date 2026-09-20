@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
@@ -8,7 +7,6 @@ import { credentialGroups } from "@/lib/content/credentials";
 
 export function Credentials() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const reduced = useReducedMotion();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const onKeyDown = (event: KeyboardEvent) => {
@@ -29,7 +27,7 @@ export function Credentials() {
         role="tablist"
         aria-label="Credential categories"
         onKeyDown={onKeyDown}
-        className="flex flex-wrap gap-1.5"
+        className="flex flex-wrap gap-1"
       >
         {credentialGroups.map((item, index) => {
           const selected = index === activeIndex;
@@ -46,14 +44,14 @@ export function Credentials() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setActiveIndex(index)}
               className={cn(
-                "rounded-full border px-4 py-2 text-[0.8125rem] transition-all duration-300",
+                "rounded-full px-3.5 py-1.5 text-[0.8125rem] transition-colors",
                 selected
-                  ? "border-line-accent bg-accent-dim text-accent-soft"
-                  : "border-line bg-raised text-ink-faint hover:border-line-strong hover:text-ink-muted",
+                  ? "bg-ink text-canvas"
+                  : "text-ink-faint hover:bg-sunken hover:text-ink",
               )}
             >
               {item.label}
-              <span className="ml-2 font-mono text-[0.6875rem] opacity-60">
+              <span className="ml-1.5 font-mono text-[0.6875rem] opacity-60">
                 {item.items.length}
               </span>
             </button>
@@ -62,10 +60,9 @@ export function Credentials() {
       </div>
 
       {/*
-        Every panel stays in the DOM, inactive ones `hidden`, rather than only
-        the selected one being rendered. It is the correct ARIA tabs shape, and
-        it puts all of the certifications in the static HTML for crawlers
-        instead of only after a click.
+        Every panel stays in the DOM, inactive ones `hidden`. Correct ARIA
+        shape, and it keeps all the certifications in the static HTML for
+        crawlers rather than only after a click.
       */}
       {credentialGroups.map((group, groupIndex) => (
         <div
@@ -75,65 +72,40 @@ export function Credentials() {
           aria-labelledby={`cred-tab-${group.id}`}
           tabIndex={0}
           hidden={groupIndex !== activeIndex}
-          className="mt-6"
+          className="mt-5"
         >
-          <motion.div
-            key={`${group.id}-${activeIndex}`}
-            initial={reduced ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="label-mono mb-5">{group.caption}</p>
+          <ul>
+            {group.items.map((item) => (
+              <li
+                key={`${item.title}-${item.year}`}
+                className="grid gap-y-1 border-t border-line py-4 last:border-b md:grid-cols-[1.4fr_1.5fr_5rem_auto] md:items-baseline md:gap-x-8"
+              >
+                <p className="text-[0.9375rem] leading-snug">{item.title}</p>
 
-            <ul className="panel divide-y divide-line overflow-hidden">
-              {group.items.map((item) => (
-                <li
-                  key={`${item.title}-${item.year}`}
-                  className="grid gap-3 p-5 transition-colors hover:bg-overlay/40 md:grid-cols-[1.5fr_1.6fr_auto] md:items-center md:gap-6 md:px-6"
-                >
-                  <div>
-                    <p className="text-[0.9375rem] leading-snug font-medium">
-                      {item.title}
-                    </p>
-                    <p className="mt-1 font-mono text-[0.6875rem] text-ink-ghost md:hidden">
-                      {item.issuer}
-                    </p>
-                  </div>
+                <p className="text-[0.8125rem] leading-snug text-ink-faint">
+                  {item.issuer}
+                </p>
 
-                  <p className="hidden text-[0.8125rem] leading-relaxed text-ink-faint md:block">
-                    {item.issuer}
-                  </p>
+                <p className="font-mono text-[0.75rem] text-ink-ghost">{item.year}</p>
 
-                  <div className="flex items-center gap-4 md:justify-end">
-                    <div className="text-left md:text-right">
-                      <p className="font-mono text-[0.75rem] text-ink-muted">
-                        {item.year}
-                      </p>
-                      <p className="font-mono text-[0.625rem] text-ink-ghost">
-                        {item.scope}
-                      </p>
-                    </div>
-
-                    {item.verify ? (
-                      <a
-                        href={item.verify}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[0.6875rem] text-ink-muted transition-colors hover:border-line-accent hover:text-accent"
-                      >
-                        Verify
-                        <Icon name="arrowUpRight" size={11} />
-                      </a>
-                    ) : (
-                      <span className="shrink-0 font-mono text-[0.6875rem] text-ink-ghost">
-                        {item.verifyLabel ?? "—"}
-                      </span>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+                {item.verify ? (
+                  <a
+                    href={item.verify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent hover:underline md:justify-self-end"
+                  >
+                    Verify
+                    <Icon name="arrowUpRight" size={11} />
+                  </a>
+                ) : (
+                  <span className="font-mono text-[0.6875rem] text-ink-ghost md:justify-self-end">
+                    {item.verifyLabel ?? "—"}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>

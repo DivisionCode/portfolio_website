@@ -19,14 +19,14 @@ export default function NotFound() {
       <div className="mt-9 flex flex-wrap gap-3">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-85"
+          className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-canvas transition-opacity hover:opacity-85"
         >
           <Icon name="arrowLeft" size={15} />
           Back home
         </Link>
         <Link
           href="/#contact"
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-raised px-5 py-2.5 text-sm text-ink-muted transition-colors hover:border-line-strong hover:text-ink"
+          className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm transition-colors hover:bg-sunken"
         >
           Get in touch
         </Link>
@@ -39,7 +39,7 @@ export default function NotFound() {
             <li key={item.slug}>
               <Link
                 href={`/work/${item.slug}/`}
-                className="inline-block rounded-full border border-line bg-raised px-4 py-2 font-mono text-[0.75rem] text-ink-faint transition-colors hover:border-line-accent hover:text-accent"
+                className="inline-block rounded-full border border-line px-4 py-2 font-mono text-[0.75rem] text-ink-faint transition-colors hover:border-line-strong hover:text-ink"
               >
                 {item.name}
               </Link>
