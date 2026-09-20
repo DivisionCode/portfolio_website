@@ -92,7 +92,7 @@ export function ContactForm() {
         label="Company or context"
         name="company"
         optional
-        placeholder="Fund, studio, team — or nothing at all"
+        placeholder="Fund, studio, team, or nothing at all"
         disabled={disabled}
       />
 
@@ -143,7 +143,7 @@ export function ContactForm() {
 
         <p role="status" aria-live="polite" className="text-[0.8125rem] text-ink-faint">
           {status === "sent"
-            ? "Thanks — I read everything that comes through here."
+            ? "Thanks. I read everything that comes through here."
             : null}
         </p>
       </div>

@@ -2,7 +2,7 @@ export const SITE_URL = "https://dcrohit-portfolio.netlify.app";
 
 export const GA_MEASUREMENT_ID = "G-3M228E733R";
 
-/** FormSubmit inbox alias — set after activating the endpoint once (see README). */
+/** FormSubmit inbox alias. Set after activating the endpoint once (see README). */
 export const CONTACT_FORM_ENDPOINT =
   "https://formsubmit.co/ajax/singh.rsingh.rohit@gmail.com";
 
@@ -12,10 +12,10 @@ export const profile = {
   /** Rendered as the <h1> support line. Kept short on purpose. */
   headline: "Senior software engineer. Founder, three times over.",
   role: "Senior Software Engineer & Co-founder, Fundrev",
-  bio: "I build the systems companies actually run on — investment workflows, marketplaces, ERP and finance operations. Currently co-founding Fundrev, an AI operating system for private capital. Before and alongside it: Tunegram, Arthmala, and the DCodeIntellect product line.",
+  bio: "I build the systems companies actually run on: investment workflows, marketplaces, ERP and finance operations. Currently co-founding Fundrev, an AI operating system for private capital. Before and alongside it: Tunegram, Arthmala, and the DCodeIntellect product line.",
   /** Used in metadata and the JSON-LD Person node. */
   seoDescription:
-    "Rohit Singh — senior software engineer and co-founder of Fundrev. Founder of Arthmala and DCodeIntellect, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
+    "Rohit Singh, senior software engineer and co-founder of Fundrev. Founder of Arthmala and DCodeIntellect, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
   tagline: "Where code meets clarity, and data drives decisions.",
   location: {
     city: "Daulatpur Chowk",

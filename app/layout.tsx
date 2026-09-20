@@ -23,8 +23,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${profile.name} — ${profile.role}`,
-    template: `%s — ${profile.name}`,
+    default: `${profile.name} · ${profile.role}`,
+    template: `%s, ${profile.name}`,
   },
   description: profile.seoDescription,
   applicationName: profile.brand,
@@ -51,19 +51,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     siteName: profile.brand,
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} · ${profile.role}`,
     description: profile.seoDescription,
     url: SITE_URL,
     locale: "en_IN",
-    images: [{ url: "/media/profile.webp", width: 1200, height: 1200, alt: profile.name }],
+    images: [{ url: "/media/profile.jpg", width: 1200, height: 1200, alt: profile.name }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@Divisioncode_Dc",
     creator: "@Divisioncode_Dc",
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} · ${profile.role}`,
     description: profile.seoDescription,
-    images: ["/media/profile.webp"],
+    images: ["/media/profile.jpg"],
   },
   robots: {
     index: true,
@@ -86,7 +86,7 @@ const personJsonLd = {
   "@type": "Person",
   name: profile.name,
   url: SITE_URL,
-  image: `${SITE_URL}/media/profile.webp`,
+  image: `${SITE_URL}/media/profile.jpg`,
   jobTitle: "Senior Software Engineer & Co-founder",
   email: `mailto:${profile.email}`,
   telephone: profile.phone,

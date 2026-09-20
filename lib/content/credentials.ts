@@ -27,7 +27,7 @@ export const credentialGroups: CredentialGroup[] = [
         issuer: "Indira Gandhi National Open University (IGNOU) · Vikas Bhawan",
         scope: "Open & distance learning",
         year: "Pursuing",
-        validity: "—",
+        validity: "n/a",
         verify: null,
       },
       {
@@ -36,7 +36,7 @@ export const credentialGroups: CredentialGroup[] = [
           "Karnataka State Open University (KSOU) · Baba Saheb Ambedkar Institute of Technology and Management",
         scope: "Regular",
         year: "2014",
-        validity: "—",
+        validity: "n/a",
         verify: null,
       },
       {
@@ -45,7 +45,7 @@ export const credentialGroups: CredentialGroup[] = [
           "West Bengal Council of Higher Secondary Education · Shree Satyanarayan Madhav Mishra Vidyalaya",
         scope: "Regular",
         year: "2012",
-        validity: "—",
+        validity: "n/a",
         verify: null,
       },
       {
@@ -53,7 +53,7 @@ export const credentialGroups: CredentialGroup[] = [
         issuer: "West Bengal Board of Secondary Education · Hindmotor High School",
         scope: "Regular",
         year: "2010",
-        validity: "—",
+        validity: "n/a",
         verify: null,
       },
     ],

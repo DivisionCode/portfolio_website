@@ -4,8 +4,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { publishedExperience } from "@/lib/content/experience";
 
 /**
- * Renders nothing until `lib/content/experience.ts` has real roles in it —
- * the section should not ship with placeholder history.
+ * Renders nothing until `lib/content/experience.ts` has real roles in it.
+ * The section should not ship with placeholder history.
  */
 export function Experience() {
   if (publishedExperience.length === 0) return null;

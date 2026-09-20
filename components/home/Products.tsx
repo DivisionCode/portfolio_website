@@ -9,7 +9,7 @@ export function Products() {
       <SectionHeading
         eyebrow="Product line"
         title="Eight systems shipped under DCodeIntellect."
-        lead="ERP, CRM, pharmacy, trade, analytics, commerce and the tooling around them — each built the way it would have to be built if a business were going to run on it for five years."
+        lead="ERP, CRM, pharmacy, trade, analytics, commerce and the tooling around them. Each is built the way it would have to be built if a business were going to run on it for five years."
         aside={`${products.length} products`}
       />
 

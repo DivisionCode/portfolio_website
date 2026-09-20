@@ -1,7 +1,7 @@
 export type Role = {
   company: string;
   logo?: string;
-  /** Leave empty to hide the entry — the section renders only complete records. */
+  /** Leave empty to hide the entry, the section renders only complete records. */
   title: string;
   period: string;
   summary: string;
@@ -15,7 +15,7 @@ export type Role = {
  * These four companies are carried over from the previous site's logo set, but
  * it never listed the roles, dates or scope. Entries with an empty `title` or
  * `period` are skipped at render time, so the section stays hidden until the
- * real details are in — nothing here is invented.
+ * real details are in, nothing here is invented.
  * ─────────────────────────────────────────────────────────────────────────
  */
 export const experience: Role[] = [

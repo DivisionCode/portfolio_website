@@ -1,6 +1,6 @@
 type ClassValue = string | number | null | undefined | false | ClassValue[];
 
-/** Tiny class joiner — no conflict resolution needed at this size. */
+/** Tiny class joiner, no conflict resolution needed at this size. */
 export function cn(...values: ClassValue[]): string {
   const out: string[] = [];
   for (const value of values) {

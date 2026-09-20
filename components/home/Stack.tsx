@@ -9,7 +9,7 @@ export function Stack() {
       <SectionHeading
         eyebrow="Stack"
         title="What I reach for, and why it's that one."
-        lead="Chosen per problem rather than per habit — which is why there's both a document store and a relational one on this list, and why .NET is still here."
+        lead="Chosen per problem rather than per habit, which is why there's both a document store and a relational one on this list, and why .NET is still here."
         aside={`${total} tools`}
       />
 

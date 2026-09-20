@@ -20,12 +20,12 @@ export async function generateMetadata({
   if (!item) return { title: "Not found" };
 
   return {
-    title: `${item.name} — ${item.tagline}`,
+    title: `${item.name} · ${item.tagline}`,
     description: item.summary,
     alternates: { canonical: `/work/${item.slug}/` },
     openGraph: {
       type: "article",
-      title: `${item.name} — ${item.tagline}`,
+      title: `${item.name} · ${item.tagline}`,
       description: item.summary,
       url: `${SITE_URL}/work/${item.slug}/`,
     },

@@ -10,7 +10,7 @@ export function Ventures() {
       <SectionHeading
         eyebrow="Ventures"
         title="Four companies, one question each time: what is the process actually costing?"
-        lead="Private capital, live music, Indian craft, enterprise systems. Different domains, same job — find the part of the workflow that leaks value, then build the system that closes it."
+        lead="Private capital, live music, Indian craft, enterprise systems. Different domains, same job: find the part of the workflow that leaks value, then build the system that closes it."
         aside={`${ventures.length} active`}
       />
 

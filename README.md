@@ -1,4 +1,4 @@
-# DCodeIntellect — portfolio of Rohit Singh
+# DCodeIntellect, portfolio of Rohit Singh
 
 Senior software engineer and co-founder. Live at
 **[dcrohit-portfolio.netlify.app](https://dcrohit-portfolio.netlify.app)**.
@@ -17,13 +17,13 @@ Next.js application. The previous version is still in git history at
 | Runtime   | React 19                                                  |
 | Language  | TypeScript 5, `strict`                                    |
 | Styling   | Tailwind CSS v4 (CSS-first `@theme`, no JS config)        |
-| Motion    | `motion` v13, gated on `prefers-reduced-motion`           |
-| Output    | `output: "export"` — plain files, no Node runtime needed  |
+| Output    | `output: "export"`, plain files, no Node runtime needed  |
 | Hosting   | Netlify (`netlify.toml` sets headers, CSP and redirects)  |
 
-Everything the page needs ships as static HTML. Only four components are
-client components: the header, the command palette, the product tabs and the
-credential tabs.
+Everything the page needs ships as static HTML. Only three components are
+client components: the header, the command palette and the credential tabs.
+There is no animation library: content must never depend on an animation
+succeeding in order to be visible.
 
 ---
 
@@ -44,16 +44,16 @@ npm run lint       # eslint
 ## Where the content lives
 
 All copy is data. Nothing is hard-coded into a component, so editing the site
-means editing one of these files — no JSX required.
+means editing one of these files, no JSX required.
 
 | File                          | Holds                                              |
 | ----------------------------- | -------------------------------------------------- |
 | `lib/content/site.ts`         | Name, bio, contact details, socials, nav, metrics   |
 | `lib/content/work.ts`         | The 4 ventures and 8 products, incl. case studies   |
-| `lib/content/stack.ts`        | Technology groups and their logos                   |
+| `lib/content/stack.ts`        | The 11 technology groups                            |
 | `lib/content/approach.ts`     | The five engineering principles                     |
 | `lib/content/credentials.ts`  | Education and certifications, with verify links     |
-| `lib/content/experience.ts`   | Employment history — **see below**                  |
+| `lib/content/experience.ts`   | Employment history, **see below**                  |
 
 Adding a venture or product to `work.ts` automatically creates its
 `/work/<slug>/` page, adds it to the sitemap, and puts it in the ⌘K palette.
@@ -65,7 +65,7 @@ site (Ancile Technologies, Illimitable, Mona Medicos, Super Infotech) but whose
 roles and dates were never listed anywhere. Each entry has empty `title`,
 `period`, `summary` and `work` fields.
 
-The section renders nothing while those are empty — no placeholder history goes
+The section renders nothing while those are empty, no placeholder history goes
 live. Fill in a role's `title` and `period` and it appears on the home page
 between Stack and Credentials.
 
@@ -73,7 +73,7 @@ between Stack and Credentials.
 
 ## The contact form
 
-The form posts to [FormSubmit](https://formsubmit.co) — no backend, no API key.
+The form posts to [FormSubmit](https://formsubmit.co), no backend, no API key.
 
 **It needs activating once.** Submit the form yourself after the first deploy;
 FormSubmit emails a confirmation link to `singh.rsingh.rohit@gmail.com`. Click
@@ -93,17 +93,19 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
 
 ## Conventions worth knowing
 
+- **No em dashes.** Anywhere, in copy or in comments. Use a colon, a full stop
+  or a comma. A middle dot (·) separates title segments.
 - **Design tokens** live in `app/globals.css` under `@theme`. One canvas, one
-  accent (`--color-accent`), and a per-venture identity hue used only at
-  dot/label scale. Change a token there and it propagates everywhere.
-- **Custom utilities** (`container-page`, `panel`, `label-mono`, `grid-field`,
-  `text-display`, `rule-fade`) are defined with Tailwind v4's `@utility`.
-- **Motion is decoration.** Every animation is behind `useReducedMotion()` or
-  the global `prefers-reduced-motion` block, and no information is conveyed by
-  movement alone.
+  accent (`--color-accent`), monochrome everywhere else. Change a token there
+  and it propagates.
+- **Custom utilities** (`container-page`, `panel`, `label-mono`, `row-rule`)
+  are defined with Tailwind v4's `@utility`.
+- **No scroll animations.** An earlier build hid every section behind a
+  `whileInView` reveal that never fired, leaving the page blank. Content
+  renders immediately.
 - **Tabs render every panel**, with inactive ones `hidden`. That is the correct
   ARIA shape and it keeps all content in the static HTML for crawlers.
-- **Images are unoptimised** by necessity — `next/image` optimisation needs a
+- **Images are unoptimised** by necessity, `next/image` optimisation needs a
   server, and this is a static export. Sizes are set explicitly instead.
 
 ---
@@ -126,17 +128,20 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
 ```
 app/
 ├── layout.tsx            Fonts, metadata, JSON-LD, analytics, chrome
-├── page.tsx              Home — composes the section components
+├── page.tsx              Home, composes the section components
 ├── globals.css           Design tokens + custom utilities
 ├── work/[slug]/page.tsx  Case studies, statically generated per work item
 ├── sitemap.ts robots.ts icon.svg not-found.tsx
 components/
-├── site/                 Header, Footer, SocialRail, CommandPalette
+├── site/                 Header, Footer, CommandPalette
 ├── home/                 One component per home-page section
 └── ui/                   Icon, Reveal, SectionHeading, Tag
 lib/
 ├── content/              All site copy, as typed data
 └── cn.ts                 Class joiner
+scripts/
+├── shoot.mjs             Playwright screenshots into screens/
+└── sections.mjs          One screenshot per home-page section
 public/
 ├── media/  logos/  docs/
 ```

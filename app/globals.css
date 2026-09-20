@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------------- *
- * Design tokens — light, high contrast, one accent.
+ * Design tokens, light, high contrast, one accent.
  *
  * Monochrome does the work; the accent appears only on links, active states
  * and small marks. No per-item hues: four different accent colours across the
  * ventures made the page read as scattered rather than as one system.
  * ------------------------------------------------------------------------- */
 @theme {
-  /* Surfaces — warm off-white, so large areas don't glare */
+  /* Surfaces, warm off-white, so large areas don't glare */
   --color-canvas: #fbfbf9;
   --color-raised: #ffffff;
   --color-sunken: #f3f3f0;
@@ -19,7 +19,7 @@
   --color-line-strong: rgb(0 0 0 / 0.22);
   --color-line-accent: rgb(29 78 216 / 0.45);
 
-  /* Type ramp — every step passes AA on the canvas */
+  /* Type ramp, every step passes AA on the canvas */
   --color-ink: #0f0f11;
   --color-ink-muted: #44444c;
   --color-ink-faint: #67676f;
@@ -30,7 +30,7 @@
   --color-accent-soft: #eef2ff;
   --color-accent-dim: rgb(29 78 216 / 0.08);
 
-  /* Typography — one family, used properly */
+  /* Typography, one family, used properly */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
 
@@ -43,7 +43,7 @@
 @layer base {
   :root {
     color-scheme: light;
-    /* Tight by design — the previous build ran to 10,900px. */
+    /* Tight by design, the previous build ran to 10,900px. */
     --section-y: clamp(3.5rem, 6vw, 5.5rem);
   }
 

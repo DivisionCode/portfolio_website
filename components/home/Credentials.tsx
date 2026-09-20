@@ -100,7 +100,7 @@ export function Credentials() {
                   </a>
                 ) : (
                   <span className="font-mono text-[0.6875rem] text-ink-ghost md:justify-self-end">
-                    {item.verifyLabel ?? "—"}
+                    {item.verifyLabel ?? "n/a"}
                   </span>
                 )}
               </li>
