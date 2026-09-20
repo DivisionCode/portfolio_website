@@ -93,7 +93,7 @@ const personJsonLd = {
   name: profile.name,
   url: SITE_URL,
   image: `${SITE_URL}/media/profile.jpg`,
-  jobTitle: "Senior Software Engineer & Co-founder",
+  jobTitle: "Senior Software Engineer",
   email: `mailto:${profile.email}`,
   telephone: profile.phone,
   description: profile.seoDescription,

@@ -51,7 +51,7 @@ export function Hero() {
 
             <p className="mt-8 text-[clamp(1.125rem,2.2vw,1.4375rem)] leading-[1.3] tracking-[-0.02em] text-ink-muted">
               Senior software engineer.{" "}
-              <span className="text-ink">Co-founder at Fundrev.</span>
+              <span className="text-ink">Founder and technical lead.</span>
             </p>
 
             <p className="mt-6 max-w-lg text-[0.9375rem] leading-[1.75] text-ink-faint">
@@ -125,8 +125,7 @@ export function Hero() {
         >
           <Figure value={years.value} suffix={years.suffix} /> years building enterprise
           systems in production.{" "}
-          <Figure value={ventures.value} suffix={ventures.suffix} /> ventures founded or
-          co-founded, <Figure value={products.value} suffix={products.suffix} /> products
+          <Figure value={ventures.value} suffix={ventures.suffix} /> ventures founded or led, <Figure value={products.value} suffix={products.suffix} /> products
           shipped under {profile.brand}, and{" "}
           <Figure value={tech.value} suffix={tech.suffix} /> technologies I have actually
           put my hands on.

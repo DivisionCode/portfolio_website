@@ -10,12 +10,12 @@ export const profile = {
   name: "Rohit Singh",
   brand: "DCodeIntellect",
   /** Rendered as the <h1> support line. Kept short on purpose. */
-  headline: "Senior software engineer. Founder, three times over.",
-  role: "Senior Software Engineer & Co-founder, Fundrev",
-  bio: "I build the systems companies actually run on: investment workflows, marketplaces, ERP and finance operations. Currently co-founding Fundrev, an AI operating system for private capital. Before and alongside it: Tunegram, Arthmala, and the DCodeIntellect product line.",
+  headline: "Senior software engineer. Founder, and the technical lead others build on.",
+  role: "Senior Software Engineer · Founder · Technical Lead",
+  bio: "I build the systems companies actually run on. I lead the engineering at Fundrev, an AI operating system for private capital, and at Tunegram, where I built the platform end to end. Alongside that I run my own: Arthmala, the DCodeIntellect product line, and a GMP pharmaceutical distribution business.",
   /** Used in metadata and the JSON-LD Person node. */
   seoDescription:
-    "Rohit Singh, senior software engineer and co-founder of Fundrev. Founder of Arthmala and DCodeIntellect, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
+    "Rohit Singh, senior software engineer. Technical lead at Fundrev and Tunegram, founder of Arthmala and DCodeIntellect. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
   tagline: "Where code meets clarity, and data drives decisions.",
   location: {
     city: "Daulatpur Chowk",
@@ -86,7 +86,7 @@ export const navLinks = [
 /** Headline counters. Numeric so the hero can animate them up. */
 export const metrics = [
   { value: 7, suffix: "+", label: "Years building", detail: "Enterprise systems in production" },
-  { value: 4, suffix: "", label: "Ventures", detail: "Founded or co-founded" },
+  { value: 4, suffix: "", label: "Ventures", detail: "Founded or led" },
   { value: 8, suffix: "", label: "Products shipped", detail: "Under DCodeIntellect" },
   { value: 87, suffix: "", label: "Technologies", detail: "Across the production stack" },
 ] as const;

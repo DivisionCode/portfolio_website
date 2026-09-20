@@ -42,14 +42,14 @@ export type WorkItem = {
 };
 
 /* ------------------------------------------------------------------------- *
- * Ventures: companies founded or co-founded.
+ * Ventures: companies founded, and companies whose engineering I lead.
  * ------------------------------------------------------------------------- */
 export const ventures: WorkItem[] = [
   {
     slug: "fundrev",
     name: "Fundrev",
     kind: "venture",
-    role: "Senior Software Engineer · Co-founder",
+    role: "Technical Lead",
     period: "Present",
     status: "live",
     tagline: "The AI operating system for private capital.",
@@ -117,7 +117,7 @@ export const ventures: WorkItem[] = [
     slug: "tunegram",
     name: "Tunegram",
     kind: "venture",
-    role: "Co-founder · Tech Lead",
+    role: "Technical Lead",
     period: "Present",
     status: "live",
     tagline: "Where indie musicians stream, perform, and get booked.",
