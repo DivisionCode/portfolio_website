@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------------- *
+ * Design tokens
+ *
+ * One canvas, one accent. Everything else is a step on a neutral ramp or a
+ * hairline. Each venture carries a single identity hue, used only at dot/label
+ * scale so the page still reads as one system.
+ * ------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces — near-black, very slightly cool */
+  --color-canvas: #08080a;
+  --color-sunken: #050506;
+  --color-raised: #0e0e12;
+  --color-overlay: #14141a;
+
+  /* Hairlines */
+  --color-line: oklch(1 0 0 / 7%);
+  --color-line-strong: oklch(1 0 0 / 14%);
+  --color-line-accent: oklch(0.82 0.15 85 / 35%);
+
+  /* Type ramp */
+  --color-ink: #edeef2;
+  --color-ink-muted: #9fa0ad;
+  --color-ink-faint: #6b6c79;
+  --color-ink-ghost: #45464f;
+
+  /* Accent — a single warm signal colour */
+  --color-accent: #f0b429;
+  --color-accent-soft: #f7d488;
+  --color-accent-dim: oklch(0.82 0.15 85 / 12%);
+
+  /* Venture identity hues (dots, labels, focus glows only) */
+  --color-fundrev: #6aa3ff;
+  --color-tunegram: #ff5f8f;
+  --color-arthmala: #e0793f;
+  --color-dcode: #f0b429;
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --spacing-gutter: 1.25rem;
+}
+
+/* ------------------------------------------------------------------------- *
+ * Base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    color-scheme: dark;
+    /* Fluid page rhythm: sections breathe more on large screens. */
+    --section-y: clamp(5rem, 11vw, 9.5rem);
+  }
+
+  * {
+    border-color: var(--color-line);
+    min-width: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Sticky header clearance for in-page anchors. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.028em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #0a0a0a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Only show the outline for keyboard users. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-sunken);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #26262e;
+    border-radius: 999px;
+    border: 2px solid var(--color-sunken);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a45;
+  }
+}
+
+/* ------------------------------------------------------------------------- *
+ * Utilities
+ * ------------------------------------------------------------------------- */
+@utility container-page {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Small uppercase mono label used for section eyebrows and metadata. */
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+/* Faint engineering grid. Masked so it fades out rather than ending abruptly. */
+@utility grid-field {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 3.5%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 3.5%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 78%);
+}
+
+/* Hairline card with a subtle top-edge highlight, as if lit from above. */
+@utility panel {
+  position: relative;
+  background-color: var(--color-raised);
+  border: 1px solid var(--color-line);
+  border-radius: 0.875rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 1px;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      oklch(1 0 0 / 12%) 30%,
+      oklch(1 0 0 / 12%) 70%,
+      transparent
+    );
+    pointer-events: none;
+  }
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+/* Gradient rule that fades at both ends. */
+@utility rule-fade {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-line-strong),
+    transparent
+  );
+}
+
+/* ------------------------------------------------------------------------- *
+ * Motion
+ * ------------------------------------------------------------------------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee var(--marquee-duration, 46s) linear infinite;
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+/* Respect the OS setting — motion is decoration here, never information. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

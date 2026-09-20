@@ -1,55 +1,146 @@
-# 🌐 DCodeIntellect - Portfolio Website
+# DCodeIntellect — portfolio of Rohit Singh
 
-Welcome to the official GitHub repository of **Rohit Singh's Portfolio Website**, built under the brand name **DCodeIntellect**. This project is a professional showcase of my technical skills, hands-on project experience, and background as a Full Stack Developer.
+Senior software engineer and co-founder. Live at
+**[dcrohit-portfolio.netlify.app](https://dcrohit-portfolio.netlify.app)**.
 
----
-
-## 🚀 Project Overview
-
-This portfolio is designed to demonstrate my expertise in modern web technologies, backend development, and enterprise system design. It includes:
-
-- 📄 Personal Introduction & Career Summary
-- 💼 Projects from domains like ERP, CRM, Payroll, and Pharmacy
-- 🛠️ Technology Stack and Tools Proficiency
-- 🏢 Work Experience & Roles in Industry-specific Development
-- 📊 Skills in Full Stack Development, RESTful APIs, and Database Management
+Rebuilt in 2026 from a hand-written static site to a statically-exported
+Next.js application. The previous version is still in git history at
+`d6de307`.
 
 ---
 
-## 🧰 Tech Stack
+## Stack
 
-- **Frontend:** HTML, CSS, JavaScript, Vue.js
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB, SQL Server
-- **Tools:** Postman, VS Code
-- **Cloud/CI:** AWS, GitHub, Trello, Slack
+| Layer     | Choice                                                    |
+| --------- | --------------------------------------------------------- |
+| Framework | Next.js 16 (App Router, React Server Components)          |
+| Runtime   | React 19                                                  |
+| Language  | TypeScript 5, `strict`                                    |
+| Styling   | Tailwind CSS v4 (CSS-first `@theme`, no JS config)        |
+| Motion    | `motion` v13, gated on `prefers-reduced-motion`           |
+| Output    | `output: "export"` — plain files, no Node runtime needed  |
+| Hosting   | Netlify (`netlify.toml` sets headers, CSP and redirects)  |
 
----
-
-## 📁 Project Structure
-
-| File               | Description                                         |
-|--------------------|-----------------------------------------------------|
-| `index.html`       | Landing page / Portfolio overview                   |
-| `brief.html`       | Detailed profile, tech stack, and experience        |
-| `login.html`       | ERP-style login/signup page                         |
-| `styles/`          | CSS styles for respective sections                  |
-| `utlities/`        | Images, logos, icons, and media files               |
+Everything the page needs ships as static HTML. Only four components are
+client components: the header, the command palette, the product tabs and the
+credential tabs.
 
 ---
 
-## 🧠 Features Highlight
+## Running it
 
-- 🎯 Career and skill summary tailored to full stack and ERP systems
-- 📂 Modular sections like Pharmacy, Payroll, Analytics, and Inventory
-- 🔐 Secure login interface (placeholder for real ERP systems)
-- 📱 Responsive UI for mobile and desktop devices
-- 🎨 Clean and modern design with DCodeIntellect branding
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static export into out/
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint
+```
+
+`npm run build` writes `out/`, which is exactly what Netlify publishes.
 
 ---
 
-## 🛠️ How to Use
+## Where the content lives
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/divisioncode/portfolio-website.git
+All copy is data. Nothing is hard-coded into a component, so editing the site
+means editing one of these files — no JSX required.
+
+| File                          | Holds                                              |
+| ----------------------------- | -------------------------------------------------- |
+| `lib/content/site.ts`         | Name, bio, contact details, socials, nav, metrics   |
+| `lib/content/work.ts`         | The 4 ventures and 8 products, incl. case studies   |
+| `lib/content/stack.ts`        | Technology groups and their logos                   |
+| `lib/content/approach.ts`     | The five engineering principles                     |
+| `lib/content/credentials.ts`  | Education and certifications, with verify links     |
+| `lib/content/experience.ts`   | Employment history — **see below**                  |
+
+Adding a venture or product to `work.ts` automatically creates its
+`/work/<slug>/` page, adds it to the sitemap, and puts it in the ⌘K palette.
+
+### Experience needs filling in
+
+`lib/content/experience.ts` carries four companies whose logos were in the old
+site (Ancile Technologies, Illimitable, Mona Medicos, Super Infotech) but whose
+roles and dates were never listed anywhere. Each entry has empty `title`,
+`period`, `summary` and `work` fields.
+
+The section renders nothing while those are empty — no placeholder history goes
+live. Fill in a role's `title` and `period` and it appears on the home page
+between Stack and Credentials.
+
+---
+
+## The contact form
+
+The form posts to [FormSubmit](https://formsubmit.co) — no backend, no API key.
+
+**It needs activating once.** Submit the form yourself after the first deploy;
+FormSubmit emails a confirmation link to `singh.rsingh.rohit@gmail.com`. Click
+it and every later submission is delivered. Until then submissions are held.
+
+Built in:
+
+- AJAX submission with real loading, success and error states
+- A plain `action`/`method` fallback, so it still works with JS disabled
+- A `_honey` honeypot field for bots
+- The address is never revealed as a mailto target in the markup
+
+To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
+`lib/content/site.ts` to the FormSubmit alias for that inbox.
+
+---
+
+## Conventions worth knowing
+
+- **Design tokens** live in `app/globals.css` under `@theme`. One canvas, one
+  accent (`--color-accent`), and a per-venture identity hue used only at
+  dot/label scale. Change a token there and it propagates everywhere.
+- **Custom utilities** (`container-page`, `panel`, `label-mono`, `grid-field`,
+  `text-display`, `rule-fade`) are defined with Tailwind v4's `@utility`.
+- **Motion is decoration.** Every animation is behind `useReducedMotion()` or
+  the global `prefers-reduced-motion` block, and no information is conveyed by
+  movement alone.
+- **Tabs render every panel**, with inactive ones `hidden`. That is the correct
+  ARIA shape and it keeps all content in the static HTML for crawlers.
+- **Images are unoptimised** by necessity — `next/image` optimisation needs a
+  server, and this is a static export. Sizes are set explicitly instead.
+
+---
+
+## SEO and structured data
+
+- Per-route metadata via the Metadata API, with OpenGraph and Twitter cards
+- `schema.org/Person` JSON-LD in the root layout, including `worksFor` for each
+  venture and `sameAs` for every social profile
+- `app/sitemap.ts` and `app/robots.ts` generate `sitemap.xml` and `robots.txt`
+- Google Search Console verification file preserved at
+  `public/google11e1704e48f5c4c0.html`
+- Legacy URLs (`/brief.html`, `/contact.html`, `/login.html`,
+  `/payrollDashboard.html`) 301 to their new homes via `netlify.toml`
+
+---
+
+## Structure
+
+```
+app/
+├── layout.tsx            Fonts, metadata, JSON-LD, analytics, chrome
+├── page.tsx              Home — composes the section components
+├── globals.css           Design tokens + custom utilities
+├── work/[slug]/page.tsx  Case studies, statically generated per work item
+├── sitemap.ts robots.ts icon.svg not-found.tsx
+components/
+├── site/                 Header, Footer, SocialRail, CommandPalette
+├── home/                 One component per home-page section
+└── ui/                   Icon, Reveal, SectionHeading, Tag
+lib/
+├── content/              All site copy, as typed data
+└── cn.ts                 Class joiner
+public/
+├── media/  logos/  docs/
+```
+
+---
+
+© DCodeIntellect 2026 · Himachal Pradesh, India
