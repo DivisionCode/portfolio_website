@@ -118,7 +118,7 @@ export function ContactForm() {
           className={cn(
             "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[0.875rem] font-medium transition-all",
             status === "sent"
-              ? "bg-emerald-600 text-white"
+              ? "bg-live text-white"
               : "bg-ink text-canvas hover:opacity-85",
             disabled && "cursor-wait opacity-70",
           )}

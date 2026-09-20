@@ -6,6 +6,7 @@ export function Approach() {
   return (
     <section id="approach" className="container-page scroll-mt-24 py-[var(--section-y)]">
       <SectionHeading
+        index="04"
         eyebrow="Approach"
         title={
           <>
@@ -32,7 +33,7 @@ export function Approach() {
               index === 0 ? "md:col-span-2 lg:col-span-2" : "",
             ].join(" ")}
           >
-            <span className="font-mono text-[2.5rem] leading-none text-ink-ghost/40 transition-colors duration-500 group-hover:text-accent/60">
+            <span className="font-mono text-[2.25rem] leading-none text-ink-ghost/50 transition-colors duration-500 group-hover:text-ink-faint">
               {principle.index}
             </span>
 
@@ -47,7 +48,7 @@ export function Approach() {
             <p className="mt-6 flex items-start gap-2.5 border-t border-line pt-4 font-mono text-[0.6875rem] leading-relaxed text-ink-ghost">
               <span
                 aria-hidden
-                className="mt-1.5 h-px w-4 shrink-0 bg-accent/60"
+                className="mt-1.5 h-px w-4 shrink-0 bg-line-strong"
               />
               {principle.evidence}
             </p>

@@ -13,6 +13,7 @@ export function Ventures() {
   return (
     <section id="ventures" className="container-page scroll-mt-24 py-[var(--section-y)]">
       <SectionHeading
+        index="01"
         eyebrow="Ventures"
         title={
           <>
@@ -96,7 +97,7 @@ function VentureCard({
               key={highlight.title}
               className="flex items-center gap-2 text-[0.8125rem] text-ink-muted"
             >
-              <span aria-hidden className="size-1 shrink-0 rounded-full bg-accent" />
+              <span aria-hidden className="size-1 shrink-0 rounded-full bg-ink-ghost" />
               {highlight.title}
             </li>
           ))}
@@ -109,7 +110,7 @@ function VentureCard({
         </p>
 
         <div className="mt-5 flex items-center justify-between gap-4 border-t border-line pt-5">
-          <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium transition-colors group-hover:text-accent-bright">
+          <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium transition-colors group-hover:text-accent">
             Case study
             <Icon
               name="arrowRight"

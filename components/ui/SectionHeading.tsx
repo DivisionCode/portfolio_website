@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type SectionHeadingProps = {
+  /** Two-digit section index, e.g. "02". Gives a long page its rhythm. */
+  index?: string;
   eyebrow: string;
   title: ReactNode;
   lead?: ReactNode;
@@ -10,6 +12,7 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
+  index,
   eyebrow,
   title,
   lead,
@@ -19,8 +22,13 @@ export function SectionHeading({
   return (
     <div data-reveal className={cn("mb-9 md:mb-12", className)}>
       <div className="flex items-baseline justify-between gap-6">
-        <span className="label-mono flex items-center gap-2.5">
-          <span aria-hidden className="inline-block size-1 rounded-full bg-accent" />
+        <span className="label-mono flex items-center gap-3">
+          {index ? (
+            <>
+              <span className="text-ink-ghost">{index}</span>
+              <span aria-hidden className="h-2.5 w-px bg-line-strong" />
+            </>
+          ) : null}
           {eyebrow}
         </span>
         {aside ? <span className="label-mono shrink-0">{aside}</span> : null}

@@ -233,7 +233,7 @@ export function CommandPalette({
                       className={cn(
                         "shrink-0",
                         copied && command.id === "action:email"
-                          ? "text-emerald-400"
+                          ? "text-live"
                           : "text-ink-ghost",
                       )}
                     />

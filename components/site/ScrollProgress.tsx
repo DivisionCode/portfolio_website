@@ -44,7 +44,7 @@ export function ScrollProgress() {
   return (
     <span
       aria-hidden
-      className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-accent via-accent-bright to-accent-cyan"
+      className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-ink"
       ref={ref}
     />
   );

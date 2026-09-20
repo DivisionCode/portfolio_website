@@ -46,7 +46,7 @@ export function Credentials() {
               className={cn(
                 "rounded-full border px-3.5 py-1.5 text-[0.8125rem] transition-colors",
                 selected
-                  ? "border-accent/40 bg-accent-dim text-accent-bright"
+                  ? "border-line-strong bg-accent-dim text-accent"
                   : "border-line text-ink-faint hover:border-line-strong hover:text-ink",
               )}
             >
@@ -74,7 +74,7 @@ export function Credentials() {
           hidden={groupIndex !== activeIndex}
           className="mt-5"
         >
-          <ul className="card overflow-hidden">
+          <ul className="card overflow-clip">
             {group.items.map((item) => (
               <li
                 key={`${item.title}-${item.year}`}
@@ -93,7 +93,7 @@ export function Credentials() {
                     href={item.verify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent-bright hover:underline md:justify-self-end"
+                    className="inline-flex items-center gap-1 justify-self-start font-mono text-[0.6875rem] text-accent hover:underline md:justify-self-end"
                   >
                     Verify
                     <Icon name="arrowUpRight" size={11} />

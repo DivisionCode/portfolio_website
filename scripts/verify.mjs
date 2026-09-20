@@ -1,49 +1,71 @@
 /**
- * Guards against the failure that shipped once already: content hidden behind
- * an animation that never completes.
+ * Guards against the two failures that have already shipped once each:
+ *   1. content hidden behind an animation that never runs (opacity stuck at 0)
+ *   2. content stuck mid-animation forever (permanently blurred or faded,
+ *      which is what a percentage range inside `entry` did to tall sections)
  *
- * Scrolls the page in steps and, at each stop, asserts that nothing with real
- * size is sitting at opacity 0 or blurred. Exits non-zero if anything is.
+ * Scrolls each page in steps and, at every stop, asserts that anything sitting
+ * well inside the viewport is fully opaque and unfiltered. Elements still
+ * entering from the bottom are exempt: those are legitimately mid-reveal.
  */
 import { chromium } from "playwright";
 
-const BASE = process.argv[2] ?? "http://127.0.0.1:3000";
+const BASE = process.argv[2] ?? "http://localhost:3000";
 const PAGES = ["/", "/work/fundrev/", "/work/d-erp/"];
+const STEP = 600;
 
 const browser = await chromium.launch();
 let failures = 0;
 
 for (const path of PAGES) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await page.goto(BASE + path, { waitUntil: "networkidle" });
+  await page.goto(BASE + path, { waitUntil: "load" });
+  // The page sets scroll-behavior: smooth, so a programmatic jump animates and
+  // the view timeline is genuinely mid-way when we sample. Turn it off so each
+  // stop is measured at rest.
+  await page.addStyleTag({ content: "html{scroll-behavior:auto !important}" });
+  await page.waitForTimeout(900);
 
   const height = await page.evaluate(() => document.body.scrollHeight);
-  const steps = Math.ceil(height / 700);
 
-  for (let step = 0; step <= steps; step++) {
-    await page.evaluate((y) => window.scrollTo(0, y), step * 700);
-    await page.waitForTimeout(160);
+  for (let y = 0; y <= height; y += STEP) {
+    await page.evaluate((to) => window.scrollTo(0, to), y);
+    await page.waitForTimeout(260);
 
-    const hidden = await page.evaluate(() => {
-      const bad = [];
+    const bad = await page.evaluate(() => {
+      const problems = [];
+      // "Settled" means the element's bottom is above 70% of the viewport, so
+      // it has had a full screen of scrolling to finish revealing.
+      const settledLine = window.innerHeight * 0.7;
+
       for (const el of document.querySelectorAll("body *")) {
         const rect = el.getBoundingClientRect();
-        // Only judge elements currently on screen with real size.
-        if (rect.height < 24 || rect.bottom < 0 || rect.top > window.innerHeight) continue;
+        if (rect.height < 24 || rect.width < 24) continue;
+        if (rect.top < 0 || rect.bottom > settledLine) continue;
+
         const style = getComputedStyle(el);
-        if (style.opacity === "0" && style.getPropertyValue("--mx") === "") {
-          bad.push(
-            `${el.tagName}.${String(el.className).slice(0, 40)} opacity:0`,
-          );
+        const opacity = Number.parseFloat(style.opacity);
+        const filter = style.filter;
+
+        // Decorative overlays legitimately sit at 0 until hovered.
+        const decorative =
+          el.getAttribute("aria-hidden") === "true" ||
+          el.classList.contains("spotlight");
+        if (decorative) continue;
+
+        if (opacity < 0.99) {
+          problems.push(`opacity ${opacity} on ${el.tagName}.${String(el.className).slice(0, 36)}`);
+        } else if (filter !== "none" && filter.includes("blur")) {
+          problems.push(`${filter} on ${el.tagName}.${String(el.className).slice(0, 36)}`);
         }
       }
-      return bad.slice(0, 4);
+      return problems.slice(0, 3);
     });
 
-    if (hidden.length) {
-      console.error(`FAIL ${path} @ y=${step * 700}`);
-      hidden.forEach((h) => console.error(`      ${h}`));
-      failures += hidden.length;
+    if (bad.length) {
+      console.error(`FAIL ${path} @ y=${y}`);
+      bad.forEach((b) => console.error(`      ${b}`));
+      failures += bad.length;
     }
   }
 
@@ -53,7 +75,7 @@ for (const path of PAGES) {
 await browser.close();
 
 if (failures) {
-  console.error(`\n${failures} invisible element(s) found.`);
+  console.error(`\n${failures} element(s) not fully revealed.`);
   process.exit(1);
 }
-console.log("PASS: nothing invisible on any page at any scroll position.");
+console.log("PASS: everything settled is fully opaque and unfiltered.");

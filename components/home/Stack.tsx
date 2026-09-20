@@ -8,6 +8,7 @@ export function Stack() {
   return (
     <section id="stack" className="container-page scroll-mt-24 py-[var(--section-y)]">
       <SectionHeading
+        index="05"
         eyebrow="Stack"
         title={
           <>
@@ -43,7 +44,7 @@ export function Stack() {
                 <li
                   key={tech.name}
                   title={tech.note}
-                  className="rounded-md border border-line bg-overlay/50 px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap text-ink-muted transition-colors duration-300 hover:border-accent/40 hover:text-accent-bright"
+                  className="rounded-md border border-line bg-overlay/50 px-2 py-1 font-mono text-[0.6875rem] whitespace-nowrap text-ink-muted transition-colors duration-300 hover:border-line-strong hover:text-accent"
                 >
                   {tech.name}
                 </li>

@@ -6,48 +6,55 @@ import { metrics, profile, socials } from "@/lib/content/site";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pt-28 pb-[var(--section-y)] md:pt-36">
-      {/* Backdrop: grid, then a single warm-cool bloom behind the headline. */}
+    <section className="relative isolate overflow-clip pt-24 pb-[var(--section-y)] md:pt-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="grid-field absolute inset-0" />
-        <div className="absolute -top-56 left-[18%] h-[38rem] w-[38rem] rounded-full bg-accent/[0.10] blur-[130px]" />
-        <div className="absolute top-10 right-[6%] h-[30rem] w-[30rem] rounded-full bg-accent-cyan/[0.055] blur-[120px]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-canvas to-transparent" />
+        <div className="wash absolute inset-0" />
       </div>
 
       <div className="container-page">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
-          {/* ── Pitch ────────────────────────────────────────────────── */}
-          <div data-reveal>
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-raised/80 py-1.5 pr-4 pl-2.5 backdrop-blur">
-              <span className="relative flex size-1.5">
-                <span className="absolute inline-flex size-full rounded-full bg-emerald-400 opacity-75 [animation:pulse-ring_2.6s_ease-out_infinite]" />
-                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
-              </span>
-              <span className="font-mono text-[0.6875rem] tracking-wide text-ink-muted">
-                {profile.availability}
-              </span>
-            </p>
+        {/*
+          Masthead strip. An editorial device: the page states where it is
+          before it states who it is, and it gives the hero a top edge to hang
+          from instead of floating in space.
+        */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line pb-4">
+          <span className="label-mono">{profile.brand}</span>
+          <span aria-hidden className="hidden h-2.5 w-px bg-line-strong sm:block" />
+          <span className="label-mono">
+            {profile.location.region}, {profile.location.country}
+          </span>
+          <span aria-hidden className="hidden h-2.5 w-px bg-line-strong sm:block" />
+          <span className="label-mono">{profile.location.timezone}</span>
 
-            <h1 className="mt-7 text-[clamp(3rem,7.5vw,5.5rem)] leading-[0.88] tracking-[-0.045em]">
-              Rohit
-              <br />
-              <span className="text-gradient">Singh</span>
+          <span className="label-mono ml-auto flex items-center gap-2 text-ink-muted">
+            <span className="relative flex size-1.5">
+              <span className="absolute inline-flex size-full rounded-full bg-live opacity-70 [animation:pulse-ring_2.8s_ease-out_infinite]" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-live" />
+            </span>
+            Available
+          </span>
+        </div>
+
+        <div className="grid items-center gap-12 pt-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:pt-16">
+          <div data-reveal>
+            <h1 className="text-[clamp(3.25rem,8.5vw,6.5rem)] leading-[0.86]">
+              Rohit Singh
             </h1>
 
-            <p className="mt-7 max-w-xl text-[clamp(1.125rem,2.4vw,1.5rem)] leading-[1.25] tracking-[-0.02em] text-ink-muted">
+            <p className="mt-8 max-w-xl text-[clamp(1.125rem,2.2vw,1.4375rem)] leading-[1.3] tracking-[-0.02em] text-ink-muted">
               Senior software engineer.{" "}
               <span className="text-ink">Co-founder at Fundrev.</span>
             </p>
 
-            <p className="mt-6 max-w-lg text-[0.9375rem] leading-[1.7] text-ink-faint">
+            <p className="mt-6 max-w-lg text-[0.9375rem] leading-[1.75] text-ink-faint">
               {profile.bio}
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-2.5">
+            <div className="mt-10 flex flex-wrap items-center gap-2">
               <a
                 href="#contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-5 py-2.5 text-[0.875rem] font-medium text-canvas transition-transform duration-300 hover:scale-[1.02]"
+                className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.875rem] font-medium text-canvas transition-colors duration-200 hover:bg-white"
               >
                 Start a conversation
                 <Icon
@@ -61,13 +68,13 @@ export function Hero() {
                 href={profile.cv}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-raised px-5 py-2.5 text-[0.875rem] text-ink-muted transition-colors hover:border-line-strong hover:text-ink"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-[0.875rem] text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink"
               >
                 <Icon name="download" size={14} />
                 CV
               </a>
 
-              <ul className="ml-1 flex items-center gap-0.5">
+              <ul className="ml-2 flex items-center gap-1">
                 {socials.slice(0, 3).map((social) => (
                   <li key={social.label}>
                     <a
@@ -75,7 +82,7 @@ export function Hero() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title={`${social.label} · ${social.handle}`}
-                      className="flex size-9 items-center justify-center rounded-full text-ink-ghost transition-all duration-300 hover:-translate-y-0.5 hover:text-ink"
+                      className="flex size-9 items-center justify-center rounded-full text-ink-ghost transition-colors duration-200 hover:text-ink"
                     >
                       <Icon name={social.icon} size={16} />
                       <span className="sr-only">{social.label}</span>
@@ -86,48 +93,33 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Lattice, with the portrait as its core ───────────────── */}
-          <div className="relative mx-auto aspect-square w-full max-w-[30rem]">
-            <HeroLattice className="absolute inset-0 size-full animate-float" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative">
-                <div
-                  aria-hidden
-                  className="absolute -inset-3 rounded-full bg-accent/25 blur-xl"
-                />
-                <Image
-                  src="/media/profile.jpg"
-                  alt={`${profile.name}, ${profile.role}`}
-                  width={800}
-                  height={800}
-                  priority
-                  sizes="132px"
-                  className="relative size-[7.5rem] rounded-full border border-line-strong object-cover md:size-33"
-                />
-              </div>
-            </div>
+          {/* Lattice, with the portrait as its core */}
+          <div className="relative mx-auto aspect-square w-full max-w-[28rem]">
+            <HeroLattice className="animate-drift absolute inset-0 size-full" />
+            <Image
+              src="/media/profile.jpg"
+              alt={`${profile.name}, ${profile.role}`}
+              width={800}
+              height={800}
+              priority
+              sizes="200px"
+              className="absolute top-1/2 left-1/2 size-[24%] -translate-x-1/2 -translate-y-1/2 rounded-full object-cover grayscale-[0.2]"
+            />
           </div>
         </div>
 
-        {/* ── Metrics ─────────────────────────────────────────────────── */}
-        <dl
-          data-reveal
-          className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:mt-14 md:grid-cols-4"
-        >
-          {metrics.map((metric) => (
+        {/* Metrics, divided by rules rather than boxed */}
+        <dl data-reveal className="mt-14 grid grid-cols-2 border-t border-line md:grid-cols-4">
+          {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className="group relative bg-canvas px-5 py-7 transition-colors duration-500 hover:bg-raised md:px-7"
+              className={`py-6 pr-8 ${index > 0 ? "md:border-l md:border-line md:pl-8" : ""}`}
             >
-              <dd className="text-[2.25rem] leading-none tracking-[-0.04em] tabular-nums md:text-[2.75rem]">
+              <dd className="font-mono text-[2rem] leading-none tracking-[-0.04em] tabular-nums md:text-[2.375rem]">
                 <Counter value={metric.value} suffix={metric.suffix} />
               </dd>
-              <dt className="mt-3 text-[0.8125rem] text-ink-muted">{metric.label}</dt>
+              <dt className="mt-3.5 text-[0.8125rem] text-ink-muted">{metric.label}</dt>
               <p className="mt-1 text-[0.75rem] text-ink-ghost">{metric.detail}</p>
-              <span
-                aria-hidden
-                className="absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-500 group-hover:scale-x-100"
-              />
             </div>
           ))}
         </dl>

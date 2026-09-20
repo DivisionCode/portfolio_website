@@ -36,7 +36,8 @@ npm run build      # static export into out/
 npm run typecheck  # tsc --noEmit
 npm run lint       # eslint
 npm run shoot      # screenshots into screens/
-npm run verify     # fails if any on-screen element is invisible
+npm run verify     # fails if any settled element is faded or blurred
+npm run smoke      # clicks the nav, CTA and command palette for real
 ```
 
 `npm run build` writes `out/`, which is exactly what Netlify publishes.
@@ -98,19 +99,30 @@ To route mail elsewhere, change `CONTACT_FORM_ENDPOINT` in
 
 - **No em dashes.** Anywhere, in copy or in comments. Use a colon, a full stop
   or a comma. A middle dot (·) separates title segments.
-- **Design tokens** live in `app/globals.css` under `@theme`. One dark canvas,
-  one accent ramp (`--color-accent` through `--color-accent-cyan`), and depth
-  from gradient hairlines rather than drop shadows.
+- **Monochrome.** There is no accent hue. Emphasis is luminance, and the only
+  chromatic thing on the site is the green "live" dot. Gradient text, a
+  violet-to-cyan ramp and blurred glow blobs are what made an earlier pass read
+  as generated.
+- **Typefaces** are Schibsted Grotesk and JetBrains Mono, not Geist, which is
+  the Next.js default and therefore the default look.
+- **Design tokens** live in `app/globals.css` under `@theme`, including a 4px
+  radius scale and per-heading optical tracking.
 - **Custom utilities** (`container-page`, `card`, `spotlight`, `grid-field`,
   `dot-field`, `label-mono`, `rule-fade`, `text-gradient`) are defined with
   Tailwind v4's `@utility`.
 - **Animation may never gate content.** Scroll reveals use the native
-  `animation-timeline: view()` and are declared *only* inside
+  `animation-timeline: view()`, declared *only* inside
   `@supports (animation-timeline: view())`, so an unsupporting browser applies
-  no rule and the content is simply visible. An earlier build hid every section
-  behind a JS `whileInView` callback that never fired, leaving 39 elements
-  permanently invisible. `npm run verify` exists to stop that happening again:
-  it scrolls each page and fails if anything on screen sits at opacity 0.
+  no rule and the content is simply visible.
+- **Never `overflow-hidden` around a `data-reveal`.** `overflow: hidden` makes
+  an element a scroll container, and a descendant's `view()` timeline binds to
+  the nearest scroll container, so the reveal measures against a box that never
+  scrolls and sticks at partial opacity. Use `overflow-clip`, which clips
+  identically without becoming a scroller.
+- **`animation-range` starts at `cover 0%`, not `cover 0`.** A bare zero is
+  invalid and the whole declaration is dropped for the default `normal` range.
+- `npm run verify` enforces all of the above: it scrolls every page and fails
+  if anything settled on screen is faded or blurred.
 - **Geometry is SVG and CSS**, not a canvas or a WebGL bundle. The hero lattice
   renders in the static HTML and costs no JavaScript.
 - **Tabs render every panel**, with inactive ones `hidden`. That is the correct

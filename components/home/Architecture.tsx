@@ -12,7 +12,7 @@ export function Architecture() {
   return (
     <section
       id="architecture"
-      className="relative scroll-mt-24 overflow-hidden py-[var(--section-y)]"
+      className="relative scroll-mt-24 overflow-clip py-[var(--section-y)]"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="dot-field absolute inset-0" />
@@ -37,7 +37,7 @@ export function Architecture() {
             aria-hidden
             className="absolute top-2 bottom-2 left-[0.9375rem] w-px bg-gradient-to-b from-transparent via-line-strong to-transparent md:left-[4.75rem]"
           >
-            <span className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-accent to-transparent [animation:spine-pulse_5.5s_linear_infinite]" />
+            <span className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-transparent via-ink to-transparent [animation:spine-pulse_6s_linear_infinite]" />
           </div>
 
           <ol>
@@ -51,9 +51,9 @@ export function Architecture() {
                 {/* Node on the spine */}
                 <span
                   aria-hidden
-                  className="absolute top-8 left-[0.9375rem] size-2.5 -translate-x-1/2 rounded-full border border-line-strong bg-canvas transition-colors duration-500 group-hover:border-accent md:left-[4.75rem]"
+                  className="absolute top-8 left-[0.9375rem] size-2.5 -translate-x-1/2 rounded-full border border-line-strong bg-canvas transition-colors duration-500 group-hover:border-line-strong md:left-[4.75rem]"
                 >
-                  <span className="absolute inset-[3px] rounded-full bg-ink-ghost transition-colors duration-500 group-hover:bg-accent-bright" />
+                  <span className="absolute inset-[3px] rounded-full bg-ink-ghost transition-colors duration-500 group-hover:bg-accent" />
                 </span>
 
                 {/* Index, parked left of the spine on wide screens */}
@@ -63,7 +63,7 @@ export function Architecture() {
 
                 <div className="grid gap-x-10 gap-y-3 lg:grid-cols-[14rem_1fr]">
                   <div>
-                    <h3 className="text-[1.0625rem] tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent-bright">
+                    <h3 className="text-[1.0625rem] tracking-[-0.02em] transition-colors duration-300 group-hover:text-accent">
                       {layer.title}
                     </h3>
                     <span className="label-mono mt-2 block md:hidden">{layer.index}</span>

@@ -31,6 +31,7 @@ export default function HomePage() {
         className="container-page scroll-mt-24 py-[var(--section-y)]"
       >
         <SectionHeading
+          index="07"
           eyebrow="Credentials"
           title={
             <>

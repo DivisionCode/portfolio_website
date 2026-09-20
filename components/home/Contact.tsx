@@ -9,6 +9,7 @@ export function Contact() {
   return (
     <section id="contact" className="container-page scroll-mt-20 py-[var(--section-y)]">
       <SectionHeading
+        index="08"
         eyebrow="Contact"
         title="Tell me what you're building and where it's stuck."
         lead={profile.availability}
@@ -20,7 +21,7 @@ export function Contact() {
             <div className="flex items-baseline justify-between gap-4 border-t border-line py-3.5">
               <dt className="label-mono">Email</dt>
               <dd>
-                <a href={`mailto:${profile.email}`} className="transition-colors hover:text-accent-bright">
+                <a href={`mailto:${profile.email}`} className="transition-colors hover:text-accent">
                   {profile.email}
                 </a>
               </dd>
@@ -28,7 +29,7 @@ export function Contact() {
             <div className="flex items-baseline justify-between gap-4 border-t border-line py-3.5">
               <dt className="label-mono">Phone</dt>
               <dd>
-                <a href={`tel:${profile.phone}`} className="transition-colors hover:text-accent-bright">
+                <a href={`tel:${profile.phone}`} className="transition-colors hover:text-accent">
                   {profile.phoneDisplay}
                 </a>
               </dd>
@@ -49,7 +50,7 @@ export function Contact() {
                   href={profile.cv}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition-colors hover:text-accent-bright"
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
                 >
                   Download PDF
                   <Icon name="download" size={13} />

@@ -71,7 +71,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
           <span className="font-mono text-[0.6875rem] text-ink-ghost">{item.period}</span>
         </div>
 
-        <h1 className="mt-5 text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] tracking-[-0.04em] text-gradient">
+        <h1 className="mt-5 text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] tracking-[-0.04em] ">
           {item.wordmark ?? item.name}
         </h1>
 
@@ -205,7 +205,7 @@ export default async function WorkPage({ params }: PageProps<"/work/[slug]">) {
         <Icon
           name="arrowRight"
           size={18}
-          className="shrink-0 text-ink-ghost transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-bright"
+          className="shrink-0 text-ink-ghost transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"
         />
       </Link>
       </div>

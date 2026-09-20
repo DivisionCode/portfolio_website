@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Schibsted_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -8,15 +8,22 @@ import { Footer } from "@/components/site/Footer";
 import { GA_MEASUREMENT_ID, SITE_URL, profile, socials } from "@/lib/content/site";
 import { ventures } from "@/lib/content/work";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/*
+  Geist is the default on every Next.js starter, which is exactly why it reads
+  as generated. Schibsted Grotesk is a variable grotesque with real detail in
+  the g, a and R, and JetBrains Mono gives the metadata a voice of its own.
+*/
+const sans = Schibsted_Grotesk({
+  variable: "--font-sans-face",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mono = JetBrains_Mono({
+  variable: "--font-mono-face",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -76,8 +83,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbfbf9",
-  colorScheme: "light",
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
 };
 
 /** Structured data so search and LLM surfaces get the relationships right. */
@@ -127,7 +134,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${sans.variable} ${mono.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col bg-canvas text-ink">

@@ -13,6 +13,7 @@ export function Experience() {
   return (
     <section id="experience" className="container-page scroll-mt-24 py-[var(--section-y)]">
       <SectionHeading
+        index="06"
         eyebrow="Experience"
         title="Where the reps came from"
         aside={`${publishedExperience.length} roles`}
