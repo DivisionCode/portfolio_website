@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/DivisionCode/rohit-singh-portfolio/security/policy
+    about: Do not open a public issue. Follow the security policy and email singh.rsingh.rohit@gmail.com privately.
+  - name: Get in touch
+    url: https://dcrohit-portfolio.netlify.app/#contact
+    about: For anything other than a bug report or a feature request, use the contact form on the site.

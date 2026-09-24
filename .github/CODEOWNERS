@@ -1,0 +1,3 @@
+# Code owners are requested for review on every pull request that touches
+# the paths they own. The repository owner owns every path.
+* @DivisionCode

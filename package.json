@@ -1,7 +1,18 @@
 {
-  "name": "dcodeintellect-portfolio",
+  "name": "rohit-singh-portfolio",
   "version": "2.0.0",
   "private": true,
+  "description": "Portfolio of Rohit Singh, senior software engineer and founder.",
+  "homepage": "https://dcrohit-portfolio.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DivisionCode/rohit-singh-portfolio.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Rohit Singh",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -35,6 +46,5 @@
     "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "description": "Portfolio of Rohit Singh, senior software engineer and founder."
+  }
 }
