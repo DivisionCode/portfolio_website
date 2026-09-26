@@ -44,7 +44,19 @@ export function Ventures() {
             <span className="text-ink-faint">and two platforms outside the group.</span>
           </>
         }
-        lead="Pharmaceutical distribution, Indian craft and enterprise software. Three trades held to one standard: find where the process loses money, build the system that closes the gap, then run it."
+        lead={
+          <>
+            Pharmaceutical manufacturing consulting, Indian craft and enterprise software, under{" "}
+            <a
+              href={profile.groupUrl}
+              className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              {profile.group}
+            </a>
+            . Three trades held to one standard: find where the process loses money, build the system
+            that closes the gap, then run it.
+          </>
+        }
         aside={`${owned.length} in the group · ${led.length} outside`}
       />
 

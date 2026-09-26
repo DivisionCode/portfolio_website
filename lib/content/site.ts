@@ -10,15 +10,16 @@ export const profile = {
   name: "Rohit Singh",
   /** The parent brand. Everything he owns sits under it. */
   group: "Sushraj Ventures",
+  groupUrl: "https://sushrajventures.netlify.app/",
   /** The engineering studio inside the group, and the name on the product line. */
   brand: "DCodeIntellect",
   /** Rendered as the <h1> support line. Kept short on purpose. */
   headline: "Senior software engineer. Founder of Sushraj Ventures.",
   role: "Senior Software Engineer · Founder, Sushraj Ventures",
-  bio: "I build the systems companies actually run on. Sushraj Ventures is my group: Sushraj Pharma in GMP-certified pharmaceutical distribution, the craft studio Arthmala, and the DCodeIntellect product line. Outside the group I am the senior software engineer behind Fundrev, an AI operating system for private capital, and co-founder and tech lead at Tunegram.",
+  bio: "I build the systems companies actually run on. Sushraj Ventures is my group: Sushraj Pharma, a pharmaceutical manufacturing consulting practice, the craft studio Arthmala, and the DCodeIntellect product line. Outside the group I am the senior software engineer behind Fundrev, an AI operating system for private capital, and co-founder and tech lead at Tunegram.",
   /** Used in metadata and the JSON-LD Person node. */
   seoDescription:
-    "Rohit Singh, senior software engineer and founder of Sushraj Ventures: Sushraj Pharma in GMP-certified pharmaceutical distribution, the craft studio Arthmala and the DCodeIntellect product line. Senior software engineer on Fundrev, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
+    "Rohit Singh, senior software engineer and founder of Sushraj Ventures: Sushraj Pharma, a pharmaceutical manufacturing consulting practice, the craft studio Arthmala and the DCodeIntellect product line. Senior software engineer on Fundrev, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
   tagline: "Where code meets clarity, and data drives decisions.",
   location: {
     city: "Daulatpur Chowk",

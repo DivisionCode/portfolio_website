@@ -105,14 +105,22 @@ const personJsonLd = {
     addressCountry: "IN",
   },
   sameAs: socials.map((social) => social.href),
-  worksFor: ventures
-    .filter((venture) => venture.links.some((link) => link.kind === "site"))
-    .map((venture) => ({
+  worksFor: [
+    {
       "@type": "Organization",
-      name: venture.name,
-      url: venture.links.find((link) => link.kind === "site")?.href,
-      description: venture.tagline,
-    })),
+      name: profile.group,
+      url: profile.groupUrl,
+      description: "The group behind Sushraj Pharma, Arthmala and DCodeIntellect.",
+    },
+    ...ventures
+      .filter((venture) => venture.links.some((link) => link.kind === "site"))
+      .map((venture) => ({
+        "@type": "Organization",
+        name: venture.name,
+        url: venture.links.find((link) => link.kind === "site")?.href,
+        description: venture.tagline,
+      })),
+  ],
   knowsAbout: [
     "AI agent systems",
     "Private capital technology",
